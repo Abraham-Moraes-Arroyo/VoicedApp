@@ -8,8 +8,10 @@
 import Foundation
 import MapKit
 
-struct Location: Identifiable {
-
+struct Location: Identifiable, Equatable {
+    
+    
+    // if we have two different locaitons, how do we change one location to the other.
     // all the data for each location.
         
     
@@ -29,6 +31,11 @@ struct Location: Identifiable {
 //        id = "ColosseumRome"
 //        that way we avoid having duplicates, or issues with creating ids for models. 
         name + cityName
+    }
+    
+    static func == (lhs: Location, rhs: Location) -> Bool {
+        lhs.id == rhs.id
+//        if the two locartions have the same id then they are the same location
     }
     
 }
