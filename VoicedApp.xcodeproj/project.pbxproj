@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		8508C7CA2B9B72EE00B2D0FD /* VoicedAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508C7C92B9B72EE00B2D0FD /* VoicedAppApp.swift */; };
 		8508C7CC2B9B72EE00B2D0FD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508C7CB2B9B72EE00B2D0FD /* ContentView.swift */; };
-		8508C7CE2B9B72F000B2D0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8508C7CD2B9B72F000B2D0FD /* Assets.xcassets */; };
 		8508C7D12B9B72F000B2D0FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8508C7D02B9B72F000B2D0FD /* Preview Assets.xcassets */; };
 		8508C7DB2B9B72F000B2D0FD /* VoicedAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508C7DA2B9B72F000B2D0FD /* VoicedAppTests.swift */; };
 		8508C7E52B9B72F000B2D0FD /* VoicedAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508C7E42B9B72F000B2D0FD /* VoicedAppUITests.swift */; };
 		8508C7E72B9B72F000B2D0FD /* VoicedAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508C7E62B9B72F000B2D0FD /* VoicedAppUITestsLaunchTests.swift */; };
+		8508C7F62B9B786C00B2D0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8508C7F52B9B786C00B2D0FD /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,13 +37,13 @@
 		8508C7C62B9B72EE00B2D0FD /* VoicedApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoicedApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8508C7C92B9B72EE00B2D0FD /* VoicedAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicedAppApp.swift; sourceTree = "<group>"; };
 		8508C7CB2B9B72EE00B2D0FD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		8508C7CD2B9B72F000B2D0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8508C7D02B9B72F000B2D0FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8508C7D62B9B72F000B2D0FD /* VoicedAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoicedAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8508C7DA2B9B72F000B2D0FD /* VoicedAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicedAppTests.swift; sourceTree = "<group>"; };
 		8508C7E02B9B72F000B2D0FD /* VoicedAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoicedAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8508C7E42B9B72F000B2D0FD /* VoicedAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicedAppUITests.swift; sourceTree = "<group>"; };
 		8508C7E62B9B72F000B2D0FD /* VoicedAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicedAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8508C7F52B9B786C00B2D0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,7 @@
 			children = (
 				8508C7C92B9B72EE00B2D0FD /* VoicedAppApp.swift */,
 				8508C7CB2B9B72EE00B2D0FD /* ContentView.swift */,
-				8508C7CD2B9B72F000B2D0FD /* Assets.xcassets */,
+				8508C7F52B9B786C00B2D0FD /* Assets.xcassets */,
 				8508C7CF2B9B72F000B2D0FD /* Preview Content */,
 			);
 			path = VoicedApp;
@@ -231,8 +231,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8508C7F62B9B786C00B2D0FD /* Assets.xcassets in Resources */,
 				8508C7D12B9B72F000B2D0FD /* Preview Assets.xcassets in Resources */,
-				8508C7CE2B9B72F000B2D0FD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
