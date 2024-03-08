@@ -8,8 +8,10 @@
 import Foundation
 import MapKit
 
-struct Location {
+struct Location: Identifiable {
+
     // all the data for each location.
+        
     
     let name: String
     let cityName: String
@@ -20,6 +22,14 @@ struct Location {
     
     let imageNames: [String]
     let link: String
+    
+    var id: String {
+        // name =  "Colosseum"
+        // cityName = "Rome"
+//        id = "ColosseumRome"
+//        that way we avoid having duplicates, or issues with creating ids for models. 
+        name + cityName
+    }
     
 }
     /*
