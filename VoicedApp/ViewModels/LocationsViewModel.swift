@@ -6,12 +6,39 @@
 //
 
 import Foundation
+import MapKit
+import SwiftUI
 
 class LocationsViewModel: ObservableObject {
+    // All loaded locations
+    // we are going to be selecting the one specific locaiton
     @Published var locations: [Location]
     
+    
+    
+    // Current location on the map
+    @Published var mapLocation: Location {
+        didSet {
+            updateMapRegion(location: mapLocation)
+        }
+    }
+    // now we don't have to manually update the line below
+    @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
+    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     init() {
         let locations = LocationsDataService.locations
         self.locations = locations
+        self.mapLocation = locations.first!
+        // end of initialization. 
+        
+        // in this specific cituation we have the hardcoaded data, but for when we use database we got to make sure that that we do no do the ``first!``
+        self.updateMapRegion(location: locations.first!)
+    }
+    
+    
+    private func updateMapRegion(location: Location) {
+        withAnimation(.easeInOut) {
+            mapRegion = MKCoordinateRegion(center: location.coordinates, span: mapSpan)
+        }
     }
 }
