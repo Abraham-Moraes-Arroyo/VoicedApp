@@ -192,6 +192,14 @@
 		A7DFDDEE2BA158100077A1C4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A7DFDDF42BA159440077A1C4 /* Authentication */,
+				A7DFDDF22BA1592B0077A1C4 /* Components */,
+				A7DFDDF52BA1595D0077A1C4 /* Forum */,
+				A7DFDDF32BA159370077A1C4 /* Highlights */,
+				A7DFDDF72BA159740077A1C4 /* PostCreation */,
+				A7DFDDF62BA1596E0077A1C4 /* Profile */,
+				A7DFDDF82BA159900077A1C4 /* Root */,
+				A7DFDDF92BA159970077A1C4 /* TabBar */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -213,8 +221,72 @@
 		A7DFDDF12BA158410077A1C4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A7DFDDFA2BA15B0E0077A1C4 /* ViewModifiers */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		A7DFDDF22BA1592B0077A1C4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A7DFDDF32BA159370077A1C4 /* Highlights */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Highlights;
+			sourceTree = "<group>";
+		};
+		A7DFDDF42BA159440077A1C4 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		A7DFDDF52BA1595D0077A1C4 /* Forum */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Forum;
+			sourceTree = "<group>";
+		};
+		A7DFDDF62BA1596E0077A1C4 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A7DFDDF72BA159740077A1C4 /* PostCreation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PostCreation;
+			sourceTree = "<group>";
+		};
+		A7DFDDF82BA159900077A1C4 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		A7DFDDF92BA159970077A1C4 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		A7DFDDFA2BA15B0E0077A1C4 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
