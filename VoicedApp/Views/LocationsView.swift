@@ -10,6 +10,8 @@ import MapKit
 
     // words
 
+// new attempt march 13th
+
 struct LocationsView: View {
     // enviroment object
     
