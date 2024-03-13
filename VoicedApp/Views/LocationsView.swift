@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-
+    // words
 
 struct LocationsView: View {
     // enviroment object
