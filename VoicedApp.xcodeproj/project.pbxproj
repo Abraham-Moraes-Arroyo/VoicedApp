@@ -185,6 +185,14 @@
 		A7DFDDDE2BA149D10077A1C4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A7DFDDE92BA1531C0077A1C4 /* Authentication */,
+				A7DFDDE42BA152D20077A1C4 /* Components */,
+				A7DFDDE82BA153140077A1C4 /* Forum */,
+				A7DFDDE52BA152DD0077A1C4 /* Highlights */,
+				A7DFDDE72BA153050077A1C4 /* PostCreation */,
+				A7DFDDE62BA152FF0077A1C4 /* Profile */,
+				A7DFDDEA2BA1532D0077A1C4 /* Root */,
+				A7DFDDEB2BA153330077A1C4 /* TabBar */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -206,6 +214,7 @@
 		A7DFDDE22BA14A080077A1C4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A7DFDDEC2BA153ED0077A1C4 /* ViewModifiers */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -215,6 +224,69 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A7DFDDE42BA152D20077A1C4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A7DFDDE52BA152DD0077A1C4 /* Highlights */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Highlights;
+			sourceTree = "<group>";
+		};
+		A7DFDDE62BA152FF0077A1C4 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A7DFDDE72BA153050077A1C4 /* PostCreation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PostCreation;
+			sourceTree = "<group>";
+		};
+		A7DFDDE82BA153140077A1C4 /* Forum */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Forum;
+			sourceTree = "<group>";
+		};
+		A7DFDDE92BA1531C0077A1C4 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		A7DFDDEA2BA1532D0077A1C4 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		A7DFDDEB2BA153330077A1C4 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		A7DFDDEC2BA153ED0077A1C4 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
