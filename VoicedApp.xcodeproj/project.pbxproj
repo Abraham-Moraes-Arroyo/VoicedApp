@@ -106,12 +106,17 @@
 		8508C7C82B9B72EE00B2D0FD /* VoicedApp */ = {
 			isa = PBXGroup;
 			children = (
+				A7DFDDED2BA157A60077A1C4 /* App */,
+				A7DFDDEE2BA158100077A1C4 /* Core */,
+				8508C7FC2B9B7C9000B2D0FD /* DataServices */,
+				A7DFDDEF2BA158190077A1C4 /* Extensions */,
+				8508C7F72B9B79AA00B2D0FD /* Models */,
+				A7DFDDF02BA158360077A1C4 /* Services */,
+				A7DFDDF12BA158410077A1C4 /* Utils */,
 				8508C7C92B9B72EE00B2D0FD /* VoicedAppApp.swift */,
 				8508C7CB2B9B72EE00B2D0FD /* ContentView.swift */,
-				8508C7FC2B9B7C9000B2D0FD /* DataServices */,
 				8508C7F82B9B79BE00B2D0FD /* Views */,
 				8508C7F92B9B79C800B2D0FD /* ViewModels */,
-				8508C7F72B9B79AA00B2D0FD /* Models */,
 				8508C7F52B9B786C00B2D0FD /* Assets.xcassets */,
 				8508C7CF2B9B72F000B2D0FD /* Preview Content */,
 			);
@@ -175,6 +180,41 @@
 				8508C7FD2B9B7CBF00B2D0FD /* LocationsDataService.swift */,
 			);
 			path = DataServices;
+			sourceTree = "<group>";
+		};
+		A7DFDDED2BA157A60077A1C4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A7DFDDEE2BA158100077A1C4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A7DFDDEF2BA158190077A1C4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A7DFDDF02BA158360077A1C4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A7DFDDF12BA158410077A1C4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
