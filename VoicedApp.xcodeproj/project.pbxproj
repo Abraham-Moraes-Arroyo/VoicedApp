@@ -20,6 +20,7 @@
 		8508C8022B9B81B600B2D0FD /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508C8012B9B81B600B2D0FD /* LocationsViewModel.swift */; };
 		8508C8042B9B880400B2D0FD /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508C8032B9B880400B2D0FD /* LocationsListView.swift */; };
 		8508C8062B9BEED600B2D0FD /* LocationPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508C8052B9BEED600B2D0FD /* LocationPreviewView.swift */; };
+		85984C812BA39B440033CF9E /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85984C802BA39B440033CF9E /* LocationDetailView.swift */; };
 		A7DFDDFC2BA15DB00077A1C4 /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */; };
 		A7DFDDFF2BA15DD30077A1C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */; };
 		A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */; };
@@ -74,6 +75,7 @@
 		8508C8012B9B81B600B2D0FD /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
 		8508C8032B9B880400B2D0FD /* LocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListView.swift; sourceTree = "<group>"; };
 		8508C8052B9BEED600B2D0FD /* LocationPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPreviewView.swift; sourceTree = "<group>"; };
+		85984C802BA39B440033CF9E /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 		A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 		A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				8508C7FF2B9B7E9200B2D0FD /* LocationsView.swift */,
+				85984C802BA39B440033CF9E /* LocationDetailView.swift */,
 				8508C8032B9B880400B2D0FD /* LocationsListView.swift */,
 				8508C8052B9BEED600B2D0FD /* LocationPreviewView.swift */,
 			);
@@ -557,6 +560,7 @@
 				A7DFDE162BA161180077A1C4 /* ProfilePostFilter.swift in Sources */,
 				A7DFDE1E2BA161660077A1C4 /* UserContentListView.swift in Sources */,
 				A7DFDDFF2BA15DD30077A1C4 /* LoginView.swift in Sources */,
+				85984C812BA39B440033CF9E /* LocationDetailView.swift in Sources */,
 				A7DFDE042BA15E040077A1C4 /* ForumView.swift in Sources */,
 				A7DFDE1C2BA161510077A1C4 /* CurrentUserProfileView.swift in Sources */,
 				A7DFDE222BA162140077A1C4 /* User.swift in Sources */,
