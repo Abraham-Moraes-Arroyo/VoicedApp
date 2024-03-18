@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
-
+import MapKit
 struct LocationDetailView: View {
-    
+    @EnvironmentObject private var vm: LocationsViewModel
     let location: Location
     
     var body: some View {
@@ -22,6 +22,9 @@ struct LocationDetailView: View {
                    titleSection
                     Divider()
                     descriptionSection
+                    Divider()
+                    mapLayer
+                    
                     
                 }
                 .frame(maxWidth: .infinity,alignment: .leading)
@@ -29,12 +32,15 @@ struct LocationDetailView: View {
             }
         }
         .ignoresSafeArea()
+        .background(.ultraThinMaterial)
+        .overlay(backButton, alignment: .topLeading)
     }
 }
 
 struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
         LocationDetailView(location: LocationsDataService.locations.first!)
+            .environmentObject(LocationsViewModel())
     }
 }
 
@@ -68,11 +74,39 @@ extension LocationDetailView {
         VStack(alignment: .leading, spacing: 8){
             Text(location.description)
                 .font(.subheadline)
-                .foregroundColor(.gray)
+                .foregroundColor(.secondary)
             
-            //13:17
             
         }
     }
-
+    private var mapLayer: some View{
+        Map(coordinateRegion: .constant(MKCoordinateRegion(
+            center: location.coordinates,
+            span: vm.mapSpan)),
+            annotationItems: [location]) { location in
+            MapAnnotation(coordinate: location.coordinates){
+                LocationMapAnnotionView()
+                    .shadow(radius: 10)
+            }
+        }
+            .allowsHitTesting(false) //disables the gestures of dragging the map.
+            .aspectRatio(1, contentMode: .fit)
+            .cornerRadius(30)
+    }
+    
+    private var backButton: some View {
+        Button {
+            vm.sheetLocation = nil
+        } label: {
+            Image(systemName: "xmark")
+                .font(.headline)
+                .padding(16)
+                .foregroundColor(.primary)
+                .background(.thickMaterial)
+                .cornerRadius(10)
+                .shadow(radius: 4)
+                .padding()
+            
+        }
+    }
 }
