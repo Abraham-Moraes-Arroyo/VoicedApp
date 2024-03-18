@@ -11,12 +11,17 @@ struct ForumView: View {
     @State private var isProfileViewActive = false
     @State private var sortingOption = "All"
 
+    // This computed property filters the MOCK_POSTS to include only user-generated posts.
+    var userGeneratedPosts: [Post] {
+        Post.MOCK_POSTS.filter { $0.isUserGenerated }
+    }
+
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 LazyVStack(spacing: 35) {
-                    // Use ForEach to dynamically create ForumCell views for each post
-                    ForEach(Post.MOCK_POSTS, id: \.id) { post in
+                    // Use ForEach to dynamically create ForumCell views for each filtered user-generated post
+                    ForEach(userGeneratedPosts, id: \.id) { post in
                         ForumCell(post: post)
                             .onTapGesture {
                                 // Placeholder for future implementation

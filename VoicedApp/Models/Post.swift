@@ -8,7 +8,7 @@
 import Foundation
 struct Post: Identifiable, Hashable, Codable {
     let id: String
-    let ownerUid: String
+    let ownerUid: String? // making it optional for now for the posts generated from dashboard
     let title: String
     let caption: String?
     var likes: Int
@@ -21,11 +21,8 @@ struct Post: Identifiable, Hashable, Codable {
         case id, ownerUid, title, caption, likes, dislikes, imageUrl, timestamp, user, category
     }
     
-    // Computed property to check if a post is user-generated.
-        // This example assumes that if a post has an `ownerUid`, it's user-generated.
-        // Adjust this logic based on your actual data model and requirements.
     var isUserGenerated: Bool {
-            return !ownerUid.isEmpty
+        return ownerUid != nil && !ownerUid!.isEmpty
     }
 }
 extension Post {
@@ -40,6 +37,7 @@ extension Post {
               timestamp: Date(),
               user: User.MOCK_USERS[0],
               category: .events),
+        
         .init(id: UUID().uuidString,
               ownerUid: User.MOCK_USERS[1].id,
               title: "Shocking Scene at the Neighborhood Festival!",
@@ -50,6 +48,7 @@ extension Post {
               timestamp: Date(),
               user: User.MOCK_USERS[1],
               category: .localNews),
+        
         .init(id: UUID().uuidString,
               ownerUid: User.MOCK_USERS[2].id,
               title: "Education Reform Meeting",
@@ -60,6 +59,7 @@ extension Post {
               timestamp: Date(),
               user: User.MOCK_USERS[2],
               category: .other),
+        
         .init(id: UUID().uuidString,
               ownerUid: User.MOCK_USERS[3].id,
               title: "Crime Watch Alert!",
@@ -69,7 +69,20 @@ extension Post {
               imageUrl: "post-3",
               timestamp: Date(),
               user: User.MOCK_USERS[3],
+              category: .reports),
+        
+        .init(id: UUID().uuidString,
+              ownerUid: nil,
+              title: "February 2024",
+              caption: nil,
+              likes: 150,
+              dislikes: 6,
+              imageUrl: "feb-24-dashboard",
+              timestamp: Date(),
+              user: nil,
               category: .reports)
+        
+        
     ]
 }
 
