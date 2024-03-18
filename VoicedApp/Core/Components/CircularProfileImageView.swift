@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
-
+// Example of directly using a mock user for preview
+//let user: User = User.MOCK_USERS[0] // Assuming you want to use the first mock user
 struct CircularProfileImageView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image("image-marcial")
+            .resizable()
+            .scaledToFill()
+            .frame(width: 50, height: 50)
+            .clipShape(Circle())
     }
 }
 

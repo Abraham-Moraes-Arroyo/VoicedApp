@@ -6,12 +6,66 @@
 //
 
 import SwiftUI
-
+import PhotosUI
 struct UploadPostView: View {
+    @State private var title = ""
+    @State private var caption = ""
+    @State private var imagePickerPresented = false
+    @State private var photoItem: PhotosPickerItem?
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            // action tool bar
+            HStack {
+                Button {
+                    print("Cancel upload")
+                } label: {
+                    Text("Cancel")
+                }
+                Spacer()
+                
+                Text("New Post")
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                Button {
+                    print("upload")
+                } label: {
+                    Text("Upload")
+                        .fontWeight(.semibold)
+                }
+            }
+            .padding(.horizontal)
+            
+            // post image and title + caption
+            HStack(spacing: 8){
+                Image("default-post-image")
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                
+                VStack(spacing: 30){
+                    
+                    TextField("Enter your title...", text: $title, axis: .vertical)
+                    
+                    Divider()
+                    
+                    TextField("Enter your caption...", text: $caption)
+                }
+                
+                
+        
+            }
+            .padding()
+            
+            Spacer()
+        }
+        .onAppear {
+            imagePickerPresented.toggle()
+        }
+        .photosPicker(isPresented: $imagePickerPresented, selection: $photoItem)
     }
 }
+
 
 #Preview {
     UploadPostView()
