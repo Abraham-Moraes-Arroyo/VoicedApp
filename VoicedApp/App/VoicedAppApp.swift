@@ -11,12 +11,17 @@ import SwiftUI
 struct VoicedAppApp: App {
     
     @StateObject private var vm = LocationsViewModel()
+    
 
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
         WindowGroup {
-            LocationsView()
-                .environmentObject(vm)
+//            LocationsView()
+//                .environmentObject(vm)
+            
+            
+              FBTemplate()
         }
     }
 }
