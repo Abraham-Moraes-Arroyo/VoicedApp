@@ -18,9 +18,10 @@ class LocationsDataService {
     static let locations: [Location] = [
         // the Location between the  [] works because there is a file that we have made called Location. That file is under the Models folder and the file is called Location.
         Location(
-            name: "Colosseum",
-            cityName: "Rome",
-            coordinates: CLLocationCoordinate2D(latitude: 41.8902, longitude: 12.4922),
+            name: "Shooting", // this will be Shooting
+            cityName: "8:00 PM",
+//            41.808792, -87.659241
+            coordinates: CLLocationCoordinate2D(latitude: 41.808792, longitude: -87.659241),
             description: "The Colosseum is an oval amphitheatre in the centre of the city of Rome, Italy, just east of the Roman Forum. It is the largest ancient amphitheatre ever built, and is still the largest standing amphitheatre in the world today, despite its age.",
             imageNames: [
                 // these are the images that are in order. If we were going to add more locations we need to add them in between the Location() at line 20. you will also need to create a new folder with the images too .
@@ -30,9 +31,10 @@ class LocationsDataService {
             ],
             link: "https://en.wikipedia.org/wiki/Colosseum"),
         Location(
-            name: "Pantheon",
-            cityName: "Rome",
-            coordinates: CLLocationCoordinate2D(latitude: 41.8986, longitude: 12.4769),
+            name: "Carjacking", // this will be carjacking
+            cityName: "7:01 PM",
+//            41.807730, -87.658871
+            coordinates: CLLocationCoordinate2D(latitude: 41.807730, longitude: -87.658871),
             description: "The Pantheon is a former Roman temple and since the year 609 a Catholic church, in Rome, Italy, on the site of an earlier temple commissioned by Marcus Agrippa during the reign of Augustus.",
             imageNames: [
                 "rome-pantheon-1",
@@ -41,9 +43,10 @@ class LocationsDataService {
             ],
             link: "https://en.wikipedia.org/wiki/Pantheon,_Rome"),
         Location(
-            name: "Trevi Fountain",
-            cityName: "Rome",
-            coordinates: CLLocationCoordinate2D(latitude: 41.9009, longitude: 12.4833),
+            name: "Loitering", // this will be loitering
+            cityName: " 3:15 AM",
+//            41.808279, -87.660237
+            coordinates: CLLocationCoordinate2D(latitude: 41.808279, longitude: -87.660237),
             description: "The Trevi Fountain is a fountain in the Trevi district in Rome, Italy, designed by Italian architect Nicola Salvi and completed by Giuseppe Pannini and several others. Standing 26.3 metres high and 49.15 metres wide, it is the largest Baroque fountain in the city and one of the most famous fountains in the world.",
             imageNames: [
                 "rome-trevifountain-1",

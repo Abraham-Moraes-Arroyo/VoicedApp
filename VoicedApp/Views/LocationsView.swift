@@ -18,7 +18,8 @@ struct LocationsView: View {
     @EnvironmentObject private var vm: LocationsViewModel
     
     @State private var mapRegion: MKCoordinateRegion = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 41.8902, longitude: 12.4922),
+        //this is to change the position of the map 41.809533, -87.659166
+        center: CLLocationCoordinate2D(latitude: 41.809533, longitude: -87.659166),
         span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
     var body: some View {
         ZStack{
