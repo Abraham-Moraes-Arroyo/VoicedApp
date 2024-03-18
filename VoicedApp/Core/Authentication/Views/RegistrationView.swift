@@ -17,8 +17,7 @@ struct RegistrationView: View {
     var body: some View {
         VStack {
             Spacer()
-            Image(systemName: "apple.logo")
-            // placeholder where app logo would be placed
+            Image("voiced-logo")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 120, height: 120)
@@ -46,7 +45,7 @@ struct RegistrationView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
                     .frame(width: 352, height: 44)
-                    .background(.black)
+                    .background(Color(red: 0.725, green: 0.878, blue: 0.792)) // #b9e0ca
                     .cornerRadius(8)
             }
             .padding(.vertical)

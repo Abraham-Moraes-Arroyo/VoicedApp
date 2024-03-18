@@ -60,13 +60,13 @@ struct ForumView: View {
             .foregroundColor(.black)
             
             // Keep NavigationLink for later logic implementation
-            // Make sure to adjust the destination view as per  future navigation model
-//            NavigationLink(<#LocalizedStringKey#>, destination: ProfileView() {
-//                EmptyView()
-//            }
+            NavigationLink(destination: ProfileView(user: User.MOCK_USERS[0])) {
+                EmptyView()
+            }
         }
     }
 }
+
 #Preview {
     ForumView()
 }

@@ -23,7 +23,7 @@ struct UploadPostView: View {
                 }
                 Spacer()
                 
-                Text("New Post")
+                Text("What's going on?")
                     .fontWeight(.semibold)
                 
                 Spacer()

@@ -14,8 +14,7 @@ struct LoginView: View {
         NavigationStack {
             VStack {
                 Spacer()
-                Image(systemName: "apple.logo")
-                // placeholder where app logo would be placed
+                Image("voiced-logo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 120, height: 120)
@@ -34,10 +33,11 @@ struct LoginView: View {
                 } label: {
                     Text("Forgot Password?")
                         .fontWeight(.semibold)
-                        .padding(.vertical)
+                        .padding(.vertical, 5)
                         .padding(.trailing, 28)
                         .foregroundColor(.black)
                         .frame(maxWidth: .infinity, alignment: .trailing)
+                        .font(.footnote)
                 }
                 
                 Button {
@@ -48,7 +48,7 @@ struct LoginView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                         .frame(width: 352, height: 44)
-                        .background(.black)
+                        .background(Color(red: 0.725, green: 0.878, blue: 0.792)) // #b9e0ca
                         .cornerRadius(8)
                 }
                 
