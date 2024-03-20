@@ -26,15 +26,7 @@ struct ForumCell: View {
                 }
                 Spacer()
                 // Post verification status
-                if post.isUserGenerated {
-                    Label("User Generated", systemImage: "person.fill")
-//                        .labelStyle(.iconOnly)
-                        .padding(5)
-                        .background(Color.blue.opacity(0.1)) // Semi-transparent background
-                        .clipShape(RoundedRectangle(cornerRadius: 25))
-                        .foregroundColor(.blue)
-                        .padding(.trailing, 10)
-                } else {
+                if !post.isUserGenerated {
                     Label("Verified", systemImage: "checkmark.seal.fill")
 //                        .labelStyle(.iconOnly)
                         .padding(5)
