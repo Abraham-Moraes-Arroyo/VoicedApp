@@ -20,7 +20,7 @@ struct VoicedTabView: View {
                 .tag(0)
                     
             
-            UploadPostView()
+            UploadPostView(tabIndex: $selectedTab)
                         .tabItem {
                             Image(systemName: "plus")
                         }
