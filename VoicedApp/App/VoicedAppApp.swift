@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct VoicedAppApp: App {
     
-    @StateObject private var vm = LocationsViewModel()
+//    @StateObject private var vm = LocationsViewModel()
     
 
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -21,7 +21,10 @@ struct VoicedAppApp: App {
 //                .environmentObject(vm)
             
             
-              FBTemplate()
+//              FBTemplate()
+            
+            // root view
+            ContentView()
         }
     }
 }

@@ -71,6 +71,8 @@
 		A7DFDE242BA162210077A1C4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE232BA162210077A1C4 /* Post.swift */; };
 		A7DFDE262BA162670077A1C4 /* VoicedTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE252BA162670077A1C4 /* VoicedTextFieldModifier.swift */; };
 		A7DFDE282BAA7FF70077A1C4 /* UploadPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE272BAA7FF70077A1C4 /* UploadPostViewModel.swift */; };
+		A7DFDE2B2BAA8FF30077A1C4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE2A2BAA8FF30077A1C4 /* AuthService.swift */; };
+		A7DFDE2F2BAA928C0077A1C4 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE2E2BAA928C0077A1C4 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,8 @@
 		A7DFDE232BA162210077A1C4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A7DFDE252BA162670077A1C4 /* VoicedTextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicedTextFieldModifier.swift; sourceTree = "<group>"; };
 		A7DFDE272BAA7FF70077A1C4 /* UploadPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostViewModel.swift; sourceTree = "<group>"; };
+		A7DFDE2A2BAA8FF30077A1C4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		A7DFDE2E2BAA928C0077A1C4 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +365,7 @@
 		A7DFDDF42BA159440077A1C4 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				A7DFDE292BAA8FD80077A1C4 /* Service */,
 				A7DFDDFD2BA15DC20077A1C4 /* Views */,
 			);
 			path = Authentication;
@@ -397,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				8508C7CB2B9B72EE00B2D0FD /* ContentView.swift */,
+				A7DFDE2D2BAA924C0077A1C4 /* ViewModel */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -485,6 +491,22 @@
 				A7DFDE1D2BA161660077A1C4 /* UserContentListView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A7DFDE292BAA8FD80077A1C4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A7DFDE2A2BAA8FF30077A1C4 /* AuthService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A7DFDE2D2BAA924C0077A1C4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A7DFDE2E2BAA928C0077A1C4 /* ContentViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -665,6 +687,7 @@
 				A7DFDE242BA162210077A1C4 /* Post.swift in Sources */,
 				8508C8062B9BEED600B2D0FD /* LocationPreviewView.swift in Sources */,
 				8508C8022B9B81B600B2D0FD /* LocationsViewModel.swift in Sources */,
+				A7DFDE2B2BAA8FF30077A1C4 /* AuthService.swift in Sources */,
 				8508C7CC2B9B72EE00B2D0FD /* ContentView.swift in Sources */,
 				8508C8002B9B7E9200B2D0FD /* LocationsView.swift in Sources */,
 				8508C7FB2B9B7A6D00B2D0FD /* Location.swift in Sources */,
@@ -678,6 +701,7 @@
 				A7DFDE1C2BA161510077A1C4 /* CurrentUserProfileView.swift in Sources */,
 				A7DFDE222BA162140077A1C4 /* User.swift in Sources */,
 				A7DFDE182BA1612E0077A1C4 /* ProfileView.swift in Sources */,
+				A7DFDE2F2BAA928C0077A1C4 /* ContentViewModel.swift in Sources */,
 				A7DFDE062BA15E160077A1C4 /* ForumCell.swift in Sources */,
 				8508C7CA2B9B72EE00B2D0FD /* VoicedAppApp.swift in Sources */,
 				A7DFDE282BAA7FF70077A1C4 /* UploadPostViewModel.swift in Sources */,
