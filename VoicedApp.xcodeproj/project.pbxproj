@@ -74,6 +74,7 @@
 		A7DFDE2B2BAA8FF30077A1C4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE2A2BAA8FF30077A1C4 /* AuthService.swift */; };
 		A7DFDE2F2BAA928C0077A1C4 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE2E2BAA928C0077A1C4 /* ContentViewModel.swift */; };
 		A7DFDE322BAA96E80077A1C4 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE312BAA96E80077A1C4 /* RegistrationViewModel.swift */; };
+		A7DFDE342BAAA3240077A1C4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE332BAAA3230077A1C4 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,7 @@
 		A7DFDE2A2BAA8FF30077A1C4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		A7DFDE2E2BAA928C0077A1C4 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		A7DFDE312BAA96E80077A1C4 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		A7DFDE332BAAA3230077A1C4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -492,6 +494,7 @@
 				A7DFDE192BA1613B0077A1C4 /* ProfileHeaderView.swift */,
 				A7DFDE1B2BA161510077A1C4 /* CurrentUserProfileView.swift */,
 				A7DFDE1D2BA161660077A1C4 /* UserContentListView.swift */,
+				A7DFDE332BAAA3230077A1C4 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7DFDE342BAAA3240077A1C4 /* SettingsView.swift in Sources */,
 				A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */,
 				A7DFDE322BAA96E80077A1C4 /* RegistrationViewModel.swift in Sources */,
 				A7DFDE142BA160FD0077A1C4 /* EditProfileView.swift in Sources */,

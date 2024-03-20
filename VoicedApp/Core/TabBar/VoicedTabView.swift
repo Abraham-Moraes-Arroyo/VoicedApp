@@ -46,6 +46,14 @@ struct VoicedTabView: View {
                         .onAppear { selectedTab = 3 }
                         .tag(3)
             
+            CurrentUserProfileView(user: User.MOCK_USERS[0])
+                .tabItem {
+                    Image(systemName: selectedTab == 4 ? "person" : "person.fill")
+                        .environment(\.symbolVariants, selectedTab == 4 ? .fill : .none)
+                }
+                .onAppear { selectedTab = 4 }
+                .tag(4)
+            
                     
                 
         }
