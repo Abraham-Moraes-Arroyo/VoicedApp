@@ -47,7 +47,7 @@ extension Post {
               imageUrl: "post-1",
               timestamp: Date(),
               user: User.MOCK_USERS[1],
-              category: .localNews),
+              category: .happyHighlights),
         
         .init(id: UUID().uuidString,
               ownerUid: User.MOCK_USERS[2].id,
@@ -58,7 +58,7 @@ extension Post {
               imageUrl: "post-2",
               timestamp: Date(),
               user: User.MOCK_USERS[2],
-              category: .other),
+              category: .businesses),
         
         .init(id: UUID().uuidString,
               ownerUid: User.MOCK_USERS[3].id,

@@ -8,15 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = ContentViewModel()
+    @StateObject var registrationViewModel = RegistrationViewModel()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("VoicedApp")
+        Group {
+            if viewModel.userSession == nil {
+                LoginView()
+                    .environmentObject(registrationViewModel)
+            }
+            else { 
+                
+                VoicedTabView()
+            }
+            
         }
-        .padding()
-        // testing
     }
 }
 

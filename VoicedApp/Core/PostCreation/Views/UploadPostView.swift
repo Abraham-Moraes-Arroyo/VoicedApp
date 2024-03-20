@@ -7,17 +7,31 @@
 
 import SwiftUI
 import PhotosUI
+
 struct UploadPostView: View {
     @State private var title = ""
     @State private var caption = ""
+    @State private var selectedCategory: PostCategory = .businesses // Default category
     @State private var imagePickerPresented = false
-    @State private var photoItem: PhotosPickerItem?
+    @StateObject var viewModel = UploadPostViewModel()
+    
+    // when user clicks cancel this var will take user to a different tab index (in this case it will be the forum)
+    @Binding var tabIndex: Int
+
     var body: some View {
         VStack {
-            // action tool bar
+            // Action tool bar
             HStack {
                 Button {
-                    print("Cancel upload")
+                    // when you click cancel this happens/
+                    title = ""
+                   caption = ""
+                    viewModel.selectedImage = nil
+                    viewModel.postImage = nil
+                    selectedCategory = .all
+                    tabIndex = 2
+                    
+                    
                 } label: {
                     Text("Cancel")
                 }
@@ -29,7 +43,7 @@ struct UploadPostView: View {
                 Spacer()
                 
                 Button {
-                    print("upload")
+                    print("Upload")
                 } label: {
                     Text("Upload")
                         .fontWeight(.semibold)
@@ -37,23 +51,35 @@ struct UploadPostView: View {
             }
             .padding(.horizontal)
             
-            // post image and title + caption
-            HStack(spacing: 8){
-                Image("default-post-image")
-                    .resizable()
-                    .frame(width: 100, height: 100)
-                
-                VStack(spacing: 30){
-                    
-                    TextField("Enter your title...", text: $title, axis: .vertical)
-                    
-                    Divider()
-                    
-                    TextField("Enter your caption...", text: $caption)
+            // Post image, title, caption, and category selection
+            VStack(spacing: 8){
+                if let image = viewModel.postImage {
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 100, height: 100)
+                        .clipped()
                 }
                 
+                TextField("Enter your title...", text: $title, axis: .vertical)
                 
-        
+                Divider()
+                
+                TextField("Enter your caption...", text: $caption)
+                
+                Divider()
+                
+                HStack {
+                    Text("Choose a category: ")
+                    // Category Picker
+                    Picker("Category", selection: $selectedCategory) {
+                        ForEach(PostCategory.allCases, id: \.self) { category in
+                            Text(category.rawValue)
+                        }
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                }
+                
             }
             .padding()
             
@@ -62,11 +88,10 @@ struct UploadPostView: View {
         .onAppear {
             imagePickerPresented.toggle()
         }
-        .photosPicker(isPresented: $imagePickerPresented, selection: $photoItem)
+        .photosPicker(isPresented: $imagePickerPresented, selection: $viewModel.selectedImage)
     }
 }
 
-
 #Preview {
-    UploadPostView()
+    UploadPostView(tabIndex: .constant(2))
 }

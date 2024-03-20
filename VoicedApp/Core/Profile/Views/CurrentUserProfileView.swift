@@ -20,10 +20,26 @@ struct CurrentUserProfileView: View {
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
+            
                 VStack(spacing: 12) {
-                    // header
-                    ProfileHeaderView(user: user)
-                    
+                
+                                    
+                    HStack {
+    
+                        // header
+                        ProfileHeaderView(user: user)
+                        
+                        // settings button for user to sign out and delete account
+                        NavigationLink {
+                    SettingsView()
+                                        } label: {
+                                            Image(systemName: "line.3.horizontal")
+                                                .foregroundColor(.black)
+                                        }
+                                    
+                                    .padding(.bottom, 50)
+                    }
+                                    
                     // user content list view
                     UserContentListView(user: user)
                         
