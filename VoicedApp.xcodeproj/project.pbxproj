@@ -73,6 +73,7 @@
 		A7DFDE282BAA7FF70077A1C4 /* UploadPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE272BAA7FF70077A1C4 /* UploadPostViewModel.swift */; };
 		A7DFDE2B2BAA8FF30077A1C4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE2A2BAA8FF30077A1C4 /* AuthService.swift */; };
 		A7DFDE2F2BAA928C0077A1C4 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE2E2BAA928C0077A1C4 /* ContentViewModel.swift */; };
+		A7DFDE322BAA96E80077A1C4 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE312BAA96E80077A1C4 /* RegistrationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		A7DFDE272BAA7FF70077A1C4 /* UploadPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostViewModel.swift; sourceTree = "<group>"; };
 		A7DFDE2A2BAA8FF30077A1C4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		A7DFDE2E2BAA928C0077A1C4 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		A7DFDE312BAA96E80077A1C4 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,8 +367,9 @@
 		A7DFDDF42BA159440077A1C4 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				A7DFDE292BAA8FD80077A1C4 /* Service */,
 				A7DFDDFD2BA15DC20077A1C4 /* Views */,
+				A7DFDE302BAA96B90077A1C4 /* ViewModel */,
+				A7DFDE292BAA8FD80077A1C4 /* Service */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -505,6 +508,14 @@
 			isa = PBXGroup;
 			children = (
 				A7DFDE2E2BAA928C0077A1C4 /* ContentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A7DFDE302BAA96B90077A1C4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A7DFDE312BAA96E80077A1C4 /* RegistrationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -673,6 +684,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */,
+				A7DFDE322BAA96E80077A1C4 /* RegistrationViewModel.swift in Sources */,
 				A7DFDE142BA160FD0077A1C4 /* EditProfileView.swift in Sources */,
 				8508C7FE2B9B7CBF00B2D0FD /* LocationsDataService.swift in Sources */,
 				A7DFDE0E2BA160720077A1C4 /* PostCategory.swift in Sources */,

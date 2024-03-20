@@ -7,12 +7,10 @@
 
 import SwiftUI
 struct RegistrationView: View {
-    @State private var email = ""
-    @State private var password = ""
-    @State private var fullname = ""
-    @State private var username = ""
     
     @Environment(\.dismiss) var dismiss
+    
+    @StateObject var viewModel = RegistrationViewModel()
     
     var body: some View {
         VStack {
@@ -24,20 +22,25 @@ struct RegistrationView: View {
                 .padding()
             
             VStack {
-                TextField("Enter your email...", text: $email)
+                
+                // whatever user types in these fields it updates the published properties in the view model
+                
+                TextField("Enter your email...", text: $viewModel.email)
                     .modifier(VoicedTextFieldModifier())
                     .autocapitalization(.none)
-                SecureField("Enter your password...", text: $password)
+                
+                TextField("Enter your username...", text: $viewModel.username)
+                    .autocapitalization(.none)
                     .modifier(VoicedTextFieldModifier())
                 
-                TextField("Enter your full name...", text: $fullname)
+                SecureField("Enter your password...", text: $viewModel.password)
                     .modifier(VoicedTextFieldModifier())
                 
-                TextField("Enter your username...", text: $username)
-                    .modifier(VoicedTextFieldModifier())
                 
             }
             Button {
+                Task { try await viewModel.createUser() }
+                // when user clicks on the button, it is a registered user
                 
             } label: {
                 Text("Sign up")
