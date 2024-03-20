@@ -7,14 +7,17 @@
 
 import SwiftUI
 import PhotosUI
+
 struct UploadPostView: View {
     @State private var title = ""
     @State private var caption = ""
+    @State private var selectedCategory: PostCategory = .businesses // Default category
     @State private var imagePickerPresented = false
     @State private var photoItem: PhotosPickerItem?
+
     var body: some View {
         VStack {
-            // action tool bar
+            // Action tool bar
             HStack {
                 Button {
                     print("Cancel upload")
@@ -29,7 +32,7 @@ struct UploadPostView: View {
                 Spacer()
                 
                 Button {
-                    print("upload")
+                    print("Upload")
                 } label: {
                     Text("Upload")
                         .fontWeight(.semibold)
@@ -37,23 +40,31 @@ struct UploadPostView: View {
             }
             .padding(.horizontal)
             
-            // post image and title + caption
-            HStack(spacing: 8){
+            // Post image, title, caption, and category selection
+            VStack(spacing: 8){
                 Image("default-post-image")
                     .resizable()
                     .frame(width: 100, height: 100)
                 
-                VStack(spacing: 30){
-                    
-                    TextField("Enter your title...", text: $title, axis: .vertical)
-                    
-                    Divider()
-                    
-                    TextField("Enter your caption...", text: $caption)
+                TextField("Enter your title...", text: $title, axis: .vertical)
+                
+                Divider()
+                
+                TextField("Enter your caption...", text: $caption)
+                
+                Divider()
+                
+                HStack {
+                    Text("Choose a category: ")
+                    // Category Picker
+                    Picker("Category", selection: $selectedCategory) {
+                        ForEach(PostCategory.allCases, id: \.self) { category in
+                            Text(category.rawValue)
+                        }
+                    }
+                    .pickerStyle(MenuPickerStyle())
                 }
                 
-                
-        
             }
             .padding()
             
@@ -65,7 +76,6 @@ struct UploadPostView: View {
         .photosPicker(isPresented: $imagePickerPresented, selection: $photoItem)
     }
 }
-
 
 #Preview {
     UploadPostView()
