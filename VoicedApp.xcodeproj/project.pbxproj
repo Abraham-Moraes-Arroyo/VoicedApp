@@ -76,6 +76,8 @@
 		A7DFDE322BAA96E80077A1C4 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE312BAA96E80077A1C4 /* RegistrationViewModel.swift */; };
 		A7DFDE342BAAA3240077A1C4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE332BAAA3230077A1C4 /* SettingsView.swift */; };
 		A7DFDE362BABBFDD0077A1C4 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE352BABBFDD0077A1C4 /* LoginViewModel.swift */; };
+		A7DFDE382BABE4080077A1C4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE372BABE4080077A1C4 /* UserService.swift */; };
+		A7DFDE3A2BABE51D0077A1C4 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE392BABE51D0077A1C4 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +143,8 @@
 		A7DFDE312BAA96E80077A1C4 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		A7DFDE332BAAA3230077A1C4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A7DFDE352BABBFDD0077A1C4 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A7DFDE372BABE4080077A1C4 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		A7DFDE392BABE51D0077A1C4 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +344,8 @@
 		A7DFDDF02BA158360077A1C4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A7DFDE372BABE4080077A1C4 /* UserService.swift */,
+				A7DFDE392BABE51D0077A1C4 /* SearchViewModel.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -693,6 +699,7 @@
 				A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */,
 				A7DFDE322BAA96E80077A1C4 /* RegistrationViewModel.swift in Sources */,
 				A7DFDE142BA160FD0077A1C4 /* EditProfileView.swift in Sources */,
+				A7DFDE3A2BABE51D0077A1C4 /* SearchViewModel.swift in Sources */,
 				8508C7FE2B9B7CBF00B2D0FD /* LocationsDataService.swift in Sources */,
 				A7DFDE0E2BA160720077A1C4 /* PostCategory.swift in Sources */,
 				8570716D2BA8F57E0098ABD4 /* AppDelegate.swift in Sources */,
@@ -703,6 +710,7 @@
 				A7DFDE102BA160BB0077A1C4 /* UploadPostView.swift in Sources */,
 				A7DFDE202BA1619D0077A1C4 /* VoicedTabView.swift in Sources */,
 				A7DFDE262BA162670077A1C4 /* VoicedTextFieldModifier.swift in Sources */,
+				A7DFDE382BABE4080077A1C4 /* UserService.swift in Sources */,
 				A7DFDE1A2BA1613B0077A1C4 /* ProfileHeaderView.swift in Sources */,
 				A7DFDE242BA162210077A1C4 /* Post.swift in Sources */,
 				8508C8062B9BEED600B2D0FD /* LocationPreviewView.swift in Sources */,
