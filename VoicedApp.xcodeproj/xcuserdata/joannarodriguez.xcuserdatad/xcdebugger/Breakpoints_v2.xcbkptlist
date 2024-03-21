@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "760918C4-2A24-4A2A-AC9E-E1029C96A6A3"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE41D36A-073D-4594-A514-B60F744C8A72"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VoicedApp/Core/Authentication/Service/AuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "createUser(email:password:username:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DE41D36A-073D-4594-A514-B60F744C8A72 - 96ee08358e1f089f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for VoicedApp.AuthService.createUser(email: Swift.String, password: Swift.String, username: Swift.String) async throws -&gt; ()"
+                  moduleName = "VoicedApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joannarodriguez/Documents/VoicedApp/VoicedApp/Core/Authentication/Service/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43">
+               </Location>
+               <Location
+                  uuid = "DE41D36A-073D-4594-A514-B60F744C8A72 - bf37041664e0c481"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for VoicedApp.AuthService.createUser(email: Swift.String, password: Swift.String, username: Swift.String) async throws -&gt; ()"
+                  moduleName = "VoicedApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/joannarodriguez/Documents/VoicedApp/VoicedApp/Core/Authentication/Service/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

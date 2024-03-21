@@ -20,24 +20,31 @@ struct CurrentUserProfileView: View {
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
-            
                 VStack(spacing: 12) {
-                
-                                    
                     HStack {
-    
                         // header
                         ProfileHeaderView(user: user)
                         
                         // settings button for user to sign out and delete account
-                        NavigationLink {
-                    SettingsView()
-                                        } label: {
-                                            Image(systemName: "line.3.horizontal")
-                                                .foregroundColor(.black)
-                                        }
-                                    
-                                    .padding(.bottom, 50)
+//                        NavigationLink {
+//                    SettingsView()
+//                                        } label: {
+//                                            Image(systemName: "line.3.horizontal")
+//                                                .foregroundColor(.black)
+//                                        }
+                    .navigationTitle("Profile")
+                    .navigationBarTitleDisplayMode(.inline)
+                            .toolbar {
+                                ToolbarItem(placement: .navigationBarTrailing) {
+                                    Button {
+                                        AuthService.shared.signOut()
+                                    } label: {
+                                        Image(systemName: "line.3.horizontal")
+                                            .foregroundColor(.black)
+                                    }
+                                }
+                            }
+                        .padding(.bottom, 50)
                     }
                                     
                     // user content list view

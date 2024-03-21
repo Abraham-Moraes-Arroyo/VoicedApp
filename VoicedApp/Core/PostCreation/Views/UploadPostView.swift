@@ -11,7 +11,7 @@ import PhotosUI
 struct UploadPostView: View {
     @State private var title = ""
     @State private var caption = ""
-    @State private var selectedCategory: PostCategory = .businesses // Default category
+    @State private var selectedCategory: PostCategory = .miscellaneous // Default category
     @State private var imagePickerPresented = false
     @StateObject var viewModel = UploadPostViewModel()
     
@@ -28,7 +28,7 @@ struct UploadPostView: View {
                    caption = ""
                     viewModel.selectedImage = nil
                     viewModel.postImage = nil
-                    selectedCategory = .all
+                    selectedCategory = .miscellaneous
                     tabIndex = 2
                     
                     

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 enum PostCategory: String, Codable, CaseIterable {
-    case all = "All"
+    case miscellaneous = "Miscellaneous"
     case reports = "Reports"
     case happyHighlights = "Happy Highlights"
     case events = "Events"
@@ -35,7 +35,7 @@ enum PostCategory: String, Codable, CaseIterable {
 extension PostCategory {
     var color: Color {
         switch self {
-        case .all:
+        case .miscellaneous:
             return Color(red: 0.498, green: 0.792, blue: 0.651) // #7fcaa6
         case .reports:
             return Color(red: 0.984, green: 0.733, blue: 0.612) // #fbbb9c

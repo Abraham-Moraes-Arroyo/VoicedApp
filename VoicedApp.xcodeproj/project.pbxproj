@@ -75,6 +75,7 @@
 		A7DFDE2F2BAA928C0077A1C4 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE2E2BAA928C0077A1C4 /* ContentViewModel.swift */; };
 		A7DFDE322BAA96E80077A1C4 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE312BAA96E80077A1C4 /* RegistrationViewModel.swift */; };
 		A7DFDE342BAAA3240077A1C4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE332BAAA3230077A1C4 /* SettingsView.swift */; };
+		A7DFDE362BABBFDD0077A1C4 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE352BABBFDD0077A1C4 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		A7DFDE2E2BAA928C0077A1C4 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		A7DFDE312BAA96E80077A1C4 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		A7DFDE332BAAA3230077A1C4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A7DFDE352BABBFDD0077A1C4 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -519,6 +521,7 @@
 			isa = PBXGroup;
 			children = (
 				A7DFDE312BAA96E80077A1C4 /* RegistrationViewModel.swift */,
+				A7DFDE352BABBFDD0077A1C4 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				A7DFDE0E2BA160720077A1C4 /* PostCategory.swift in Sources */,
 				8570716D2BA8F57E0098ABD4 /* AppDelegate.swift in Sources */,
 				85984C832BA5C5D10033CF9E /* LocationMapAnnotionView.swift in Sources */,
+				A7DFDE362BABBFDD0077A1C4 /* LoginViewModel.swift in Sources */,
 				A7DFDDFC2BA15DB00077A1C4 /* CircularProfileImageView.swift in Sources */,
 				8508C8042B9B880400B2D0FD /* LocationsListView.swift in Sources */,
 				A7DFDE102BA160BB0077A1C4 /* UploadPostView.swift in Sources */,
