@@ -16,9 +16,8 @@ struct ContentView: View {
                 LoginView()
                     .environmentObject(registrationViewModel)
             }
-            else { 
-                
-                VoicedTabView()
+            else if let currentUser = viewModel.currentUser {
+                VoicedTabView(user: currentUser)
             }
             
         }

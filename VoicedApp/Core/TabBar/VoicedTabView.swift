@@ -7,6 +7,7 @@
 
 import SwiftUI
 struct VoicedTabView: View {
+    let user: User
     @State private var selectedTab = 0
     
     var body: some View {
@@ -46,7 +47,7 @@ struct VoicedTabView: View {
                         .onAppear { selectedTab = 3 }
                         .tag(3)
             
-            CurrentUserProfileView(user: User.MOCK_USERS[0])
+            CurrentUserProfileView(user: user)
                 .tabItem {
                     Image(systemName: selectedTab == 4 ? "person" : "person.fill")
                         .environment(\.symbolVariants, selectedTab == 4 ? .fill : .none)
@@ -63,5 +64,5 @@ struct VoicedTabView: View {
 
 
 #Preview {
-    VoicedTabView()
+    VoicedTabView(user: User.MOCK_USERS[0])
 }
