@@ -8,6 +8,8 @@
 import SwiftUI
 struct ProfileHeaderView: View {
     let user: User
+    @State private var showEditProfile = false
+    
     var body: some View {
         VStack(spacing: 12) {
             // Header
@@ -36,7 +38,7 @@ struct ProfileHeaderView: View {
                 if user.isCurrentUser {
                     Button {
                         if user.isCurrentUser {
-                            print("Show edit profile")
+                            showEditProfile.toggle()
                         }
                     } label : {
                      Text("Edit Profile")
@@ -57,6 +59,9 @@ struct ProfileHeaderView: View {
                 
                 Divider()
             }
+        }
+        .fullScreenCover(isPresented: $showEditProfile) {
+            Text("Edit profile view")
         }
     }
 }

@@ -78,6 +78,7 @@
 		A7DFDE362BABBFDD0077A1C4 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE352BABBFDD0077A1C4 /* LoginViewModel.swift */; };
 		A7DFDE382BABE4080077A1C4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE372BABE4080077A1C4 /* UserService.swift */; };
 		A7DFDE3A2BABE51D0077A1C4 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE392BABE51D0077A1C4 /* SearchViewModel.swift */; };
+		A7DFDE3C2BAD4AD30077A1C4 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE3B2BAD4AD30077A1C4 /* EditProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		A7DFDE352BABBFDD0077A1C4 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A7DFDE372BABE4080077A1C4 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		A7DFDE392BABE51D0077A1C4 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		A7DFDE3B2BAD4AD30077A1C4 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -485,6 +487,7 @@
 			isa = PBXGroup;
 			children = (
 				A7DFDE132BA160FD0077A1C4 /* EditProfileView.swift */,
+				A7DFDE3B2BAD4AD30077A1C4 /* EditProfileViewModel.swift */,
 			);
 			path = EditProfile;
 			sourceTree = "<group>";
@@ -724,6 +727,7 @@
 				A7DFDE092BA15F3E0077A1C4 /* HighlightsView.swift in Sources */,
 				A7DFDE162BA161180077A1C4 /* ProfilePostFilter.swift in Sources */,
 				A7DFDE1E2BA161660077A1C4 /* UserContentListView.swift in Sources */,
+				A7DFDE3C2BAD4AD30077A1C4 /* EditProfileViewModel.swift in Sources */,
 				A7DFDDFF2BA15DD30077A1C4 /* LoginView.swift in Sources */,
 				85984C812BA39B440033CF9E /* LocationDetailView.swift in Sources */,
 				857071712BA8FC7F0098ABD4 /* FBTemplate.swift in Sources */,
