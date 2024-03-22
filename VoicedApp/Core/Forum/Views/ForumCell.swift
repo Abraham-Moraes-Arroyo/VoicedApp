@@ -56,6 +56,8 @@ struct ForumCell: View {
                             .multilineTextAlignment(.center)
                         
                         Text(post.category.displayName)
+                            .font(.footnote)
+                            .frame(width: 170, height: 5)
                             .padding()
                             .foregroundColor(.white)
                             .background(post.category.color)

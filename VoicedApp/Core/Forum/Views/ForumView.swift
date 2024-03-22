@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ForumView: View {
     @State private var isProfileViewActive = false
-    @State private var sortingOption = "All"
+    @State private var sortingOption = "Miscellaneous"
 
     // This computed property filters the MOCK_POSTS to include only user-generated posts.
     var userGeneratedPosts: [Post] {
@@ -52,11 +52,11 @@ struct ForumView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
-                        Button("All", action: { sortingOption = "All" })
+                        Button("Miscellaneous", action: { sortingOption = "Miscellaneous" })
                         Button("Reports", action: { sortingOption = "Reports" })
-                        Button("Local News", action: { sortingOption = "Local News" })
+                        Button("Happy Highlights", action: { sortingOption = "Happy Highlights" })
                         Button("Events", action: { sortingOption = "Events" })
-                        Button("Other", action: { sortingOption = "Other" })
+                        Button("Business", action: { sortingOption = "Business" })
                     } label: {
                         Image(systemName: "ellipsis")
                     }

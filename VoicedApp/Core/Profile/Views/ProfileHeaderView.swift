@@ -33,18 +33,27 @@ struct ProfileHeaderView: View {
                 }
                 .padding(.horizontal)
                 
-                Button("Edit Profile") {
-                    // Edit profile action
+                if user.isCurrentUser {
+                    Button {
+                        if user.isCurrentUser {
+                            print("Show edit profile")
+                        }
+                    } label : {
+                     Text("Edit Profile")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity, minHeight: 32)
+                        .foregroundColor(.black)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 6)
+                                .stroke(Color.gray, lineWidth: 1)
+                        )
+                    }
+                    
+                    .padding(.horizontal)
+                    
                 }
-                .font(.subheadline)
-                .fontWeight(.semibold)
-                .frame(maxWidth: .infinity, minHeight: 32)
-                .foregroundColor(.black)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 6)
-                        .stroke(Color.gray, lineWidth: 1)
-                )
-                .padding(.horizontal)
+                
                 
                 Divider()
             }
