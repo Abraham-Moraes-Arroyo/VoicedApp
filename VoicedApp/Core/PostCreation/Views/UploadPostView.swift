@@ -24,12 +24,7 @@ struct UploadPostView: View {
             HStack {
                 Button {
                     // when you click cancel this happens/
-                    title = ""
-                   caption = ""
-                    viewModel.selectedImage = nil
-                    viewModel.postImage = nil
-                    selectedCategory = .miscellaneous
-                    tabIndex = 2
+                    clearPostDataAndReturnToForum()
                     
                     
                 } label: {
@@ -43,7 +38,12 @@ struct UploadPostView: View {
                 Spacer()
                 
                 Button {
-                    print("Upload")
+                    Task {
+                        
+                        try await viewModel.uploadPost(title: title, caption: caption, category: selectedCategory) }
+                    
+                    clearPostDataAndReturnToForum()
+                    
                 } label: {
                     Text("Upload")
                         .fontWeight(.semibold)
@@ -89,6 +89,15 @@ struct UploadPostView: View {
             imagePickerPresented.toggle()
         }
         .photosPicker(isPresented: $imagePickerPresented, selection: $viewModel.selectedImage)
+    }
+    
+    func clearPostDataAndReturnToForum() {
+        title = ""
+       caption = ""
+        viewModel.selectedImage = nil
+        viewModel.postImage = nil
+        selectedCategory = .miscellaneous
+        tabIndex = 2
     }
 }
 

@@ -6,7 +6,12 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestore
+
 struct Post: Identifiable, Hashable, Codable {
+    
+    
     let id: String
     let ownerUid: String? // making it optional for now for the posts generated from dashboard
     let title: String
@@ -14,9 +19,10 @@ struct Post: Identifiable, Hashable, Codable {
     var likes: Int
     var dislikes: Int
     let imageUrl: String?
-    let timestamp: Date
+    let timestamp: Timestamp
     var user: User?
     var category: PostCategory
+    
     private enum CodingKeys: String, CodingKey {
         case id, ownerUid, title, caption, likes, dislikes, imageUrl, timestamp, user, category
     }
@@ -34,9 +40,9 @@ extension Post {
               likes: 120,
               dislikes: 10,
               imageUrl: "post-0",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[0],
-              category: .events),
+              category: PostCategory.events),
         
         .init(id: UUID().uuidString,
               ownerUid: User.MOCK_USERS[1].id,
@@ -45,9 +51,9 @@ extension Post {
               likes: 85,
               dislikes: 4,
               imageUrl: "post-1",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[1],
-              category: .happyHighlights),
+              category: PostCategory.happyHighlights),
         
         .init(id: UUID().uuidString,
               ownerUid: User.MOCK_USERS[2].id,
@@ -56,9 +62,9 @@ extension Post {
               likes: 95,
               dislikes: 4,
               imageUrl: "post-2",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[2],
-              category: .businesses),
+              category: PostCategory.businesses),
         
         .init(id: UUID().uuidString,
               ownerUid: User.MOCK_USERS[3].id,
@@ -67,20 +73,20 @@ extension Post {
               likes: 150,
               dislikes: 6,
               imageUrl: "post-3",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[3],
-              category: .reports),
+              category: PostCategory.reports),
         
         .init(id: UUID().uuidString,
               ownerUid: nil,
               title: "February 2024",
-              caption: nil,
+              caption: "hi",
               likes: 150,
               dislikes: 6,
               imageUrl: "feb-24-dashboard",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: nil,
-              category: .reports)
+              category: PostCategory.reports)
         
         
     ]
