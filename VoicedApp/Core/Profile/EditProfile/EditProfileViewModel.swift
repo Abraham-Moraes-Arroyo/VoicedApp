@@ -12,12 +12,17 @@ import Firebase
 // same logic as upload post view model
 @MainActor
 class EditProfileViewModel: ObservableObject {
+    @Published var user: User
     @Published var selectedImage: PhotosPickerItem? {
         didSet { Task { await loadImage(fromItem: selectedImage) } }
     }
     
     @Published var profileImage: Image?
     @Published var bio = ""
+    
+    init(user: User) {
+        self.user = user
+    }
     
 //     this function is looking at the item from the photospicker item ->
 //   creates data -> creates uiImage -> which generates the swiftUI image
@@ -29,5 +34,23 @@ class EditProfileViewModel: ObservableObject {
         
         guard let uiImage = UIImage(data: data) else { return }
         self.profileImage = Image(uiImage: uiImage)
+    }
+    
+    func updateUserData() async throws {
+        // update profile image if changed
+        
+        // data dictionary with key and value
+        var data = [String: Any]()
+
+        // update bio if changed
+        if !bio.isEmpty && user.bio != bio {
+            data["bio"] = bio
+            
+        }
+        // making sure data is being changed before updating
+        if !data.isEmpty {
+            try await Firestore.firestore().collection("users").document(user.id).updateData(data)
+        }
+        
     }
 }

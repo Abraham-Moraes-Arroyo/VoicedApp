@@ -10,7 +10,11 @@ import PhotosUI
 struct EditProfileView: View {
     @Environment(\.dismiss) var dismiss
 
-    @StateObject private var viewModel = EditProfileViewModel()
+    @StateObject private var viewModel: EditProfileViewModel
+    
+    init(user: User) {
+        self._viewModel = StateObject(wrappedValue: EditProfileViewModel(user: user))
+    }
     
     var body: some View {
         NavigationStack {
@@ -85,12 +89,14 @@ struct EditProfileView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
-                        
+                    Button {
+                        Task { try await viewModel.updateUserData() }
+                    } label: {
+                        Text("Done")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.black)
                     }
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.black)
                 }
             }
             
@@ -125,5 +131,5 @@ struct EditProfileRowView: View {
 }
 
 #Preview {
-    EditProfileView()
+    EditProfileView(user: User.MOCK_USERS[0])
 }
