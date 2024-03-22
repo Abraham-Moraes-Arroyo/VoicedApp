@@ -20,8 +20,14 @@ class EditProfileViewModel: ObservableObject {
     @Published var profileImage: Image?
     @Published var bio = ""
     
+    private var uiImage: UIImage?
+    
     init(user: User) {
         self.user = user
+        
+        if let bio = user.bio {
+            self.bio = bio
+        }
     }
     
 //     this function is looking at the item from the photospicker item ->
@@ -33,6 +39,7 @@ class EditProfileViewModel: ObservableObject {
         guard let data = try? await item.loadTransferable(type: Data.self) else { return }
         
         guard let uiImage = UIImage(data: data) else { return }
+        self.uiImage = uiImage
         self.profileImage = Image(uiImage: uiImage)
     }
     
@@ -41,6 +48,12 @@ class EditProfileViewModel: ObservableObject {
         
         // data dictionary with key and value
         var data = [String: Any]()
+        
+        // once image is uploaded to firebase store we can get it to store it in the database
+        if let uiImage = uiImage {
+            let imageUrl = try? await ImageUploader.uploadImage(image: uiImage)
+            data["profileImageUrl"] = imageUrl
+        }
 
         // update bio if changed
         if !bio.isEmpty && user.bio != bio {

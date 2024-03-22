@@ -38,11 +38,7 @@ struct EditProfileView: View {
                                         .background(.gray)
                                         .clipShape(Circle())
                                 } else {
-                                    Image(systemName: "person")
-                                        .resizable()
-                                        .frame(width: 40, height: 40)
-                                        .background(.gray)
-                                        .clipShape(Circle())
+                                    CircularProfileImageView(user: viewModel.user, size: .small)
                                 }
                             }
                             
@@ -90,7 +86,11 @@ struct EditProfileView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        Task { try await viewModel.updateUserData() }
+                        // when user clicks on this button first its data is updated and then this view is dismissed
+                        Task {
+                            try await viewModel.updateUserData()
+                            dismiss()
+                        }
                     } label: {
                         Text("Done")
                         .font(.subheadline)

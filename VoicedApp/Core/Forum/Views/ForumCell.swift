@@ -16,11 +16,7 @@ struct ForumCell: View {
         VStack {
             HStack {
                 if let user = post.user {
-                    Image(user.profileImageUrl ?? "")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 50, height: 50)
-                        .clipShape(Circle())
+                    CircularProfileImageView(user: user, size: .xSmall)
                     Text(user.username)
                         .fontWeight(.semibold)
                 }
