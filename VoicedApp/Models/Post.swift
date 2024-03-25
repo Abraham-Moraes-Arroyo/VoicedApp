@@ -18,13 +18,14 @@ struct Post: Identifiable, Hashable, Codable {
     let caption: String?
     var likes: Int
     var dislikes: Int
+    var comments: Int
     let imageUrl: String?
     let timestamp: Timestamp
     var user: User?
     var category: PostCategory
     
     private enum CodingKeys: String, CodingKey {
-        case id, ownerUid, title, caption, likes, dislikes, imageUrl, timestamp, user, category
+        case id, ownerUid, title, caption, likes, dislikes, comments, imageUrl, timestamp, user, category
     }
     
     var isUserGenerated: Bool {
@@ -39,6 +40,7 @@ extension Post {
               caption: "Join us this weekend for a community park cleanup.",
               likes: 120,
               dislikes: 10,
+              comments: 5,
               imageUrl: "post-0",
               timestamp: Timestamp(),
               user: User.MOCK_USERS[0],
@@ -50,6 +52,7 @@ extension Post {
               caption: "What started as a fun-filled day ended in whispers and gasps as two well-known community members were overheard in a heated exchange behind the food stalls. Details are sparse, but rumors are swirling about a longstanding rivalry coming to light. Has anyone else heard more?",
               likes: 85,
               dislikes: 4,
+              comments: 4,
               imageUrl: "post-1",
               timestamp: Timestamp(),
               user: User.MOCK_USERS[1],
@@ -61,6 +64,7 @@ extension Post {
               caption: "A meeting on the new education reforms will be held tomorrow.",
               likes: 95,
               dislikes: 4,
+              comments: 11,
               imageUrl: "post-2",
               timestamp: Timestamp(),
               user: User.MOCK_USERS[2],
@@ -72,6 +76,7 @@ extension Post {
               caption: "Be on the lookout for suspicious activities in our neighborhood.",
               likes: 150,
               dislikes: 6,
+              comments: 3,
               imageUrl: "post-3",
               timestamp: Timestamp(),
               user: User.MOCK_USERS[3],
@@ -83,6 +88,7 @@ extension Post {
               caption: "hi",
               likes: 150,
               dislikes: 6,
+              comments: 1,
               imageUrl: "feb-24-dashboard",
               timestamp: Timestamp(),
               user: nil,

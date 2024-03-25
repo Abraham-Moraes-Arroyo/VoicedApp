@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ForumView: View {
+    @StateObject var viewModel = ForumViewModel()
     @State private var isProfileViewActive = false
     @State private var sortingOption = "Miscellaneous"
 
     // This computed property filters the MOCK_POSTS to include only user-generated posts.
     var userGeneratedPosts: [Post] {
-        Post.MOCK_POSTS.filter { $0.isUserGenerated }
+        viewModel.posts.filter { $0.isUserGenerated }
     }
 
     var body: some View {

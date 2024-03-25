@@ -8,6 +8,8 @@
 
 
 import SwiftUI
+import Kingfisher
+
 struct ForumCell: View {
     let post: Post
     private let imageDimension: CGFloat = (UIScreen.main.bounds.width / 3) - 1
@@ -36,7 +38,7 @@ struct ForumCell: View {
             Divider()
             VStack {
                 HStack(spacing: 26){
-                    Image(post.imageUrl ?? "default-post-image")
+                    KFImage(URL(string: post.imageUrl ?? "default-post-image"))
                         .resizable()
                         .scaledToFill()
                         .frame(width: 80, height: 80)
