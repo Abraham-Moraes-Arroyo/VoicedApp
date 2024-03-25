@@ -82,6 +82,8 @@
 		A7DFDE3E2BAD5DA10077A1C4 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE3D2BAD5DA10077A1C4 /* ImageUploader.swift */; };
 		A7DFDE412BAD64140077A1C4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A7DFDE402BAD64140077A1C4 /* Kingfisher */; };
 		A7DFDE442BB0F6460077A1C4 /* ForumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE432BB0F6460077A1C4 /* ForumViewModel.swift */; };
+		A7DFDE462BB1017E0077A1C4 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE452BB1017E0077A1C4 /* PostService.swift */; };
+		A7DFDE492BB104FA0077A1C4 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE482BB104FA0077A1C4 /* ProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +155,8 @@
 		A7DFDE3B2BAD4AD30077A1C4 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		A7DFDE3D2BAD5DA10077A1C4 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		A7DFDE432BB0F6460077A1C4 /* ForumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumViewModel.swift; sourceTree = "<group>"; };
+		A7DFDE452BB1017E0077A1C4 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		A7DFDE482BB104FA0077A1C4 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +360,7 @@
 			children = (
 				A7DFDE372BABE4080077A1C4 /* UserService.swift */,
 				A7DFDE392BABE51D0077A1C4 /* SearchViewModel.swift */,
+				A7DFDE452BB1017E0077A1C4 /* PostService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				A7DFDE152BA161180077A1C4 /* ProfilePostFilter.swift */,
+				A7DFDE482BB104FA0077A1C4 /* ProfileViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -746,6 +752,7 @@
 				A7DFDE092BA15F3E0077A1C4 /* HighlightsView.swift in Sources */,
 				A7DFDE162BA161180077A1C4 /* ProfilePostFilter.swift in Sources */,
 				A7DFDE1E2BA161660077A1C4 /* UserContentListView.swift in Sources */,
+				A7DFDE492BB104FA0077A1C4 /* ProfileViewModel.swift in Sources */,
 				A7DFDE3C2BAD4AD30077A1C4 /* EditProfileViewModel.swift in Sources */,
 				A7DFDDFF2BA15DD30077A1C4 /* LoginView.swift in Sources */,
 				85984C812BA39B440033CF9E /* LocationDetailView.swift in Sources */,
@@ -755,6 +762,7 @@
 				A7DFDE222BA162140077A1C4 /* User.swift in Sources */,
 				A7DFDE182BA1612E0077A1C4 /* ProfileView.swift in Sources */,
 				A7DFDE2F2BAA928C0077A1C4 /* ContentViewModel.swift in Sources */,
+				A7DFDE462BB1017E0077A1C4 /* PostService.swift in Sources */,
 				A7DFDE062BA15E160077A1C4 /* ForumCell.swift in Sources */,
 				A7DFDE3E2BAD5DA10077A1C4 /* ImageUploader.swift in Sources */,
 				8508C7CA2B9B72EE00B2D0FD /* VoicedAppApp.swift in Sources */,

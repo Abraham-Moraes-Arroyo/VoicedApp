@@ -18,15 +18,6 @@ class ForumViewModel: ObservableObject {
     
     @MainActor
     func fetchPosts() async throws {
-        let snapshot = try await Firestore.firestore().collection("posts").getDocuments()
-        self.posts = try snapshot.documents.compactMap({ try $0.data(as: Post.self) })
-        
-        for i in 0 ..< posts.count {
-            let post = posts[i]
-            guard let ownerUid = post.ownerUid else { return }
-            let postUser = try await UserService.fetchUser(withUid: ownerUid)
-            posts[i].user = postUser
-        }
-        
+        self.posts = try await PostService.fetchForumPosts()
     }
 }

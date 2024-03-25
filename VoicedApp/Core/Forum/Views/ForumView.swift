@@ -66,9 +66,9 @@ struct ForumView: View {
             .foregroundColor(.black)
             
             // Keep NavigationLink for later logic implementation
-            NavigationLink(destination: ProfileView(user: User.MOCK_USERS[0])) {
-                EmptyView()
-            }
+//            NavigationLink(destination: ProfileView(viewModel: <#ProfileViewModel#>, user: User.MOCK_USERS[0])) {
+//                EmptyView()
+//            }
         }
     }
 }
