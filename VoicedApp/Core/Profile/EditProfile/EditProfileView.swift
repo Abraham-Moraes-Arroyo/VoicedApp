@@ -6,8 +6,16 @@
 //
 
 import SwiftUI
+import PhotosUI
 struct EditProfileView: View {
-    @State private var bio = ""
+    @Environment(\.dismiss) var dismiss
+
+    @StateObject private var viewModel: EditProfileViewModel
+    
+    init(user: User) {
+        self._viewModel = StateObject(wrappedValue: EditProfileViewModel(user: user))
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -16,17 +24,30 @@ struct EditProfileView: View {
                 
                 
                 VStack {
-                    // name and profile image
+                    // profile image
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("Name")
+                            Text("Edit Profile Picture")
                                 .fontWeight(.semibold)
-                            Text("Alice Smith")
+
+                            PhotosPicker(selection: $viewModel.selectedImage) {
+                                if let image = viewModel.profileImage {
+                                    image
+                                        .resizable()
+                                        .frame(width: 40, height: 40)
+                                        .background(.gray)
+                                        .clipShape(Circle())
+                                } else {
+                                    CircularProfileImageView(user: viewModel.user, size: .small)
+                                }
+                            }
+                            
                         }
                         
                         Spacer()
+                    
+                       
                         
-                        CircularProfileImageView()
                     }
                     
                     Divider()
@@ -36,7 +57,7 @@ struct EditProfileView: View {
                     VStack(alignment: .leading) {
                         Text("Bio")
                             .fontWeight(.semibold)
-                        TextField("Enter your bio...", text: $bio, axis: .vertical)
+                        TextField("Enter your bio...", text: $viewModel.bio, axis: .vertical)
                     }
                     .font(.footnote)
                     
@@ -57,19 +78,25 @@ struct EditProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
-                        
+                        dismiss()
                     }
                     .font(.subheadline)
                     .foregroundColor(.black)
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
-                        
+                    Button {
+                        // when user clicks on this button first its data is updated and then this view is dismissed
+                        Task {
+                            try await viewModel.updateUserData()
+                            dismiss()
+                        }
+                    } label: {
+                        Text("Done")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.black)
                     }
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.black)
                 }
             }
             
@@ -81,6 +108,28 @@ struct EditProfileView: View {
     }
 }
 
+struct EditProfileRowView: View {
+    let title: String
+    let placeholder: String
+    @Binding var text: String
+    var body: some View {
+        HStack {
+            Text(title)
+                .padding(.leading, 8)
+                .frame(width: 100, alignment: .leading)
+            
+            VStack {
+                TextField(placeholder, text: $text)
+                
+                Divider()
+            }
+        }
+        .font(.subheadline)
+        .frame(height: 36)
+    }
+    
+}
+
 #Preview {
-    EditProfileView()
+    EditProfileView(user: User.MOCK_USERS[0])
 }

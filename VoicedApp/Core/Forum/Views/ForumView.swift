@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ForumView: View {
+    @StateObject var viewModel = ForumViewModel()
     @State private var isProfileViewActive = false
-    @State private var sortingOption = "All"
+    @State private var sortingOption = "Miscellaneous"
 
     // This computed property filters the MOCK_POSTS to include only user-generated posts.
     var userGeneratedPosts: [Post] {
-        Post.MOCK_POSTS.filter { $0.isUserGenerated }
+        viewModel.posts.filter { $0.isUserGenerated }
     }
 
     var body: some View {
@@ -52,11 +53,11 @@ struct ForumView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
-                        Button("All", action: { sortingOption = "All" })
+                        Button("Miscellaneous", action: { sortingOption = "Miscellaneous" })
                         Button("Reports", action: { sortingOption = "Reports" })
-                        Button("Local News", action: { sortingOption = "Local News" })
+                        Button("Happy Highlights", action: { sortingOption = "Happy Highlights" })
                         Button("Events", action: { sortingOption = "Events" })
-                        Button("Other", action: { sortingOption = "Other" })
+                        Button("Business", action: { sortingOption = "Business" })
                     } label: {
                         Image(systemName: "ellipsis")
                     }
@@ -65,9 +66,9 @@ struct ForumView: View {
             .foregroundColor(.black)
             
             // Keep NavigationLink for later logic implementation
-            NavigationLink(destination: ProfileView(user: User.MOCK_USERS[0])) {
-                EmptyView()
-            }
+//            NavigationLink(destination: ProfileView(viewModel: <#ProfileViewModel#>, user: User.MOCK_USERS[0])) {
+//                EmptyView()
+//            }
         }
     }
 }

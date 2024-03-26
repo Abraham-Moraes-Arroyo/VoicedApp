@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+
 struct UserContentListView: View {
-    let user: User
+
     @State private var selectedFilter: ProfilePostFilter = .posts
     @Namespace var animation
         
@@ -15,14 +16,20 @@ struct UserContentListView: View {
         let count = CGFloat(ProfilePostFilter.allCases.count)
         return UIScreen.main.bounds.width / count - 20
     }
-    // Filtered posts by the user
-    var userPosts: [Post] {
-        Post.MOCK_POSTS.filter { $0.user?.id == user.id }
-    }
+//    // Filtered posts by the user
+//    var userPosts: [Post] {
+//        Post.MOCK_POSTS.filter { $0.user?.id == user.id }
+//    }
+//  
     
     // All mock posts to simulate 'upvoted' or interacted posts
     var allMockPosts: [Post] {
         Post.MOCK_POSTS
+    }
+    @StateObject var viewModel: ProfileViewModel
+    
+    init(user: User) {
+        self._viewModel = StateObject(wrappedValue: ProfileViewModel(user: user))
     }
     var body: some View {
         // Filter bar
@@ -51,7 +58,7 @@ struct UserContentListView: View {
         
         // Display posts based on the selected filter
         LazyVStack {
-            ForEach(selectedFilter == .posts ? userPosts : allMockPosts) { post in
+            ForEach(selectedFilter == .posts ? viewModel.posts : allMockPosts) { post in
                 ForumCell(post: post)
             }
         }

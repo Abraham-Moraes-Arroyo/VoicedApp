@@ -15,15 +15,7 @@ struct ProfileView: View {
         let count = CGFloat(ProfilePostFilter.allCases.count)
         return UIScreen.main.bounds.width / count - 20
     }
-    // Filtered posts by the user
-    var userPosts: [Post] {
-        Post.MOCK_POSTS.filter { $0.user?.id == user.id }
-    }
-    
-    // All mock posts to simulate 'upvoted' or interacted posts
-    var allMockPosts: [Post] {
-        Post.MOCK_POSTS
-    }
+
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 12) {
