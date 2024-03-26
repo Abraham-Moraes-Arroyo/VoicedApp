@@ -7,21 +7,44 @@
 
 import Foundation
 
+@MainActor
 class ForumCellViewModel: ObservableObject {
     @Published var post: Post
     
     init(post: Post) {
         self.post = post
+        Task { try await checkIfUserLikedPost() }
     }
     
     func like() async throws {
-        post.didLike = true
-        post.likes += 1
+        
+        do {
+            // post copy contains the original amount of likes
+            let postCopy = post
+            post.didLike = true
+            post.likes += 1
+            
+            try await PostService.likePost(postCopy)
+            
+        } catch {
+            post.didLike = false
+            post.likes -= 1
+        }
     }
     
     func unlike() async throws {
-        post.didLike = false
-        post.likes -= 1
+        do {
+            // post copy contains the original amount of likes
+            let postCopy = post
+            post.didLike = false
+            post.likes -= 1
+            
+            try await PostService.unlikePost(postCopy)
+            
+        } catch {
+            post.didLike = true
+            post.likes += 1
+        }
     }
     
     func dislike() async throws {
@@ -42,5 +65,9 @@ class ForumCellViewModel: ObservableObject {
     func unbookmark() async throws {
         post.didBookmark = false
         post.favorites -= 1
+    }
+    
+    func checkIfUserLikedPost() async throws {
+        self.post.didLike = try await PostService.checkIfUserLikedPost(post)
     }
 }

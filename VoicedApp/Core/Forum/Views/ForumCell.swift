@@ -99,7 +99,9 @@ struct ForumCell: View {
                 HStack {
                     Image(systemName: didLike ? "hand.thumbsup.fill" : "hand.thumbsup")
                         .foregroundColor(didLike ? .green : .black)
-                    Text("\(post.likes)")
+                    if post.likes > 0 {
+                        Text("\(post.likes)")
+                    }
                 }
             }
             
