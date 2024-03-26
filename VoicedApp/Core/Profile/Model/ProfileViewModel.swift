@@ -8,7 +8,7 @@
 import Foundation
 
 class ProfileViewModel: ObservableObject {
-    private(set) var user: User
+    private let user: User
     @Published var posts = [Post]()
     
     init(user: User) {
