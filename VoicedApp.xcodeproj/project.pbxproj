@@ -84,6 +84,7 @@
 		A7DFDE442BB0F6460077A1C4 /* ForumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE432BB0F6460077A1C4 /* ForumViewModel.swift */; };
 		A7DFDE462BB1017E0077A1C4 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE452BB1017E0077A1C4 /* PostService.swift */; };
 		A7DFDE492BB104FA0077A1C4 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE482BB104FA0077A1C4 /* ProfileViewModel.swift */; };
+		A7DFDE4B2BB2666B0077A1C4 /* ForumCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE4A2BB2666B0077A1C4 /* ForumCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,7 @@
 		A7DFDE432BB0F6460077A1C4 /* ForumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumViewModel.swift; sourceTree = "<group>"; };
 		A7DFDE452BB1017E0077A1C4 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		A7DFDE482BB104FA0077A1C4 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		A7DFDE4A2BB2666B0077A1C4 /* ForumCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -555,6 +557,7 @@
 			isa = PBXGroup;
 			children = (
 				A7DFDE432BB0F6460077A1C4 /* ForumViewModel.swift */,
+				A7DFDE4A2BB2666B0077A1C4 /* ForumCellViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */,
 				A7DFDE322BAA96E80077A1C4 /* RegistrationViewModel.swift in Sources */,
 				A7DFDE142BA160FD0077A1C4 /* EditProfileView.swift in Sources */,
+				A7DFDE4B2BB2666B0077A1C4 /* ForumCellViewModel.swift in Sources */,
 				A7DFDE3A2BABE51D0077A1C4 /* SearchViewModel.swift in Sources */,
 				8508C7FE2B9B7CBF00B2D0FD /* LocationsDataService.swift in Sources */,
 				A7DFDE0E2BA160720077A1C4 /* PostCategory.swift in Sources */,

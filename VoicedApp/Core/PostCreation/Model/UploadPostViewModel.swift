@@ -41,7 +41,7 @@ class UploadPostViewModel: ObservableObject {
         
         guard let imageUrl = try await ImageUploader.uploadImage(image: uiImage) else { return }
 
-        let post = Post(id: postRef.documentID, ownerUid: uid, title: title, caption: caption, likes: 0, dislikes: 0, comments: 0, imageUrl: imageUrl, timestamp: Timestamp(), category: PostCategory(rawValue: category.rawValue) ?? PostCategory.miscellaneous)
+        let post = Post(id: postRef.documentID, ownerUid: uid, title: title, caption: caption, likes: 0, dislikes: 0, favorites: 0, comments: 0, imageUrl: imageUrl, timestamp: Timestamp(), category: PostCategory(rawValue: category.rawValue) ?? PostCategory.miscellaneous)
         
         guard let encodedPost = try? Firestore.Encoder().encode(post) else { return }
         // upload post to firestore

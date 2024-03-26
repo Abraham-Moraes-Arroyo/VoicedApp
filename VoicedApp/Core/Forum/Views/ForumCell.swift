@@ -11,9 +11,29 @@ import SwiftUI
 import Kingfisher
 
 struct ForumCell: View {
-    let post: Post
+    @ObservedObject var viewModel: ForumCellViewModel
+    
+    private var post: Post {
+        return viewModel.post
+    }
+    
+    private var didLike: Bool {
+        return post.didLike ?? false
+    }
+    
+    private var didDislike: Bool {
+        return post.didDislike ?? false
+    }
+    
+    private var didBookmark: Bool {
+        return post.didBookmark ?? false
+    }
+    
+    init(post: Post) {
+        self.viewModel = ForumCellViewModel(post: post)
+    }
     private let imageDimension: CGFloat = (UIScreen.main.bounds.width / 3) - 1
-    @State private var showingActionSheet = false
+//    @State private var showingActionSheet = false
     var body: some View {
         VStack {
             HStack {
@@ -75,16 +95,18 @@ struct ForumCell: View {
     var actionButtons: some View {
         HStack (spacing: 25) {
             Spacer()
-            Button(action: { print("Upvote Post") }) {
+            Button(action: { handleLikeTapped() }) {
                 HStack {
-                    Image(systemName: "hand.thumbsup")
+                    Image(systemName: didLike ? "hand.thumbsup.fill" : "hand.thumbsup")
+                        .foregroundColor(didLike ? .green : .black)
                     Text("\(post.likes)")
                 }
             }
             
-            Button(action: { print("Downvote Post") }) {
+            Button(action: { handleDislikeTapped() }) {
                 HStack {
-                    Image(systemName: "hand.thumbsdown")
+                    Image(systemName: didDislike ? "hand.thumbsdown.fill" : "hand.thumbsdown")
+                        .foregroundColor(didDislike ? .green : .black)
                     Text("\(post.dislikes)")
                 }
             }
@@ -92,24 +114,69 @@ struct ForumCell: View {
             Button(action: { print("Comment Post") }) {
                 HStack {
                     Image(systemName: "bubble.right")
-                    Text("1") // Ideally, this should reflect the actual number of comments
+                    Text("\(post.comments)")
                 }
             }
             
-            Button(action: { showingActionSheet = true }) {
-                Image(systemName: "ellipsis")
+            Button(action: { handleBookmarks() }) {
+                HStack {
+                    Image(systemName: didBookmark ? "bookmark.fill" : "bookmark")
+                        .foregroundColor(didBookmark ? .green : .black)
+                    Text("\(post.favorites)")
+                }
             }
-            .actionSheet(isPresented: $showingActionSheet) {
-                ActionSheet(title: Text("Options"), message: Text("Choose an option"), buttons: [
-                    .default(Text("Report")) { print("Flag selected") },
-                    .default(Text("Bookmark")) { print("Bookmark selected") },
-                    .cancel()
-                ])
+            
+            Button(action: { print("Report Post") }) {
+                HStack {
+                    Image(systemName: "flag")
+                    
+                }
             }
+            
+//            Button(action: { showingActionSheet = true }) {
+//                Image(systemName: "ellipsis")
+//            }
+//            .actionSheet(isPresented: $showingActionSheet) {
+//                ActionSheet(title: Text("Options"), message: Text("Choose an option"), buttons: [
+//                    .default(Text("Report")) { print("Flag selected") },
+//                    .default(Text("Bookmark")) { print("Bookmark selected") },
+//                    .cancel()
+//                ])
+//            }
             Spacer()
         }
         .padding(.top, 4)
         .foregroundColor(.black)
+    }
+    
+    private func handleLikeTapped() {
+        Task {
+            if didLike {
+                try await viewModel.unlike()
+            } else {
+                try await viewModel.like()
+            }
+        }
+    }
+    
+    private func handleDislikeTapped() {
+        Task {
+            if didDislike {
+                try await viewModel.undoDislike()
+            } else {
+                try await viewModel.dislike()
+            }
+        }
+    }
+    
+    private func handleBookmarks() {
+        Task {
+            if didBookmark {
+                try await viewModel.unbookmark()
+            } else {
+                try await viewModel.bookmark()
+            }
+        }
     }
 }
 
