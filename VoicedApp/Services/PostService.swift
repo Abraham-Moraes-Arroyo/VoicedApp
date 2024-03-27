@@ -64,6 +64,14 @@ extension PostService {
         return snapshot.exists
         
     }
+    
+    // func for fetching users liked posts on user content list view
+    static func fetchLikedPostIDs() async throws -> [String] {
+            guard let uid = Auth.auth().currentUser?.uid else { return [] }
+            let snapshot = try await Firestore.firestore().collection("users").document(uid).collection("user-likes").getDocuments()
+            let postIDs = snapshot.documents.map { $0.documentID }
+            return postIDs
+        }
 }
 
     // to do: dislikes
@@ -92,4 +100,10 @@ extension PostService {
         return snapshot.exists
         
     }
+    // func for fetching users bookmarks on user content list view
+    static func fetchBookmarkedPostIDs() async throws -> [String] {
+            guard let uid = Auth.auth().currentUser?.uid else { return [] }
+            let snapshot = try await Firestore.firestore().collection("users").document(uid).collection("user-favorites").getDocuments()
+            return snapshot.documents.map { $0.documentID }
+        }
 }
