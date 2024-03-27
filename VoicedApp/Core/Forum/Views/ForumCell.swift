@@ -44,7 +44,7 @@ struct ForumCell: View {
                     
                     Text(post.category.displayName)
                         .font(.footnote)
-                        .frame(width: 170, height: 5)
+                        .frame(width: 160, height: 5)
                         .padding()
                         .foregroundColor(.white)
                         .background(post.category.color)
@@ -82,14 +82,6 @@ struct ForumCell: View {
                         Text(post.caption ?? "")
                             .multilineTextAlignment(.center)
                         
-//                        Text(post.category.displayName)
-//                            .font(.footnote)
-//                            .frame(width: 170, height: 5)
-//                            .padding()
-//                            .foregroundColor(.white)
-//                            .background(post.category.color)
-//                            .clipShape(RoundedRectangle(cornerRadius: 10))
-//                            .padding()
                     }
                 }
                 .padding(.leading)
@@ -186,5 +178,5 @@ struct ForumCell: View {
 }
 
 #Preview {
-    ForumCell(post: Post.MOCK_POSTS[3])
+    ForumCell(post: Post.MOCK_POSTS[0])
 }

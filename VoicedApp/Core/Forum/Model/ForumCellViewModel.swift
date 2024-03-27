@@ -13,74 +13,91 @@ class ForumCellViewModel: ObservableObject {
     
     init(post: Post) {
         self.post = post
-        Task { try await checkIfUserLikedPost()
-               try await checkIfUserBookmarkedPost()
-               try await checkIfUserDislikedPost()
+        Task {
+            try await checkIfUserLikedPost()
+            try await checkIfUserBookmarkedPost()
+            try await checkIfUserDislikedPost()
         }
     }
     
     func like() async throws {
+        // If the post is already liked, do nothing
+        guard post.didLike == false else { return }
+        
+        // If the post was previously disliked, undo the dislike
+        if post.didDislike == true {
+            post.dislikes -= 1
+            post.didDislike = false
+        }
+        
+        // Like the post
+        post.didLike = true
+        post.likes += 1
         
         do {
-            // post copy contains the original amount of likes
-            let postCopy = post
-            post.didLike = true
-            post.likes += 1
-            
-            try await PostService.likePost(postCopy)
-            
+            try await PostService.likePost(post)
         } catch {
+            // Revert the changes if the network call fails
             post.didLike = false
             post.likes -= 1
-        }
-    }
-    
-    func unlike() async throws {
-        do {
-            // post copy contains the original amount of likes
-            let postCopy = post
-            post.didLike = false
-            post.likes -= 1
-            
-            try await PostService.unlikePost(postCopy)
-            
-        } catch {
-            post.didLike = true
-            post.likes += 1
+            throw error
         }
     }
     
     func dislike() async throws {
+        // If the post is already disliked, do nothing
+        guard post.didDislike == false else { return }
+        
+        // If the post was previously liked, undo the like
+        if post.didLike == true {
+            post.likes -= 1
+            post.didLike = false
+        }
+        
+        // Dislike the post
+        post.didDislike = true
+        post.dislikes += 1
         
         do {
-            // post copy contains the original amount of likes
-            let postCopy = post
-            post.didDislike = true
-            post.dislikes += 1
-            
-            try await PostService.dislikePost(postCopy)
-            
+            try await PostService.dislikePost(post)
         } catch {
+            // Revert the changes if the network call fails
             post.didDislike = false
             post.dislikes -= 1
+            throw error
+        }
+    }
+    
+    func unlike() async throws {
+        guard post.didLike == true else { return }
+        
+        post.didLike = false
+        post.likes -= 1
+        
+        do {
+            try await PostService.unlikePost(post)
+        } catch {
+            post.didLike = true
+            post.likes += 1
+            throw error
         }
     }
     
     func undoDislike() async throws {
+        guard post.didDislike == true else { return }
+        
+        post.didDislike = false
+        post.dislikes -= 1
         
         do {
-            // post copy contains the original amount of likes
-            let postCopy = post
-            post.didDislike = false
-            post.dislikes -= 1
-        
-            try await PostService.undoDislikePost(postCopy)
-        
+            try await PostService.undoDislikePost(post)
         } catch {
             post.didDislike = true
             post.dislikes += 1
+            throw error
         }
     }
+    
     
     func bookmark() async throws {
         do {
