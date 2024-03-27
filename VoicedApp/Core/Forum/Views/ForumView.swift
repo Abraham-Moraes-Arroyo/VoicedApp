@@ -30,12 +30,6 @@ struct ForumView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Button(action: {
-                        // Placeholder action for profile view logic
-                        isProfileViewActive = true
-                    }) {
-                        Image(systemName: "person")
-                    }
                     
                     Button(action: {
                         // Logic to show trending or filtered posts

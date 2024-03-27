@@ -37,11 +37,13 @@ struct ProfileHeaderView: View {
                             showEditProfile.toggle()
                         }
                     } label : {
-                     Text("Edit Profile")
+                     Text("Edit")
                         .font(.subheadline)
                         .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity, minHeight: 32)
-                        .foregroundColor(.black)
+                        .frame(maxWidth: 48, minHeight: 33)
+                        .background(Color(red: 0.498, green: 0.792, blue: 0.651))
+                        .foregroundStyle(.black)
+//                        .foregroundColor(.black)
                         .overlay(
                             RoundedRectangle(cornerRadius: 6)
                                 .stroke(Color.gray, lineWidth: 1)
@@ -50,6 +52,13 @@ struct ProfileHeaderView: View {
                     
                     .padding(.horizontal)
                     
+                } else {
+                    Button(action: { print("Report Post") }) {
+                        HStack {
+                            Image(systemName: "flag")
+                            
+                        }
+                    }
                 }
                 
                 
