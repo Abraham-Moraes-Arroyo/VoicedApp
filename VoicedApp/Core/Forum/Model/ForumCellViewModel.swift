@@ -76,9 +76,22 @@ class ForumCellViewModel: ObservableObject {
       
     
     func unbookmark() async throws {
-        post.didBookmark = false
-        post.favorites -= 1
+        
+        do {
+            // post copy contains the original amount of likes
+            let postCopy = post
+            post.didBookmark = false
+            post.favorites -= 1
+            
+            try await PostService.likeFavorite(postCopy)
+            
+        } catch {
+            post.didBookmark = true
+            post.favorites += 1
+        }
     }
+        
+        
     
     func checkIfUserLikedPost() async throws {
         self.post.didLike = try await PostService.checkIfUserLikedPost(post)
