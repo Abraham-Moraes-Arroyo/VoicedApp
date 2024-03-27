@@ -76,7 +76,34 @@ extension PostService {
 
     // to do: dislikes
 
-// to do: favorites
+
+extension PostService {
+    static func dislikePost(_ post: Post) async throws {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        async let _ = try await postsCollection.document(post.id).collection("post-dislikes").document(uid).setData([:])
+        async let _ = try await postsCollection.document(post.id).updateData(["dislikes": post.dislikes + 1])
+        async let _ = Firestore.firestore().collection("users").document(uid).collection("user-dislikes").document(post.id).setData([:])
+    }
+    
+    static func undoDislikePost(_ post: Post) async throws {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        async let _ = try await postsCollection.document(post.id).collection("post-dislikes").document(uid).delete()
+        async let _ = try await postsCollection.document(post.id).updateData(["dislikes": post.dislikes - 1])
+        async let _ = Firestore.firestore().collection("users").document(uid).collection("user-dislikes").document(post.id).delete()
+    }
+    
+    static func checkIfUserDislikedPost(_ post: Post) async throws -> Bool {
+        guard let uid = Auth.auth().currentUser?.uid else { return false }
+        let snapshot = try await Firestore.firestore().collection("users").document(uid).collection("user-dislikes").document(post.id).getDocument()
+        return snapshot.exists
+        
+    }
+    
+}
+
+// favorites
 extension PostService {
     static func bookmarkPost(_ post: Post) async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }

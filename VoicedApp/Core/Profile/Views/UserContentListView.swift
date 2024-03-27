@@ -11,11 +11,6 @@ struct UserContentListView: View {
     @State private var selectedFilter: ProfilePostFilter = .posts
     @Namespace var animation
     
-    // This will remain as is for demonstration purposes
-    private var allMockPosts: [Post] {
-        Post.MOCK_POSTS
-    }
-    
     @StateObject var viewModel: ProfileViewModel
     
     init(user: User) {

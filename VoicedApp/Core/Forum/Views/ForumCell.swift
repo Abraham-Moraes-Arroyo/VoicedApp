@@ -41,6 +41,15 @@ struct ForumCell: View {
                     CircularProfileImageView(user: user, size: .xSmall)
                     Text(user.username)
                         .fontWeight(.semibold)
+                    
+                    Text(post.category.displayName)
+                        .font(.footnote)
+                        .frame(width: 170, height: 5)
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(post.category.color)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .padding()
                 }
                 Spacer()
                 // Post verification status
@@ -73,14 +82,14 @@ struct ForumCell: View {
                         Text(post.caption ?? "")
                             .multilineTextAlignment(.center)
                         
-                        Text(post.category.displayName)
-                            .font(.footnote)
-                            .frame(width: 170, height: 5)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(post.category.color)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .padding()
+//                        Text(post.category.displayName)
+//                            .font(.footnote)
+//                            .frame(width: 170, height: 5)
+//                            .padding()
+//                            .foregroundColor(.white)
+//                            .background(post.category.color)
+//                            .clipShape(RoundedRectangle(cornerRadius: 10))
+//                            .padding()
                     }
                 }
                 .padding(.leading)
@@ -109,7 +118,9 @@ struct ForumCell: View {
                 HStack {
                     Image(systemName: didDislike ? "hand.thumbsdown.fill" : "hand.thumbsdown")
                         .foregroundColor(didDislike ? .green : .black)
-                    Text("\(post.dislikes)")
+                    if post.dislikes > 0 {
+                        Text("\(post.dislikes)")
+                    }
                 }
             }
             
@@ -124,7 +135,9 @@ struct ForumCell: View {
                 HStack {
                     Image(systemName: didBookmark ? "bookmark.fill" : "bookmark")
                         .foregroundColor(didBookmark ? .green : .black)
-                    Text("\(post.favorites)")
+                    if post.favorites > 0 {
+                        Text("\(post.favorites)")
+                    }
                 }
             }
             
@@ -135,16 +148,6 @@ struct ForumCell: View {
                 }
             }
             
-//            Button(action: { showingActionSheet = true }) {
-//                Image(systemName: "ellipsis")
-//            }
-//            .actionSheet(isPresented: $showingActionSheet) {
-//                ActionSheet(title: Text("Options"), message: Text("Choose an option"), buttons: [
-//                    .default(Text("Report")) { print("Flag selected") },
-//                    .default(Text("Bookmark")) { print("Bookmark selected") },
-//                    .cancel()
-//                ])
-//            }
             Spacer()
         }
         .padding(.top, 4)
