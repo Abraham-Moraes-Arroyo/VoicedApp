@@ -70,7 +70,7 @@ extension PostService {
 
 // to do: favorites
 extension PostService {
-    static func likeFavorite(_ post: Post) async throws {
+    static func bookmarkPost(_ post: Post) async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         async let _ = try await postsCollection.document(post.id).collection("post-favorites").document(uid).setData([:])
@@ -78,7 +78,7 @@ extension PostService {
         async let _ = Firestore.firestore().collection("users").document(uid).collection("user-favorites").document(post.id).setData([:])
     }
     
-    static func unlikeFavorite(_ post: Post) async throws {
+    static func unbookmarkPost(_ post: Post) async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         async let _ = try await postsCollection.document(post.id).collection("post-favorites").document(uid).delete()

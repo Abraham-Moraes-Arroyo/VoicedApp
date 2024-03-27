@@ -66,7 +66,7 @@ class ForumCellViewModel: ObservableObject {
             post.didBookmark = true
             post.favorites += 1
             
-            try await PostService.likeFavorite(postCopy)
+            try await PostService.bookmarkPost(postCopy)
             
         } catch {
             post.didBookmark = false
@@ -83,7 +83,7 @@ class ForumCellViewModel: ObservableObject {
             post.didBookmark = false
             post.favorites -= 1
             
-            try await PostService.likeFavorite(postCopy)
+            try await PostService.unbookmarkPost(postCopy)
             
         } catch {
             post.didBookmark = true
