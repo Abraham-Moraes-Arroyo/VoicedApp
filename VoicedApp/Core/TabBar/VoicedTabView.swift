@@ -12,13 +12,15 @@ struct VoicedTabView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            Text("Map View")
-                .tabItem {
-                    Image(systemName: selectedTab == 0 ? "map.fill" : "map")
-                        .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
-                }
-                .onAppear { selectedTab = 0 }
-                .tag(0)
+
+            
+            ForumView()
+                        .tabItem {
+                            Image(systemName: selectedTab == 0 ? "quote.bubble.fill" : "quote.bubble")
+                                .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
+                        }
+                        .onAppear { selectedTab = 0 }
+                        .tag(0)
                     
             
             UploadPostView(tabIndex: $selectedTab)
@@ -29,31 +31,23 @@ struct VoicedTabView: View {
                         .tag(1)
             
             
-            //            ForumView(post: Post.MOCK_POSTS[0])
-                        ForumView()
-                                    .tabItem {
-                                        Image(systemName: selectedTab == 2 ? "quote.bubble.fill" : "quote.bubble")
-                                            .environment(\.symbolVariants, selectedTab == 2 ? .fill : .none)
-                                    }
-                                    .onAppear { selectedTab = 2 }
-                                    .tag(2)
             
             
             HighlightsView()
                         .tabItem {
-                            Image(systemName: selectedTab == 3 ? "face.smiling.inverse" : "face.smiling")
-                                .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
+                            Image(systemName: selectedTab == 2 ? "chart.bar" : "chart.bar.fill")
+                                .environment(\.symbolVariants, selectedTab == 2 ? .fill : .none)
                         }
-                        .onAppear { selectedTab = 3 }
-                        .tag(3)
+                        .onAppear { selectedTab = 2 }
+                        .tag(2)
             
             CurrentUserProfileView(user: user)
                 .tabItem {
-                    Image(systemName: selectedTab == 4 ? "person" : "person.fill")
-                        .environment(\.symbolVariants, selectedTab == 4 ? .fill : .none)
+                    Image(systemName: selectedTab == 3 ? "person" : "person.fill")
+                        .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
                 }
-                .onAppear { selectedTab = 4 }
-                .tag(4)
+                .onAppear { selectedTab = 3 }
+                .tag(3)
             
                     
                 

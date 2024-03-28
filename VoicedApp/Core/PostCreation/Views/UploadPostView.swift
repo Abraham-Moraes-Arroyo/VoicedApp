@@ -101,12 +101,12 @@ struct UploadPostView: View {
         viewModel.selectedImage = nil
         viewModel.postImage = nil
         selectedCategory = .miscellaneous
-        tabIndex = 2
+        tabIndex = 0
         dismiss()
     }
 }
 
 
 #Preview {
-    UploadPostView(tabIndex: .constant(2))
+    UploadPostView(tabIndex: .constant(0))
 }
