@@ -13,6 +13,8 @@ struct UploadPostView: View {
     @State private var caption = ""
     @State private var selectedCategory: PostCategory = .miscellaneous
     @State private var imagePickerPresented = false
+    @State private var isUploading = false
+    
     @StateObject var viewModel = UploadPostViewModel()
     
     @Binding var tabIndex: Int
@@ -28,25 +30,31 @@ struct UploadPostView: View {
                 Text("What's going on?")
                     .fontWeight(.semibold)
                 Spacer()
-                Button("Upload") {
-                    print("Uploading Post...")
-                       print("Title: \(title)")
-                       print("Caption: \(caption)")
-                       print("Category: \(selectedCategory.rawValue)")
-                       
-                    Task {
-                        try await viewModel.uploadPost(title: title, caption: caption, category: selectedCategory)
-                        clearPostDataAndReturnToForum()
+                
+                if isUploading {
+                    ProgressView("Uploading...")
+                } else {
+                    Button("Upload") {
+                        print("Uploading Post...")
+                        isUploading = true // Start showing the progress view
+                        Task {
+                            do {
+                                try await viewModel.uploadPost(title: title, caption: caption, category: selectedCategory)
+                                clearPostDataAndReturnToForum()
+                            } catch {
+                                print("Upload failed: \(error.localizedDescription)")
+                            }
+                            isUploading = false // Hide the progress view once done
+                        }
                     }
+                    .fontWeight(.semibold)
+                    .disabled(title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
-                .fontWeight(.semibold)
-                .disabled(title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             }
             .padding(.horizontal)
             
             VStack(spacing: 8) {
                 Button(action: {
-                    // This ensures the picker is only presented when the user presses the button
                     imagePickerPresented = true
                 }) {
                     if let image = viewModel.postImage {
@@ -65,17 +73,16 @@ struct UploadPostView: View {
                 .buttonStyle(.plain)
                 .sheet(isPresented: $imagePickerPresented) {
                     PhotosPicker(selection: $viewModel.selectedImage, matching: .images, photoLibrary: .shared()) {
-                        Text("Select a Photo")
-                        
+                        Text("Click here to select a photo")
                     }
                 }
 
                 TextField("Enter your title...", text: $title)
                     .textFieldStyle(.roundedBorder)
-                    
                 
                 TextField("Enter your caption...", text: $caption)
                     .textFieldStyle(.roundedBorder)
+                    
                 HStack {
                     Text("Choose a category: ")
                     Picker("Category", selection: $selectedCategory) {
@@ -85,7 +92,6 @@ struct UploadPostView: View {
                     }
                     .pickerStyle(MenuPickerStyle())
                 }
-                
             }
             .padding()
             
@@ -96,12 +102,12 @@ struct UploadPostView: View {
     func clearPostDataAndReturnToForum() {
         title = ""
         caption = ""
-        // Reset the image picker state as well to prevent automatic re-presentation
         imagePickerPresented = false
         viewModel.selectedImage = nil
         viewModel.postImage = nil
         selectedCategory = .miscellaneous
         tabIndex = 0
+        isUploading = false // Reset uploading state
         dismiss()
     }
 }
