@@ -38,15 +38,17 @@ class AuthService {
     }
     
     @MainActor
-    func createUser(email: String, password: String, username: String) async throws {
-        do {
-            let result = try await Auth.auth().createUser(withEmail: email, password: password)
-            self.userSession = result.user
-            await uploadUserData(uid: result.user.uid, username: username, email: email)
-        } catch {
-            print("DEBUG: failed to register with error \(error.localizedDescription)")
+        func createUser(email: String, password: String, username: String, additionalData: [String: Any]) async throws {
+            do {
+                let result = try await Auth.auth().createUser(withEmail: email, password: password)
+                self.userSession = result.user
+                // Now passing additionalData along with basic user info
+                await uploadUserData(uid: result.user.uid, username: username, email: email, additionalData: additionalData)
+            } catch {
+                print("DEBUG: Failed to register with error \(error.localizedDescription)")
+            }
         }
-    }
+        
     
     @MainActor
     func loadUserData() async throws {
@@ -65,12 +67,17 @@ class AuthService {
         
     }
     
-    private func uploadUserData(uid: String, username: String, email: String) async {
-        let user = User(id: uid, username: username, email: email)
-        guard let encodedUser = try? Firestore.Encoder().encode(user) else { return }
-        self.currentUser = user
-        // this is how user collection is added into firebase database
-        try? await Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
-    }
+    private func uploadUserData(uid: String, username: String, email: String, additionalData: [String: Any]) async {
+            var userDict: [String: Any] = [
+                "id": uid,
+                "username": username,
+                "email": email
+            ]
+            // Add the additional registration data to the dictionary
+            additionalData.forEach { key, value in
+                userDict[key] = value
+            }
     
-}
+            try? await Firestore.firestore().collection("users").document(uid).setData(userDict)
+        }
+    }

@@ -52,6 +52,7 @@
 		857071712BA8FC7F0098ABD4 /* FBTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857071702BA8FC7F0098ABD4 /* FBTemplate.swift */; };
 		85984C812BA39B440033CF9E /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85984C802BA39B440033CF9E /* LocationDetailView.swift */; };
 		85984C832BA5C5D10033CF9E /* LocationMapAnnotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85984C822BA5C5D10033CF9E /* LocationMapAnnotionView.swift */; };
+		A71F18FA2BB6C2A500AE2EEC /* RegistrationEnumFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71F18F92BB6C2A500AE2EEC /* RegistrationEnumFields.swift */; };
 		A7DFDDFC2BA15DB00077A1C4 /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */; };
 		A7DFDDFF2BA15DD30077A1C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */; };
 		A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */; };
@@ -127,6 +128,7 @@
 		857071702BA8FC7F0098ABD4 /* FBTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBTemplate.swift; sourceTree = "<group>"; };
 		85984C802BA39B440033CF9E /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 		85984C822BA5C5D10033CF9E /* LocationMapAnnotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotionView.swift; sourceTree = "<group>"; };
+		A71F18F92BB6C2A500AE2EEC /* RegistrationEnumFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationEnumFields.swift; sourceTree = "<group>"; };
 		A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 		A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -327,6 +329,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A71F18F82BB6C28D00AE2EEC /* RegistrationEnums */ = {
+			isa = PBXGroup;
+			children = (
+				A71F18F92BB6C2A500AE2EEC /* RegistrationEnumFields.swift */,
+			);
+			path = RegistrationEnums;
+			sourceTree = "<group>";
+		};
 		A7DFDDED2BA157A60077A1C4 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +404,7 @@
 		A7DFDDF42BA159440077A1C4 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				A71F18F82BB6C28D00AE2EEC /* RegistrationEnums */,
 				A7DFDDFD2BA15DC20077A1C4 /* Views */,
 				A7DFDE302BAA96B90077A1C4 /* ViewModel */,
 				A7DFDE292BAA8FD80077A1C4 /* Service */,
@@ -728,6 +739,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7DFDE342BAAA3240077A1C4 /* SettingsView.swift in Sources */,
+				A71F18FA2BB6C2A500AE2EEC /* RegistrationEnumFields.swift in Sources */,
 				A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */,
 				A7DFDE322BAA96E80077A1C4 /* RegistrationViewModel.swift in Sources */,
 				A7DFDE142BA160FD0077A1C4 /* EditProfileView.swift in Sources */,
