@@ -9,16 +9,30 @@ import SwiftUI
 
 struct RegistrationView: View {
     
-    @Environment(\.dismiss) var dismiss
-    
     @StateObject var viewModel = RegistrationViewModel()
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 20) {
-                Text("Create an account")
-                    .font(.title)
-                    .fontWeight(.semibold)
+            Text("Create an account")
+                .font(.title)
+                .fontWeight(.semibold)
+            
+            VStack(alignment: .leading, spacing: 20) {
+                
+                HStack(spacing: 3) {
+                    Text("Welcome to Voiced")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    
+                    Image("voiced-logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                      
+                }
+                
+                Text("Create an account to access data on 311 reports, community posts, community polls, and more. Exclusively for the New City Community.")
+                    .font(.caption)
                 
                 // Existing fields
                 TextField("Enter your username...", text: $viewModel.username)
@@ -34,7 +48,7 @@ struct RegistrationView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 
                 // New optional fields
-                TextField("Zip Code (Optional)", text: Binding<String>(
+                TextField("Enter your zipcode...", text: Binding<String>(
                     get: { viewModel.zipCode ?? "" },
                     set: { viewModel.zipCode = $0.isEmpty ? nil : $0 }
                 ))
@@ -43,13 +57,21 @@ struct RegistrationView: View {
 
                 // Age picker
                 Picker("Age Category (Optional)", selection: $viewModel.selectedAge) {
-                    Text("Select").tag(AgeCategory?.none)
+                    // not sure why it appears red?
+                    Text("Select your age group").tag(AgeCategory?.none)
+                        .foregroundColor(.black)
+                
+                        
                     ForEach(AgeCategory.allCases, id: \.self) { age in
                         Text(age.rawValue).tag(age as AgeCategory?)
                     }
                 }.pickerStyle(MenuPickerStyle())
+                    .foregroundColor(.black)
                 
-                TextField("Main Reason for Using Voiced (Optional)", text: Binding<String>(
+                Text("What is your main reason for using Voiced?")
+                    .fontWeight(.semibold)
+                
+                TextField("Enter your reason here...", text: Binding<String>(
                     get: { viewModel.reasonForUsing ?? "" },
                     set: { viewModel.reasonForUsing = $0.isEmpty ? nil : $0 }
                 ))
@@ -57,7 +79,8 @@ struct RegistrationView: View {
 
                 
                 // Community issues
-                Text("Community Issues (Optional)")
+                Text("What community issue(s) do you care about the most?")
+                    .fontWeight(.semibold)
                 ForEach(CommunityIssue.allCases, id: \.self) { issue in
                     Button(action: {
                         viewModel.toggleCommunityIssue(issue)
@@ -73,7 +96,8 @@ struct RegistrationView: View {
                 }
                 
                 // Discovery method
-                Text("How Did You Find Out About Voiced? (Optional)")
+                Text("How Did You Find Out About Voiced?")
+                    .fontWeight(.semibold)
                 ForEach(DiscoveryMethod.allCases, id: \.self) { method in
                     Button(action: {
                         viewModel.toggleDiscoveryMethod(method)
@@ -95,19 +119,36 @@ struct RegistrationView: View {
                 }) {
                     Text("Sign Up")
                         .foregroundColor(.white)
+                        .fontWeight(.semibold)
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(Color.blue)
                         .cornerRadius(10)
                 }
                 
-                Button("Already have an account? Log in") {
-                    dismiss()
+                
+                NavigationLink {
+                    LoginView()
+                        .navigationBarBackButtonHidden(true)
+                } label: {
+                    HStack(spacing: 3) {
+                        Text("Already have an account?")
+                        
+                        Text("SIGN IN")
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.blue)
+                        // to do: change it to the hex color on figma
+                    }
+                    .foregroundColor(.black)
+                    .font(.footnote)
                 }
-                .padding(.top)
+                .padding(.vertical, 16)
+                
+                
             }
             .padding()
         }
+        .foregroundColor(.black)
         .navigationBarTitle("Sign Up", displayMode: .inline)
     }
 }
