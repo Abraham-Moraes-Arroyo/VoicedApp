@@ -12,7 +12,7 @@ enum PostCategory: String, Codable, CaseIterable {
     case reports = "Reports"
     case happyHighlights = "Happy Highlights"
     case events = "Events"
-//    case government = "Government"
+    case localNews = "Local News"
 //    case education = "Education"
     case businesses = "Business"
     
@@ -24,6 +24,8 @@ enum PostCategory: String, Codable, CaseIterable {
             return "🙌  \(self.rawValue)"
         case .events:
             return "🎉 \(self.rawValue)"
+        case .localNews:
+            return "👀 \(self.rawValue)"
         case .businesses:
             return "🍽️ \(self.rawValue)"
             
@@ -50,6 +52,8 @@ extension PostCategory {
 //            return Color(red: 0.969, green: 0.843, blue: 0.804) // #f7d7cd
         case .businesses:
             return Color(red: 0.384, green: 0.4, blue: 0.408) // #626668
+        case .localNews:
+            return Color(red: 0.969, green: 0.843, blue: 0.804) // #f7d7cd
         }
     }
 }

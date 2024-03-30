@@ -14,10 +14,17 @@ struct LoginView: View {
         NavigationStack {
             VStack {
                 Spacer()
-                Image("voiced-logo")
+                Text("Welcome to Voiced")
+                    .font(.title)
+                    .fontWeight(.bold)
+                
+                Text("Your Comments. Your Solution. Your Voice.")
+                    .font(.caption)
+                
+                Image("voiced-sign-in")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 120, height: 120)
+                    .frame(width: 250, height: 250)
                     .padding()
                 
                 VStack {
