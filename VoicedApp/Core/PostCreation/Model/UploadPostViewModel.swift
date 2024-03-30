@@ -19,9 +19,10 @@ class UploadPostViewModel: ObservableObject {
     @Published var postImage: Image?
     private var uiImage: UIImage?
     
-//     this function is looking at the item from the photospicker item ->
-//   creates data -> creates uiImage -> which generates the swiftUI image
-    
+    // Add an isUploading state to manage upload status
+    @Published var isUploading = false
+
+    // This function looks at the item from the PhotosPickerItem, creates data, and generates the SwiftUI Image
     func loadImage(fromItem item: PhotosPickerItem?) async {
         guard let item = item else { return }
         
@@ -33,18 +34,33 @@ class UploadPostViewModel: ObservableObject {
     }
     
     func uploadPost(title: String, caption: String, category: PostCategory) async throws {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        guard let uiImage = uiImage else { return }
+        guard let uid = Auth.auth().currentUser?.uid, let uiImage = uiImage else { return }
         
-        // create post collection:
+        isUploading = true
+        
         let postRef = Firestore.firestore().collection("posts").document()
         
-        guard let imageUrl = try await ImageUploader.uploadImage(image: uiImage) else { return }
+        guard let imageUrl = try await ImageUploader.uploadImage(image: uiImage) else {
+            isUploading = false
+            throw NSError(domain: "UploadPostViewModel", code: 0, userInfo: [NSLocalizedDescriptionKey: "Image upload failed"])
+        }
 
-        let post = Post(id: postRef.documentID, ownerUid: uid, title: title, caption: caption, likes: 0, dislikes: 0, favorites: 0, comments: 0, imageUrl: imageUrl, timestamp: Timestamp(), category: PostCategory(rawValue: category.rawValue) ?? PostCategory.miscellaneous)
+        let post = Post(id: postRef.documentID, ownerUid: uid, title: title, caption: caption, likes: 0, dislikes: 0, favorites: 0, comments: 0, imageUrl: imageUrl, timestamp: Timestamp(), category: category)
         
-        guard let encodedPost = try? Firestore.Encoder().encode(post) else { return }
-        // upload post to firestore
-        try await postRef.setData(encodedPost)
+        do {
+            try await postRef.setData(from: post)
+        } catch {
+            isUploading = false
+            throw error
+        }
+        
+        isUploading = false
+    }
+    
+    // Reset function to clear the state
+    func reset() {
+        selectedImage = nil
+        postImage = nil
+        isUploading = false
     }
 }

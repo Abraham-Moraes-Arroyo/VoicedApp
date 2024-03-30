@@ -13,7 +13,8 @@ struct UploadPostView: View {
     @State private var caption = ""
     @State private var selectedCategory: PostCategory = .miscellaneous
     @State private var imagePickerPresented = false
-    @State private var isUploading = false
+    @State private var showErrorAlert = false
+    @State private var errorMessage: String = ""
     
     @StateObject var viewModel = UploadPostViewModel()
     
@@ -31,86 +32,93 @@ struct UploadPostView: View {
                     .fontWeight(.semibold)
                 Spacer()
                 
-                if isUploading {
-                    ProgressView("Uploading...")
+                if viewModel.isUploading {
+                    ProgressView()
                 } else {
                     Button("Upload") {
-                        print("Uploading Post...")
-                        isUploading = true // Start showing the progress view
-                        Task {
-                            do {
-                                try await viewModel.uploadPost(title: title, caption: caption, category: selectedCategory)
-                                clearPostDataAndReturnToForum()
-                            } catch {
-                                print("Upload failed: \(error.localizedDescription)")
-                            }
-                            isUploading = false // Hide the progress view once done
-                        }
+                        uploadPost()
                     }
                     .fontWeight(.semibold)
-                    .disabled(title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                    .disabled(title.isEmpty || viewModel.postImage == nil)
                 }
             }
             .padding(.horizontal)
             
-            VStack(spacing: 8) {
-                Button(action: {
-                    imagePickerPresented = true
-                }) {
-                    if let image = viewModel.postImage {
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 100)
-                    } else {
-                        Image(systemName: "photo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 100)
-                            .foregroundColor(.gray)
-                    }
-                }
-                .buttonStyle(.plain)
-                .sheet(isPresented: $imagePickerPresented) {
-                    PhotosPicker(selection: $viewModel.selectedImage, matching: .images, photoLibrary: .shared()) {
-                        Text("Click here to select a photo")
-                    }
-                }
-
-                TextField("Enter your title...", text: $title)
-                    .textFieldStyle(.roundedBorder)
-                
-                TextField("Enter your caption...", text: $caption)
-                    .textFieldStyle(.roundedBorder)
-                    
-                HStack {
-                    Text("Choose a category: ")
-                    Picker("Category", selection: $selectedCategory) {
-                        ForEach(PostCategory.allCases, id: \.self) { category in
-                            Text(category.rawValue).tag(category)
+            ScrollView {
+                VStack(spacing: 8) {
+                    Button(action: {
+                        imagePickerPresented = true
+                    }) {
+                        if let image = viewModel.postImage {
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 200)
+                        } else {
+                            Image(systemName: "photo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 200)
+                                .foregroundColor(.gray)
                         }
                     }
-                    .pickerStyle(MenuPickerStyle())
+                    .buttonStyle(.plain)
+                    .sheet(isPresented: $imagePickerPresented) {
+                        PhotosPicker(selection: $viewModel.selectedImage, matching: .images, photoLibrary: .shared()) {
+                            Text("Click here to add a photo")
+                        }
+                    }
+
+                    TextField("Enter your title...", text: $title)
+                        .textFieldStyle(.roundedBorder)
+                    
+                    TextField("Enter your caption...", text: $caption)
+                        .textFieldStyle(.roundedBorder)
+                    HStack(spacing: 5) {
+                        Text("Choose a category")
+                        
+                        Picker("Category", selection: $selectedCategory) {
+                            ForEach(PostCategory.allCases, id: \.self) { category in
+                                Text(category.rawValue).tag(category)
+                            }
+                        }
+                        .pickerStyle(MenuPickerStyle())
+                    }
+                    
                 }
+                .padding()
             }
-            .padding()
-            
-            Spacer()
+        }
+        .alert(isPresented: $showErrorAlert) {
+            Alert(title: Text("Upload Failed"), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+        }
+    }
+    
+    func uploadPost() {
+        guard !title.isEmpty, let _ = viewModel.postImage else { return }
+        viewModel.isUploading = true
+        
+        Task {
+            do {
+                try await viewModel.uploadPost(title: title, caption: caption, category: selectedCategory)
+                clearPostDataAndReturnToForum()
+            } catch {
+                viewModel.isUploading = false
+                errorMessage = error.localizedDescription
+                showErrorAlert = true
+            }
         }
     }
     
     func clearPostDataAndReturnToForum() {
         title = ""
         caption = ""
-        imagePickerPresented = false
-        viewModel.selectedImage = nil
-        viewModel.postImage = nil
-        selectedCategory = .miscellaneous
+        viewModel.reset()
         tabIndex = 0
-        isUploading = false // Reset uploading state
         dismiss()
     }
 }
+
 
 
 #Preview {
