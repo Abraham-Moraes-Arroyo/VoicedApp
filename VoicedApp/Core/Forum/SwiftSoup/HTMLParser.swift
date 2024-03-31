@@ -34,7 +34,7 @@ final class HTMLParser {
                 let post = Post(id: UUID().uuidString,
                                 ownerUid: nil,
                                 title: title,
-                                caption: summary,
+                                caption: link,
                                 likes: 0,
                                 dislikes: 0,
                                 favorites: 0,
