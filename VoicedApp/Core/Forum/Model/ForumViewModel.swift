@@ -17,16 +17,11 @@ class ForumViewModel: ObservableObject {
     
     init() {
         Task { try await fetchPosts()
-            let htmlContent = await fetchHTMLContent()
-                        await updatePostsFromHTML(htmlContent: htmlContent)
+            // Directly using the specific URL when calling the method
+                    let htmlContent = await fetchHTMLContent(from: "https://blockclubchicago.org/category/back-of-the-yards/")
+                    await updatePostsFromHTML(htmlContent: htmlContent)
             
         }
-    }
-    
-    // Dummy method representing asynchronous HTML content fetching
-    func fetchHTMLContent() async -> String {
-        // Fetch or generate your HTML content here
-        return "<html>...</html>"
     }
     
     @MainActor
@@ -66,3 +61,25 @@ extension ForumViewModel {
     }
 }
 
+
+extension ForumViewModel {
+    func fetchHTMLContent(from url: String) async -> String {
+        guard let url = URL(string: "https://blockclubchicago.org/category/back-of-the-yards/") else {
+            print("Invalid URL")
+            return ""
+        }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            if let htmlContent = String(data: data, encoding: .utf8) {
+                return htmlContent
+            } else {
+                print("Failed to decode HTML content")
+                return ""
+            }
+        } catch {
+            print("Error fetching HTML content: \(error)")
+            return ""
+        }
+    }
+}
