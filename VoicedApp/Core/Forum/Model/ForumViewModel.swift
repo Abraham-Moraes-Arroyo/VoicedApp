@@ -16,7 +16,17 @@ class ForumViewModel: ObservableObject {
     // current category represents the default category
     
     init() {
-        Task { try await fetchPosts() }
+        Task { try await fetchPosts()
+            let htmlContent = await fetchHTMLContent()
+                        await updatePostsFromHTML(htmlContent: htmlContent)
+            
+        }
+    }
+    
+    // Dummy method representing asynchronous HTML content fetching
+    func fetchHTMLContent() async -> String {
+        // Fetch or generate your HTML content here
+        return "<html>...</html>"
     }
     
     @MainActor
@@ -41,3 +51,18 @@ class ForumViewModel: ObservableObject {
             }
         }
     }
+
+extension ForumViewModel {
+    @MainActor
+    func updatePostsFromHTML(htmlContent: String) {
+        let parser = HTMLParser()
+        let newPosts = parser.parse(html: htmlContent)
+        
+        // Assuming newPosts are meant to replace or be added to existing posts
+        DispatchQueue.main.async {
+            self.posts.append(contentsOf: newPosts)
+            self.applyCategoryFilter(category: self.currentCategory)
+        }
+    }
+}
+

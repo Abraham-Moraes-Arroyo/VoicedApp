@@ -58,6 +58,8 @@ struct ForumView: View {
             viewModel.setCategory(newValue)
         }
     }
+    
+    
 }
 
 #Preview {
