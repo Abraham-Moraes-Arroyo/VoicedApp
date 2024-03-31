@@ -52,8 +52,16 @@
 		857071712BA8FC7F0098ABD4 /* FBTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857071702BA8FC7F0098ABD4 /* FBTemplate.swift */; };
 		85984C812BA39B440033CF9E /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85984C802BA39B440033CF9E /* LocationDetailView.swift */; };
 		85984C832BA5C5D10033CF9E /* LocationMapAnnotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85984C822BA5C5D10033CF9E /* LocationMapAnnotionView.swift */; };
+<<<<<<< HEAD
 		85E94F502BBA123300334F8F /* SnapshotScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E94F4F2BBA123300334F8F /* SnapshotScreen.swift */; };
 		85E94F532BBA198300334F8F /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E94F522BBA198300334F8F /* SpotDetailView.swift */; };
+=======
+		A71F18FA2BB6C2A500AE2EEC /* RegistrationEnumFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71F18F92BB6C2A500AE2EEC /* RegistrationEnumFields.swift */; };
+		A71F193D2BB8126600AE2EEC /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = A71F193C2BB8126600AE2EEC /* SwiftSoup */; };
+		A71F19402BB812B800AE2EEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71F193F2BB812B800AE2EEC /* ViewController.swift */; };
+		A71F19422BB812ED00AE2EEC /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71F19412BB812ED00AE2EEC /* WebViewWrapper.swift */; };
+		A765572D2BB9790C005977DE /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A765572C2BB9790C005977DE /* HTMLParser.swift */; };
+>>>>>>> main
 		A7DFDDFC2BA15DB00077A1C4 /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */; };
 		A7DFDDFF2BA15DD30077A1C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */; };
 		A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */; };
@@ -129,8 +137,15 @@
 		857071702BA8FC7F0098ABD4 /* FBTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBTemplate.swift; sourceTree = "<group>"; };
 		85984C802BA39B440033CF9E /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 		85984C822BA5C5D10033CF9E /* LocationMapAnnotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotionView.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		85E94F4F2BBA123300334F8F /* SnapshotScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotScreen.swift; sourceTree = "<group>"; };
 		85E94F522BBA198300334F8F /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
+=======
+		A71F18F92BB6C2A500AE2EEC /* RegistrationEnumFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationEnumFields.swift; sourceTree = "<group>"; };
+		A71F193F2BB812B800AE2EEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A71F19412BB812ED00AE2EEC /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
+		A765572C2BB9790C005977DE /* HTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
+>>>>>>> main
 		A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 		A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -174,6 +189,7 @@
 				8550A7142BACEA5F00B2272D /* FirebaseFunctionsCombine-Community in Frameworks */,
 				8550A70C2BACEA5F00B2272D /* FirebaseFirestore in Frameworks */,
 				8550A6F82BACEA5F00B2272D /* FirebaseAnalyticsSwift in Frameworks */,
+				A71F193D2BB8126600AE2EEC /* SwiftSoup in Frameworks */,
 				8550A6F42BACEA5F00B2272D /* FirebaseAnalytics in Frameworks */,
 				8550A6F62BACEA5F00B2272D /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				8550A7102BACEA5F00B2272D /* FirebaseFirestoreSwift in Frameworks */,
@@ -332,6 +348,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		85E94F512BBA123800334F8F /* snapshotscreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +356,24 @@
 				85E94F522BBA198300334F8F /* SpotDetailView.swift */,
 			);
 			path = snapshotscreen;
+=======
+		A71F18F82BB6C28D00AE2EEC /* RegistrationEnums */ = {
+			isa = PBXGroup;
+			children = (
+				A71F18F92BB6C2A500AE2EEC /* RegistrationEnumFields.swift */,
+			);
+			path = RegistrationEnums;
+			sourceTree = "<group>";
+		};
+		A71F193E2BB8127800AE2EEC /* SwiftSoup */ = {
+			isa = PBXGroup;
+			children = (
+				A71F193F2BB812B800AE2EEC /* ViewController.swift */,
+				A71F19412BB812ED00AE2EEC /* WebViewWrapper.swift */,
+				A765572C2BB9790C005977DE /* HTMLParser.swift */,
+			);
+			path = SwiftSoup;
+>>>>>>> main
 			sourceTree = "<group>";
 		};
 		A7DFDDED2BA157A60077A1C4 /* App */ = {
@@ -408,6 +443,7 @@
 		A7DFDDF42BA159440077A1C4 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				A71F18F82BB6C28D00AE2EEC /* RegistrationEnums */,
 				A7DFDDFD2BA15DC20077A1C4 /* Views */,
 				A7DFDE302BAA96B90077A1C4 /* ViewModel */,
 				A7DFDE292BAA8FD80077A1C4 /* Service */,
@@ -418,6 +454,7 @@
 		A7DFDDF52BA1595D0077A1C4 /* Forum */ = {
 			isa = PBXGroup;
 			children = (
+				A71F193E2BB8127800AE2EEC /* SwiftSoup */,
 				A7DFDE422BB0F6320077A1C4 /* Model */,
 				A7DFDE022BA15DF30077A1C4 /* Views */,
 			);
@@ -621,6 +658,7 @@
 				8550A7252BACEA5F00B2272D /* FirebaseStorage */,
 				8550A7272BACEA5F00B2272D /* FirebaseStorageCombine-Community */,
 				A7DFDE402BAD64140077A1C4 /* Kingfisher */,
+				A71F193C2BB8126600AE2EEC /* SwiftSoup */,
 			);
 			productName = VoicedApp;
 			productReference = 8508C7C62B9B72EE00B2D0FD /* VoicedApp.app */;
@@ -697,6 +735,7 @@
 			packageReferences = (
 				8550A6F22BACEA3000B2272D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				A7DFDE3F2BAD62C30077A1C4 /* XCRemoteSwiftPackageReference "kingfisher" */,
+				A71F193B2BB8126600AE2EEC /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 8508C7C72B9B72EE00B2D0FD /* Products */;
 			projectDirPath = "";
@@ -742,6 +781,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7DFDE342BAAA3240077A1C4 /* SettingsView.swift in Sources */,
+				A71F18FA2BB6C2A500AE2EEC /* RegistrationEnumFields.swift in Sources */,
 				A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */,
 				A7DFDE322BAA96E80077A1C4 /* RegistrationViewModel.swift in Sources */,
 				A7DFDE142BA160FD0077A1C4 /* EditProfileView.swift in Sources */,
@@ -771,11 +811,13 @@
 				A7DFDE092BA15F3E0077A1C4 /* HighlightsView.swift in Sources */,
 				A7DFDE162BA161180077A1C4 /* ProfilePostFilter.swift in Sources */,
 				A7DFDE1E2BA161660077A1C4 /* UserContentListView.swift in Sources */,
+				A71F19402BB812B800AE2EEC /* ViewController.swift in Sources */,
 				A7DFDE492BB104FA0077A1C4 /* ProfileViewModel.swift in Sources */,
 				A7DFDE3C2BAD4AD30077A1C4 /* EditProfileViewModel.swift in Sources */,
 				A7DFDDFF2BA15DD30077A1C4 /* LoginView.swift in Sources */,
 				85984C812BA39B440033CF9E /* LocationDetailView.swift in Sources */,
 				857071712BA8FC7F0098ABD4 /* FBTemplate.swift in Sources */,
+				A71F19422BB812ED00AE2EEC /* WebViewWrapper.swift in Sources */,
 				A7DFDE042BA15E040077A1C4 /* ForumView.swift in Sources */,
 				A7DFDE1C2BA161510077A1C4 /* CurrentUserProfileView.swift in Sources */,
 				A7DFDE222BA162140077A1C4 /* User.swift in Sources */,
@@ -785,6 +827,7 @@
 				A7DFDE062BA15E160077A1C4 /* ForumCell.swift in Sources */,
 				85E94F502BBA123300334F8F /* SnapshotScreen.swift in Sources */,
 				A7DFDE3E2BAD5DA10077A1C4 /* ImageUploader.swift in Sources */,
+				A765572D2BB9790C005977DE /* HTMLParser.swift in Sources */,
 				8508C7CA2B9B72EE00B2D0FD /* VoicedAppApp.swift in Sources */,
 				A7DFDE282BAA7FF70077A1C4 /* UploadPostViewModel.swift in Sources */,
 			);
@@ -1128,6 +1171,14 @@
 				minimumVersion = 10.23.0;
 			};
 		};
+		A71F193B2BB8126600AE2EEC /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.2;
+			};
+		};
 		A7DFDE3F2BAD62C30077A1C4 /* XCRemoteSwiftPackageReference "kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/kingfisher";
@@ -1273,6 +1324,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8550A6F22BACEA3000B2272D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		A71F193C2BB8126600AE2EEC /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A71F193B2BB8126600AE2EEC /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
 		};
 		A7DFDE402BAD64140077A1C4 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

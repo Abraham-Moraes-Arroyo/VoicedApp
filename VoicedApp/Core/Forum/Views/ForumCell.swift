@@ -9,6 +9,7 @@
 
 import SwiftUI
 import Kingfisher
+import UIKit
 
 struct ForumCell: View {
     @ObservedObject var viewModel: ForumCellViewModel
@@ -76,11 +77,16 @@ struct ForumCell: View {
                     VStack(spacing: 8) {
                         Text(post.title)
                             .fontWeight(.semibold)
-                            .font(.title)
+                            .font(.title2)
                             .multilineTextAlignment(.center)
-                        
-                        Text(post.caption ?? "")
-                            .multilineTextAlignment(.center)
+                        // Check if the caption is a valid URL
+                        if let url = URL(string: post.caption ?? ""), UIApplication.shared.canOpenURL(url) {
+                            Link("Read more", destination: url)
+                                .foregroundColor(.blue)
+                                                                          } else {
+                                                    Text(post.caption ?? "")
+                                                        .font(.caption)
+                                                }
                         
                     }
                 }

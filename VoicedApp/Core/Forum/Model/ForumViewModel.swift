@@ -16,7 +16,12 @@ class ForumViewModel: ObservableObject {
     // current category represents the default category
     
     init() {
-        Task { try await fetchPosts() }
+        Task { try await fetchPosts()
+            // Directly using the specific URL when calling the method
+                    let htmlContent = await fetchHTMLContent(from: "https://blockclubchicago.org/category/back-of-the-yards/")
+                    await updatePostsFromHTML(htmlContent: htmlContent)
+            
+        }
     }
     
     @MainActor
@@ -41,3 +46,40 @@ class ForumViewModel: ObservableObject {
             }
         }
     }
+
+extension ForumViewModel {
+    @MainActor
+    func updatePostsFromHTML(htmlContent: String) {
+        let parser = HTMLParser()
+        let newPosts = parser.parse(html: htmlContent)
+        
+        // Assuming newPosts are meant to replace or be added to existing posts
+        DispatchQueue.main.async {
+            self.posts.append(contentsOf: newPosts)
+            self.applyCategoryFilter(category: self.currentCategory)
+        }
+    }
+}
+
+
+extension ForumViewModel {
+    func fetchHTMLContent(from url: String) async -> String {
+        guard let url = URL(string: "https://blockclubchicago.org/category/back-of-the-yards/") else {
+            print("Invalid URL")
+            return ""
+        }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            if let htmlContent = String(data: data, encoding: .utf8) {
+                return htmlContent
+            } else {
+                print("Failed to decode HTML content")
+                return ""
+            }
+        } catch {
+            print("Error fetching HTML content: \(error)")
+            return ""
+        }
+    }
+}

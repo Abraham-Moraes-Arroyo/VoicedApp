@@ -23,7 +23,7 @@ struct HighlightsView: View {
                     }
                 }
             }
-            .navigationTitle("Highlights")
+            .navigationTitle("Dashboard")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

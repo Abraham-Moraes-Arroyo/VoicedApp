@@ -6,72 +6,150 @@
 //
 
 import SwiftUI
+
 struct RegistrationView: View {
-    
-    @Environment(\.dismiss) var dismiss
     
     @StateObject var viewModel = RegistrationViewModel()
     
     var body: some View {
-        VStack {
-            Spacer()
-            Image("voiced-logo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 120, height: 120)
-                .padding()
+        ScrollView {
+            Text("Create an account")
+                .font(.title)
+                .fontWeight(.semibold)
             
-            VStack {
+            VStack(alignment: .leading, spacing: 20) {
                 
-                // whatever user types in these fields it updates the published properties in the view model
+                HStack(spacing: 3) {
+                    Text("Welcome to Voiced")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    
+                    Image("voiced-logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                      
+                }
                 
-                TextField("Enter your email...", text: $viewModel.email)
-                    .modifier(VoicedTextFieldModifier())
-                    .autocapitalization(.none)
+                Text("Create an account to access data on 311 reports, community posts, community polls, and more. Exclusively for the New City Community.")
+                    .font(.caption)
                 
+                // Existing fields
                 TextField("Enter your username...", text: $viewModel.username)
                     .autocapitalization(.none)
-                    .modifier(VoicedTextFieldModifier())
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                TextField("Enter your email...", text: $viewModel.email)
+                    .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                 
                 SecureField("Enter your password...", text: $viewModel.password)
-                    .modifier(VoicedTextFieldModifier())
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                 
+                // New optional fields
+                TextField("Enter your zipcode...", text: Binding<String>(
+                    get: { viewModel.zipCode ?? "" },
+                    set: { viewModel.zipCode = $0.isEmpty ? nil : $0 }
+                ))
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+
+
+                // Age picker
+                Picker("Age Category (Optional)", selection: $viewModel.selectedAge) {
+                    // not sure why it appears red?
+                    Text("Select your age group").tag(AgeCategory?.none)
+                        .foregroundColor(.black)
                 
-            }
-            Button {
-                Task { try await viewModel.createUser() }
-                // when user clicks on the button, it is a registered user
+                        
+                    ForEach(AgeCategory.allCases, id: \.self) { age in
+                        Text(age.rawValue).tag(age as AgeCategory?)
+                    }
+                }.pickerStyle(MenuPickerStyle())
+                    .foregroundColor(.black)
                 
-            } label: {
-                Text("Sign up")
-                    .font(.subheadline)
+                Text("What is your main reason for using Voiced?")
                     .fontWeight(.semibold)
-                    .foregroundColor(.white)
-                    .frame(width: 352, height: 44)
-                    .background(Color(red: 0.725, green: 0.878, blue: 0.792)) // #b9e0ca
-                    .cornerRadius(8)
-            }
-            .padding(.vertical)
-            
-            Spacer()
-            
-            Divider()
-            
-            Button {
-                dismiss()
-            } label: {
-                HStack(spacing: 3) {
-                    Text("Already have an account?")
-                    
-                    Text("Sign up")
-                        .fontWeight(.semibold)
+                
+                TextField("Enter your reason here...", text: Binding<String>(
+                    get: { viewModel.reasonForUsing ?? "" },
+                    set: { viewModel.reasonForUsing = $0.isEmpty ? nil : $0 }
+                ))
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                
+                // Community issues
+                Text("What community issue(s) do you care about the most?")
+                    .fontWeight(.semibold)
+                ForEach(CommunityIssue.allCases, id: \.self) { issue in
+                    Button(action: {
+                        viewModel.toggleCommunityIssue(issue)
+                    }) {
+                        HStack {
+                            Text(issue.rawValue)
+                            if viewModel.isCommunityIssueSelected(issue) {
+                                Image(systemName: "checkmark")
+                            }
+                        }
+                    }
+                    .buttonStyle(BorderlessButtonStyle())
                 }
-                .foregroundColor(.black)
-                .font(.footnote)
+                
+                // Discovery method
+                Text("How Did You Find Out About Voiced?")
+                    .fontWeight(.semibold)
+                ForEach(DiscoveryMethod.allCases, id: \.self) { method in
+                    Button(action: {
+                        viewModel.toggleDiscoveryMethod(method)
+                    }) {
+                        HStack {
+                            Text(method.rawValue)
+                            if viewModel.isDiscoveryMethodSelected(method) {
+                                Image(systemName: "checkmark")
+                            }
+                        }
+                    }
+                    .buttonStyle(BorderlessButtonStyle())
+                }
+
+                Button(action: {
+                    Task {
+                        try await viewModel.createUser()
+                    }
+                }) {
+                    Text("Sign Up")
+                        .foregroundColor(.white)
+                        .fontWeight(.semibold)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                
+                
+                NavigationLink {
+                    LoginView()
+                        .navigationBarBackButtonHidden(true)
+                } label: {
+                    HStack(spacing: 3) {
+                        Text("Already have an account?")
+                        
+                        Text("SIGN IN")
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.blue)
+                        // to do: change it to the hex color on figma
+                    }
+                    .foregroundColor(.black)
+                    .font(.footnote)
+                }
+                .padding(.vertical, 16)
+                
+                
             }
-            .padding(.vertical)
-            
+            .padding()
         }
+        .foregroundColor(.black)
+        .navigationBarTitle("Sign Up", displayMode: .inline)
     }
 }
 
