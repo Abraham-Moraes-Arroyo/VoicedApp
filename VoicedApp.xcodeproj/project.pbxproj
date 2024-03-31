@@ -52,6 +52,8 @@
 		857071712BA8FC7F0098ABD4 /* FBTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857071702BA8FC7F0098ABD4 /* FBTemplate.swift */; };
 		85984C812BA39B440033CF9E /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85984C802BA39B440033CF9E /* LocationDetailView.swift */; };
 		85984C832BA5C5D10033CF9E /* LocationMapAnnotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85984C822BA5C5D10033CF9E /* LocationMapAnnotionView.swift */; };
+		85E94F502BBA123300334F8F /* SnapshotScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E94F4F2BBA123300334F8F /* SnapshotScreen.swift */; };
+		85E94F532BBA198300334F8F /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E94F522BBA198300334F8F /* SpotDetailView.swift */; };
 		A7DFDDFC2BA15DB00077A1C4 /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */; };
 		A7DFDDFF2BA15DD30077A1C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */; };
 		A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */; };
@@ -127,6 +129,8 @@
 		857071702BA8FC7F0098ABD4 /* FBTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBTemplate.swift; sourceTree = "<group>"; };
 		85984C802BA39B440033CF9E /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 		85984C822BA5C5D10033CF9E /* LocationMapAnnotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotionView.swift; sourceTree = "<group>"; };
+		85E94F4F2BBA123300334F8F /* SnapshotScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotScreen.swift; sourceTree = "<group>"; };
+		85E94F522BBA198300334F8F /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
 		A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 		A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -300,6 +304,7 @@
 				8508C8032B9B880400B2D0FD /* LocationsListView.swift */,
 				8508C8052B9BEED600B2D0FD /* LocationPreviewView.swift */,
 				85984C822BA5C5D10033CF9E /* LocationMapAnnotionView.swift */,
+				85E94F512BBA123800334F8F /* snapshotscreen */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -325,6 +330,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		85E94F512BBA123800334F8F /* snapshotscreen */ = {
+			isa = PBXGroup;
+			children = (
+				85E94F4F2BBA123300334F8F /* SnapshotScreen.swift */,
+				85E94F522BBA198300334F8F /* SpotDetailView.swift */,
+			);
+			path = snapshotscreen;
 			sourceTree = "<group>";
 		};
 		A7DFDDED2BA157A60077A1C4 /* App */ = {
@@ -752,6 +766,7 @@
 				8508C7CC2B9B72EE00B2D0FD /* ContentView.swift in Sources */,
 				8508C8002B9B7E9200B2D0FD /* LocationsView.swift in Sources */,
 				A7DFDE442BB0F6460077A1C4 /* ForumViewModel.swift in Sources */,
+				85E94F532BBA198300334F8F /* SpotDetailView.swift in Sources */,
 				8508C7FB2B9B7A6D00B2D0FD /* Location.swift in Sources */,
 				A7DFDE092BA15F3E0077A1C4 /* HighlightsView.swift in Sources */,
 				A7DFDE162BA161180077A1C4 /* ProfilePostFilter.swift in Sources */,
@@ -768,6 +783,7 @@
 				A7DFDE2F2BAA928C0077A1C4 /* ContentViewModel.swift in Sources */,
 				A7DFDE462BB1017E0077A1C4 /* PostService.swift in Sources */,
 				A7DFDE062BA15E160077A1C4 /* ForumCell.swift in Sources */,
+				85E94F502BBA123300334F8F /* SnapshotScreen.swift in Sources */,
 				A7DFDE3E2BAD5DA10077A1C4 /* ImageUploader.swift in Sources */,
 				8508C7CA2B9B72EE00B2D0FD /* VoicedAppApp.swift in Sources */,
 				A7DFDE282BAA7FF70077A1C4 /* UploadPostViewModel.swift in Sources */,
