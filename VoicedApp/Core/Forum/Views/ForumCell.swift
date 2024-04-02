@@ -81,7 +81,7 @@ struct ForumCell: View {
                             .multilineTextAlignment(.center)
                         // Check if the caption is a valid URL
                         if let url = URL(string: post.caption ?? ""), UIApplication.shared.canOpenURL(url) {
-                            Link("Read more", destination: url)
+                            Link(post.caption ?? "", destination: url)
                                 .foregroundColor(.blue)
                                                                           } else {
                                                     Text(post.caption ?? "")
