@@ -52,16 +52,12 @@
 		857071712BA8FC7F0098ABD4 /* FBTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857071702BA8FC7F0098ABD4 /* FBTemplate.swift */; };
 		85984C812BA39B440033CF9E /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85984C802BA39B440033CF9E /* LocationDetailView.swift */; };
 		85984C832BA5C5D10033CF9E /* LocationMapAnnotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85984C822BA5C5D10033CF9E /* LocationMapAnnotionView.swift */; };
-<<<<<<< HEAD
-		85E94F502BBA123300334F8F /* SnapshotScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E94F4F2BBA123300334F8F /* SnapshotScreen.swift */; };
-		85E94F532BBA198300334F8F /* SpotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E94F522BBA198300334F8F /* SpotDetailView.swift */; };
-=======
+
 		A71F18FA2BB6C2A500AE2EEC /* RegistrationEnumFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71F18F92BB6C2A500AE2EEC /* RegistrationEnumFields.swift */; };
 		A71F193D2BB8126600AE2EEC /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = A71F193C2BB8126600AE2EEC /* SwiftSoup */; };
 		A71F19402BB812B800AE2EEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71F193F2BB812B800AE2EEC /* ViewController.swift */; };
 		A71F19422BB812ED00AE2EEC /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71F19412BB812ED00AE2EEC /* WebViewWrapper.swift */; };
 		A765572D2BB9790C005977DE /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A765572C2BB9790C005977DE /* HTMLParser.swift */; };
->>>>>>> main
 		A7DFDDFC2BA15DB00077A1C4 /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */; };
 		A7DFDDFF2BA15DD30077A1C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */; };
 		A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */; };
@@ -137,15 +133,10 @@
 		857071702BA8FC7F0098ABD4 /* FBTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBTemplate.swift; sourceTree = "<group>"; };
 		85984C802BA39B440033CF9E /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 		85984C822BA5C5D10033CF9E /* LocationMapAnnotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotionView.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		85E94F4F2BBA123300334F8F /* SnapshotScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotScreen.swift; sourceTree = "<group>"; };
-		85E94F522BBA198300334F8F /* SpotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailView.swift; sourceTree = "<group>"; };
-=======
 		A71F18F92BB6C2A500AE2EEC /* RegistrationEnumFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationEnumFields.swift; sourceTree = "<group>"; };
 		A71F193F2BB812B800AE2EEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A71F19412BB812ED00AE2EEC /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
 		A765572C2BB9790C005977DE /* HTMLParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
->>>>>>> main
 		A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 		A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -320,7 +311,7 @@
 				8508C8032B9B880400B2D0FD /* LocationsListView.swift */,
 				8508C8052B9BEED600B2D0FD /* LocationPreviewView.swift */,
 				85984C822BA5C5D10033CF9E /* LocationMapAnnotionView.swift */,
-				85E94F512BBA123800334F8F /* snapshotscreen */,
+
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,15 +339,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		85E94F512BBA123800334F8F /* snapshotscreen */ = {
-			isa = PBXGroup;
-			children = (
-				85E94F4F2BBA123300334F8F /* SnapshotScreen.swift */,
-				85E94F522BBA198300334F8F /* SpotDetailView.swift */,
-			);
-			path = snapshotscreen;
-=======
+
 		A71F18F82BB6C28D00AE2EEC /* RegistrationEnums */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,7 +356,7 @@
 				A765572C2BB9790C005977DE /* HTMLParser.swift */,
 			);
 			path = SwiftSoup;
->>>>>>> main
+
 			sourceTree = "<group>";
 		};
 		A7DFDDED2BA157A60077A1C4 /* App */ = {
@@ -825,7 +808,6 @@
 				A7DFDE2F2BAA928C0077A1C4 /* ContentViewModel.swift in Sources */,
 				A7DFDE462BB1017E0077A1C4 /* PostService.swift in Sources */,
 				A7DFDE062BA15E160077A1C4 /* ForumCell.swift in Sources */,
-				85E94F502BBA123300334F8F /* SnapshotScreen.swift in Sources */,
 				A7DFDE3E2BAD5DA10077A1C4 /* ImageUploader.swift in Sources */,
 				A765572D2BB9790C005977DE /* HTMLParser.swift in Sources */,
 				8508C7CA2B9B72EE00B2D0FD /* VoicedAppApp.swift in Sources */,
