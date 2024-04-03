@@ -28,7 +28,7 @@ class PotholeViewModelIncomplete: ObservableObject {
     // I just did a few fields in the Pothole url
     // You will need to modify this code to grab any other stuff you need
     func fetchData() {
-        let urlString = "https://data.cityofchicago.org/resource/v6vf-nfxy.json?sr_type=Pothole%20in%20Street%20Complaint&&community_area=61&&status=Completed"
+        let urlString = "https://data.cityofchicago.org/resource/v6vf-nfxy.json?sr_type=Pothole%20in%20Street%20Complaint&&community_area=61&&status=Open"
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
             return
