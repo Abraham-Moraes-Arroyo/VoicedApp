@@ -61,7 +61,7 @@ class PotholeViewModelIncomplete: ObservableObject {
 
 // I built a simple ContentView to display the fetched data in the Preview and the console
 struct PotholeComplaintIncompleted: View { // make sure that this is differnet
-    @StateObject var viewModel = PotholeViewModel()
+    @StateObject var viewModel = PotholeViewModelIncomplete()//this is to be the name of the class
     
     var body: some View {
         List(viewModel.complaints) { complaint in
@@ -82,5 +82,5 @@ struct PotholeComplaintIncompleted: View { // make sure that this is differnet
 
 
 #Preview {
-    PotholeIncomplete()
+    PotholeComplaintIncompleted()
 }
