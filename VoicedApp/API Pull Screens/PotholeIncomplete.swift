@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+import Charts
+
 // Define your model here
 struct PotholeComplaintIncomplete: Decodable, Identifiable {
     let id = UUID()
@@ -64,6 +66,24 @@ struct PotholeComplaintIncompleted: View { // make sure that this is differnet
     @StateObject var viewModel = PotholeViewModelIncomplete()//this is to be the name of the class
     
     var body: some View {
+        
+        
+        // here is where I am going to be droping a chart
+        
+        
+        
+        Chart{
+            BarMark(x:.value("type", "Incompleted Pothole Complaints"),
+                    y:.value("Completed Issues", viewModel.complaints.count))
+            
+            BarMark(x:.value("Type", "dogs"),
+                    y:.value(" incompleted calls", 2))
+            
+        }
+        .aspectRatio(1, contentMode: .fit)
+        .padding()
+        
+        
         List(viewModel.complaints) { complaint in
             VStack(alignment: .leading) {
                 Text("SR Number: \(complaint.srNumber)")
