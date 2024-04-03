@@ -36,6 +36,8 @@
 		854D942E2BBDEC2F00117E09 /* DataPullBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D942D2BBDEC2F00117E09 /* DataPullBill.swift */; };
 		854D94322BBDFA0300117E09 /* PotholeCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D94312BBDFA0300117E09 /* PotholeCompleted.swift */; };
 		854D94342BBDFB6600117E09 /* PotholeIncomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D94332BBDFB6600117E09 /* PotholeIncomplete.swift */; };
+		854D94382BBE0FD700117E09 /* sanitationCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D94372BBE0FD700117E09 /* sanitationCompleted.swift */; };
+		854D943C2BBE1BBB00117E09 /* SanitationIncomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D943B2BBE1BBB00117E09 /* SanitationIncomplete.swift */; };
 		8550A6F42BACEA5F00B2272D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8550A6F32BACEA5F00B2272D /* FirebaseAnalytics */; };
 		8550A6F62BACEA5F00B2272D /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 8550A6F52BACEA5F00B2272D /* FirebaseAnalyticsOnDeviceConversion */; };
 		8550A6F82BACEA5F00B2272D /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8550A6F72BACEA5F00B2272D /* FirebaseAnalyticsSwift */; };
@@ -158,6 +160,8 @@
 		854D942D2BBDEC2F00117E09 /* DataPullBill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPullBill.swift; sourceTree = "<group>"; };
 		854D94312BBDFA0300117E09 /* PotholeCompleted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotholeCompleted.swift; sourceTree = "<group>"; };
 		854D94332BBDFB6600117E09 /* PotholeIncomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotholeIncomplete.swift; sourceTree = "<group>"; };
+		854D94372BBE0FD700117E09 /* sanitationCompleted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sanitationCompleted.swift; sourceTree = "<group>"; };
+		854D943B2BBE1BBB00117E09 /* SanitationIncomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanitationIncomplete.swift; sourceTree = "<group>"; };
 		8550A6F12BACE9A400B2272D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		857071322BA8F4250098ABD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8570716C2BA8F57E0098ABD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -398,6 +402,8 @@
 			children = (
 				854D94312BBDFA0300117E09 /* PotholeCompleted.swift */,
 				854D94332BBDFB6600117E09 /* PotholeIncomplete.swift */,
+				854D943B2BBE1BBB00117E09 /* SanitationIncomplete.swift */,
+				854D94372BBE0FD700117E09 /* sanitationCompleted.swift */,
 			);
 			path = "API Pull Screens";
 			sourceTree = "<group>";
@@ -861,6 +867,7 @@
 				A7DFDE382BABE4080077A1C4 /* UserService.swift in Sources */,
 				A7DFDE1A2BA1613B0077A1C4 /* ProfileHeaderView.swift in Sources */,
 				854D94192BBCDD0B00117E09 /* updatedDatafromApi.swift in Sources */,
+				854D943C2BBE1BBB00117E09 /* SanitationIncomplete.swift in Sources */,
 				A7DFDE242BA162210077A1C4 /* Post.swift in Sources */,
 				854D941D2BBCDFE300117E09 /* DataPullJson.swift in Sources */,
 				8508C8062B9BEED600B2D0FD /* LocationPreviewView.swift in Sources */,
@@ -883,6 +890,7 @@
 				85984C812BA39B440033CF9E /* LocationDetailView.swift in Sources */,
 				857071712BA8FC7F0098ABD4 /* FBTemplate.swift in Sources */,
 				A71F19422BB812ED00AE2EEC /* WebViewWrapper.swift in Sources */,
+				854D94382BBE0FD700117E09 /* sanitationCompleted.swift in Sources */,
 				854D94152BBCD17400117E09 /* File.swift in Sources */,
 				A7DFDE042BA15E040077A1C4 /* ForumView.swift in Sources */,
 				A7DFDE1C2BA161510077A1C4 /* CurrentUserProfileView.swift in Sources */,
