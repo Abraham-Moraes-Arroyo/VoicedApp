@@ -89,7 +89,7 @@ class SanitationStatusCompleteShown: ObservableObject {
     
     // Second Function Closed
     func getClosedComplaintsCallPot() {
-        let urlString = "https://data.cityofchicago.org/resource/v6vf-nfxy.json?sr_type=Pothole%20in%20Street%20Complaint&&community_area=61&&status=Open"
+        let urlString = "https://data.cityofchicago.org/resource/v6vf-nfxy.json?sr_type=Pothole%20in%20Street%20Complaint&&community_area=61&&status=Closed"
         guard let url = URL(string: urlString) else {
             print("Invalid URL")
             return
