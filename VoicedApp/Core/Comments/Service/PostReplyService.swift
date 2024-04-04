@@ -23,4 +23,19 @@ struct PostReplyService {
             "comments" : post.comments + 1
         ])
     }
+    
+    static func fetchPostReplies(forPost post: Post) async throws -> [PostReply] {
+        let snapshot = try await postsReplyCollection.whereField("postId", isEqualTo: post.id).getDocuments()
+        
+        // returns all post replies
+        return snapshot.documents.compactMap({ try? $0.data(as: PostReply.self) })
+    }
+    
+    static func fetchPostReplies(forUser user: User) async throws -> [PostReply] {
+        let snapshot = try await postsReplyCollection.whereField("postOwnerUid", isEqualTo: user.id).getDocuments()
+        
+        // returns all post replies associated with a particular user
+        return snapshot.documents.compactMap({ try? $0.data(as: PostReply.self) })
+    }
+    
 }

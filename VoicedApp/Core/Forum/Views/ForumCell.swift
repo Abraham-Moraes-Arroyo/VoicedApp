@@ -52,6 +52,17 @@ struct ForumCell: View {
                         .background(post.category.color)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding()
+                    
+                    Text(post.timestamp.timestampString())
+                        .font(.caption)
+                        .foregroundColor(Color(.systemGray3))
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName:  "ellipsis")
+                            .foregroundStyle(Color(.darkGray))
+                    })
+                    
                 }
                 Spacer()
                 // Post verification status
@@ -126,7 +137,9 @@ struct ForumCell: View {
             Button(action: { showReplySheet.toggle() }) {
                 HStack {
                     Image(systemName: "bubble.right")
-                    Text("\(post.comments)")
+                    if post.comments > 0 {
+                        Text("\(post.comments)")
+                    }
                 }
             }
             

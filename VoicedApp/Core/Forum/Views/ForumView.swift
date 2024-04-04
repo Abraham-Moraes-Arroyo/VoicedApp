@@ -18,7 +18,10 @@ struct ForumView: View {
                 LazyVStack(spacing: 35) {
                     // Dynamically create ForumCell views for each post in filteredPosts
                     ForEach(viewModel.filteredPosts, id: \.id) { post in
-                        ForumCell(post: post)
+                        
+                        NavigationLink(value: post) {
+                            ForumCell(post: post)
+                        }
                             .onTapGesture {
                                 // Placeholder for future implementation
                                 isProfileViewActive = true
@@ -26,6 +29,10 @@ struct ForumView: View {
                     }
                 }
             }
+            
+            .navigationDestination(for: Post.self, destination: { post in
+                PostDetailsView(post: post)
+            })
             .navigationTitle("Forum")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

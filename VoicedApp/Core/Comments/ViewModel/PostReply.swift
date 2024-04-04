@@ -34,3 +34,15 @@ struct PostReply: Codable, Identifiable {
     
 }
 
+extension PostReply {
+    static let MOCK_REPLIES: [PostReply] = [
+        .init(postId: Post.MOCK_POSTS[0].id,
+              replyText: "sample reply",
+              postReplyOwnerUid: User.MOCK_USERS[0].id,
+              postOwnerUid: User.MOCK_USERS[1].id,
+              timestamp: Timestamp())
+    
+    ]
+    
+}
+

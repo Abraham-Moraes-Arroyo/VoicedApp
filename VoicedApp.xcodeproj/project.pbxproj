@@ -64,6 +64,10 @@
 		A79E6D7A2BBC198B00056382 /* PostReplyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D792BBC198B00056382 /* PostReplyService.swift */; };
 		A79E6D7C2BBC1D8000056382 /* PostReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D7B2BBC1D8000056382 /* PostReply.swift */; };
 		A79E6D7E2BBC1DF100056382 /* PostReplyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D7D2BBC1DF100056382 /* PostReplyViewModel.swift */; };
+		A79E6D832BBE7CA900056382 /* PostDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D822BBE7CA900056382 /* PostDetailsView.swift */; };
+		A79E6D852BBE7E5500056382 /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D842BBE7E5500056382 /* Timestamp.swift */; };
+		A79E6D872BBE875F00056382 /* PostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D862BBE875F00056382 /* PostDetailsViewModel.swift */; };
+		A79E6D892BBE8A9D00056382 /* PostReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D882BBE8A9D00056382 /* PostReplyCell.swift */; };
 		A7DFDDFC2BA15DB00077A1C4 /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */; };
 		A7DFDDFF2BA15DD30077A1C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */; };
 		A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */; };
@@ -149,6 +153,10 @@
 		A79E6D792BBC198B00056382 /* PostReplyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReplyService.swift; sourceTree = "<group>"; };
 		A79E6D7B2BBC1D8000056382 /* PostReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReply.swift; sourceTree = "<group>"; };
 		A79E6D7D2BBC1DF100056382 /* PostReplyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReplyViewModel.swift; sourceTree = "<group>"; };
+		A79E6D822BBE7CA900056382 /* PostDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsView.swift; sourceTree = "<group>"; };
+		A79E6D842BBE7E5500056382 /* Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamp.swift; sourceTree = "<group>"; };
+		A79E6D862BBE875F00056382 /* PostDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewModel.swift; sourceTree = "<group>"; };
+		A79E6D882BBE8A9D00056382 /* PostReplyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReplyCell.swift; sourceTree = "<group>"; };
 		A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 		A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -401,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				A79E6D742BBBBA1E00056382 /* String.swift */,
+				A79E6D842BBE7E5500056382 /* Timestamp.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -411,6 +420,32 @@
 				A79E6D792BBC198B00056382 /* PostReplyService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		A79E6D7F2BBE7C1E00056382 /* PostDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A79E6D812BBE7C9700056382 /* ViewModel */,
+				A79E6D802BBE7C9200056382 /* View */,
+			);
+			path = PostDetails;
+			sourceTree = "<group>";
+		};
+		A79E6D802BBE7C9200056382 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A79E6D822BBE7CA900056382 /* PostDetailsView.swift */,
+				A79E6D882BBE8A9D00056382 /* PostReplyCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A79E6D812BBE7C9700056382 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A79E6D862BBE875F00056382 /* PostDetailsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		A7DFDDED2BA157A60077A1C4 /* App */ = {
@@ -429,6 +464,7 @@
 				A7DFDDF22BA1592B0077A1C4 /* Components */,
 				A7DFDDF52BA1595D0077A1C4 /* Forum */,
 				A7DFDDF32BA159370077A1C4 /* Highlights */,
+				A79E6D7F2BBE7C1E00056382 /* PostDetails */,
 				A7DFDDF72BA159740077A1C4 /* PostCreation */,
 				A7DFDDF62BA1596E0077A1C4 /* Profile */,
 				A7DFDDF82BA159900077A1C4 /* Root */,
@@ -818,6 +854,7 @@
 				A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */,
 				A7DFDE322BAA96E80077A1C4 /* RegistrationViewModel.swift in Sources */,
 				A79E6D7A2BBC198B00056382 /* PostReplyService.swift in Sources */,
+				A79E6D872BBE875F00056382 /* PostDetailsViewModel.swift in Sources */,
 				A7DFDE142BA160FD0077A1C4 /* EditProfileView.swift in Sources */,
 				A7DFDE4B2BB2666B0077A1C4 /* ForumCellViewModel.swift in Sources */,
 				A7DFDE3A2BABE51D0077A1C4 /* SearchViewModel.swift in Sources */,
@@ -840,6 +877,7 @@
 				A7DFDE2B2BAA8FF30077A1C4 /* AuthService.swift in Sources */,
 				8508C7CC2B9B72EE00B2D0FD /* ContentView.swift in Sources */,
 				8508C8002B9B7E9200B2D0FD /* LocationsView.swift in Sources */,
+				A79E6D832BBE7CA900056382 /* PostDetailsView.swift in Sources */,
 				A7DFDE442BB0F6460077A1C4 /* ForumViewModel.swift in Sources */,
 				8508C7FB2B9B7A6D00B2D0FD /* Location.swift in Sources */,
 				A7DFDE092BA15F3E0077A1C4 /* HighlightsView.swift in Sources */,
@@ -848,6 +886,7 @@
 				A71F19402BB812B800AE2EEC /* ViewController.swift in Sources */,
 				A79E6D7E2BBC1DF100056382 /* PostReplyViewModel.swift in Sources */,
 				A7DFDE492BB104FA0077A1C4 /* ProfileViewModel.swift in Sources */,
+				A79E6D852BBE7E5500056382 /* Timestamp.swift in Sources */,
 				A7DFDE3C2BAD4AD30077A1C4 /* EditProfileViewModel.swift in Sources */,
 				A7DFDDFF2BA15DD30077A1C4 /* LoginView.swift in Sources */,
 				A79E6D702BBB945000056382 /* CommentReplyView.swift in Sources */,
@@ -864,6 +903,7 @@
 				A7DFDE062BA15E160077A1C4 /* ForumCell.swift in Sources */,
 				A7DFDE3E2BAD5DA10077A1C4 /* ImageUploader.swift in Sources */,
 				A765572D2BB9790C005977DE /* HTMLParser.swift in Sources */,
+				A79E6D892BBE8A9D00056382 /* PostReplyCell.swift in Sources */,
 				8508C7CA2B9B72EE00B2D0FD /* VoicedAppApp.swift in Sources */,
 				A7DFDE282BAA7FF70077A1C4 /* UploadPostViewModel.swift in Sources */,
 			);
