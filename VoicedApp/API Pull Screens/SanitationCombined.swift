@@ -40,16 +40,84 @@ class SanitationStatusCompleteShown: ObservableObject {
     // two var to acces open and closed states of the pothole statius
     @Published var openComplaints: [PotholeComplaint] = []
     @Published var completedComplaints: [PotholeComplaint] = []
-    //Repeaat the same but for the pothole. 
+    //Repeaat the same but for the pothole.
 
+    @Published var openComplaintPot: [PotholeComplaint] = []
+    @Published var closedComplaintPot: [PotholeComplaint] = []
+    
     
 //    get complaints
     func getComplaints() {
         getOpenComplaintsCall()
         getCompletedPotholeState()
+        
+        getOpenComplaintsCallPot()
+        getClosedComplaintsCallPot()
     }
     
+    //first pothole complaint OPEN
+    func getOpenComplaintsCallPot() {
+        let urlString = "https://data.cityofchicago.org/resource/v6vf-nfxy.json?sr_type=Pothole%20in%20Street%20Complaint&&community_area=61&&status=Open"
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            if let data = data {
+                do {
+                    let decodedResponse = try JSONDecoder().decode([PotholeComplaint].self, from: data)
+                    DispatchQueue.main.async {
+                        self?.openComplaintPot = decodedResponse
+                    }
+                    // Print each complaint's details to the console for debugging.
+                    for complaint in decodedResponse {
+                        print("SR Number: \(complaint.srNumber), SR Type: \(complaint.srType), Status: \(complaint.status)")
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        print("Decoding failed: \(error.localizedDescription)")
+                    }
+                }
+            } else if let error = error {
+                DispatchQueue.main.async {
+                    print("Fetch failed: \(error.localizedDescription)")
+                }
+            }
+        }.resume()
+    }
     
+    // Second Function Closed
+    func getClosedComplaintsCallPot() {
+        let urlString = "https://data.cityofchicago.org/resource/v6vf-nfxy.json?sr_type=Pothole%20in%20Street%20Complaint&&community_area=61&&status=Open"
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            if let data = data {
+                do {
+                    let decodedResponse = try JSONDecoder().decode([PotholeComplaint].self, from: data)
+                    DispatchQueue.main.async {
+                        self?.closedComplaintPot = decodedResponse
+                    }
+                    // Print each complaint's details to the console for debugging.
+                    for complaint in decodedResponse {
+                        print("SR Number: \(complaint.srNumber), SR Type: \(complaint.srType), Status: \(complaint.status)")
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        print("Decoding failed: \(error.localizedDescription)")
+                    }
+                }
+            } else if let error = error {
+                DispatchQueue.main.async {
+                    print("Fetch failed: \(error.localizedDescription)")
+                }
+            }
+        }.resume()
+    }
     
     // firest function
     func getOpenComplaintsCall() {
@@ -225,8 +293,13 @@ struct CombinedSanCalls: View { // make sure that this is differnet
                     BarMark(x:.value("type", "Closed Sanitation calls"),
                             y:.value("Completed Issues", viewModel.completedComplaints.count))
                     
-                    BarMark(x:.value("type", "pen Sanitation calls"),
-                            y:.value("Open Issues", viewModel.openComplaints.count))
+                    
+                    BarMark(x:.value("type", "Open Pothole calls"),
+                            y:.value("Open Issues", viewModel.openComplaintPot.count))
+                    
+                    BarMark(x:.value("type", "Closed Pothole calls"),
+                            y:.value("Closed Issues", viewModel.closedComplaintPot.count))
+                  
                     
 //                    BarMark(x:.value("Type", "Completed Pothole Number"),
 //                            y:.value(" incompleted calls", Beans.complaints.count))
