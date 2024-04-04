@@ -15,17 +15,33 @@ struct PostService {
     // Fetch all forum posts
     static func fetchForumPosts() async throws -> [Post] {
         let snapshot = try await postsCollection.getDocuments()
-        var posts = try snapshot.documents.compactMap({ try $0.data(as: Post.self) })
-        
-        for i in 0 ..< posts.count {
-            let post = posts[i]
-            guard let ownerUid = post.ownerUid else { return [] }
-            let postUser = try await UserService.fetchUser(withUid: ownerUid)
-            posts[i].user = postUser
+        print("Snapshot documents count: \(snapshot.documents.count)")
+        var posts: [Post] = []
+
+        for document in snapshot.documents {
+            do {
+                var post = try document.data(as: Post.self)
+                // Only attempt to fetch the user if an ownerUid exists
+                if let ownerUid = post.ownerUid {
+                    // Attempt to fetch user and assign if successful
+                    do {
+                        let postUser = try await UserService.fetchUser(withUid: ownerUid)
+                        post.user = postUser
+                    } catch {
+                        // Error fetching user, you can decide to log this error or handle accordingly
+                        print("Error fetching user for post: \(error)")
+                    }
+                }
+                posts.append(post) // Append post regardless of whether user was fetched
+            } catch {
+                print("Error parsing post: \(error)")
+                // Handle or log error in parsing post from document
+            }
         }
-        
+
         return posts
     }
+
     
     // Fetch posts by a specific user
     static func fetchUserPosts(uid: String) async throws -> [Post] {

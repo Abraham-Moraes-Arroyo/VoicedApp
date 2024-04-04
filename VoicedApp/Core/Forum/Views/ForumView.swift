@@ -57,6 +57,13 @@ struct ForumView: View {
         .onChange(of: selectedCategory) { newValue in
             viewModel.setCategory(newValue)
         }
+        .refreshable {
+            Task { try await viewModel.fetchPosts() }
+                            }
+                            .overlay {
+                                if viewModel.isLoading { ProgressView() }
+                            }
+        
     }
     
     

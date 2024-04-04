@@ -34,7 +34,8 @@ struct ForumCell: View {
         self.viewModel = ForumCellViewModel(post: post)
     }
     private let imageDimension: CGFloat = (UIScreen.main.bounds.width / 3) - 1
-//    @State private var showingActionSheet = false
+
+        @State private var showReplySheet = false
     var body: some View {
         VStack {
             HStack {
@@ -122,7 +123,7 @@ struct ForumCell: View {
                 }
             }
             
-            Button(action: { print("Comment Post") }) {
+            Button(action: { showReplySheet.toggle() }) {
                 HStack {
                     Image(systemName: "bubble.right")
                     Text("\(post.comments)")
@@ -147,6 +148,9 @@ struct ForumCell: View {
             }
             
             Spacer()
+        }
+        .sheet(isPresented: $showReplySheet) {
+            CommentReplyView(post: post)
         }
         .padding(.top, 4)
         .foregroundColor(.black)
