@@ -126,6 +126,8 @@ struct CombinedSanCalls: View { // make sure that this is differnet
     @StateObject var viewModel = OpenSantinationCalls()//this is to be the name of the class
     
     @StateObject var Completed = FinishedSanitation()
+    
+    @StateObject var Beans = PotholeViewModel()
 
     var body: some View {
             
@@ -142,6 +144,11 @@ struct CombinedSanCalls: View { // make sure that this is differnet
                     BarMark(x:.value("Type", "Finished Sanitation Calls"),
                             y:.value(" incompleted calls", Completed.complaints.count))
                     
+                    BarMark(x:.value("Type", "Completed Pothole Number"),
+                            y:.value(" incompleted calls", Beans.complaints.count))
+                    
+//                    BarMark(x:.value("Type", "Completed Pothole Number"),
+//                            y:.value(" incompleted calls", 4))
                 }
                 .aspectRatio(1, contentMode: .fit)
                 .padding()
