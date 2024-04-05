@@ -67,6 +67,13 @@ struct ForumView: View {
 
             .foregroundColor(.black)
         }
+        .navigationDestination(for: User.self, destination: { user in
+                                if user.isCurrentUser {
+                                    CurrentUserProfileView(user: user)
+                                } else {
+                                    ProfileView(user: user)
+                                }
+                            })
             .onChange(of: selectedCategory) { newValue in
                 if showingTrendingPosts {
                     showingTrendingPosts = false // Turn off trending when a category is selected

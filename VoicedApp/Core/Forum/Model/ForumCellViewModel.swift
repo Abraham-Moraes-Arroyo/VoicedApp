@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestoreSwift
 
 @MainActor
 class ForumCellViewModel: ObservableObject {
@@ -145,4 +147,33 @@ class ForumCellViewModel: ObservableObject {
         self.post.didDislike = try await PostService.checkIfUserDislikedPost(post)
     }
 
+}
+
+extension ForumCellViewModel {
+    @MainActor
+    func reportPost(reason: String) async throws {
+        guard let userId = Auth.auth().currentUser?.uid else {
+            print("User not logged in")
+            return
+        }
+
+        // Reference to the Firestore database
+        let db = Firestore.firestore()
+        
+        // Creating a new document in the `reports` collection
+        var ref: DocumentReference? = nil
+        ref = db.collection("reports").addDocument(data: [
+            "postId": self.post.id,
+            "postOwnerUid": self.post.ownerUid ?? "",
+            "reporterId": userId,
+            "reason": reason,
+            "timestamp": Timestamp(date: Date())
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
+    }
 }

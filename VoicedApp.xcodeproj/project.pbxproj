@@ -87,6 +87,16 @@
 		A79E6D852BBE7E5500056382 /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D842BBE7E5500056382 /* Timestamp.swift */; };
 		A79E6D872BBE875F00056382 /* PostDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D862BBE875F00056382 /* PostDetailsViewModel.swift */; };
 		A79E6D892BBE8A9D00056382 /* PostReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D882BBE8A9D00056382 /* PostReplyCell.swift */; };
+		A79E6D8B2BBFFBCA00056382 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D8A2BBFFBCA00056382 /* ForgotPasswordViewModel.swift */; };
+		A79E6D8D2BBFFE9B00056382 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D8C2BBFFE9B00056382 /* AuthError.swift */; };
+		A79E6D902BBFFF1300056382 /* AuthenticationFormProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D8F2BBFFF1300056382 /* AuthenticationFormProtocol.swift */; };
+		A79E6D922BBFFF4F00056382 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D912BBFFF4F00056382 /* ForgotPasswordView.swift */; };
+		A79E6D952BC01EF700056382 /* SettingsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D942BC01EF700056382 /* SettingsOptions.swift */; };
+		A79E6D972BC01F2800056382 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D962BC01F2800056382 /* PrivacyView.swift */; };
+		A79E6D992BC0207200056382 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D982BC0207200056382 /* AboutView.swift */; };
+		A79E6D9B2BC021AC00056382 /* ReauthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D9A2BC021AC00056382 /* ReauthenticationView.swift */; };
+		A79E6D9D2BC0240900056382 /* AccountDeletionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6D9C2BC0240900056382 /* AccountDeletionViewModel.swift */; };
+		A79E6DA12BC03C0E00056382 /* ReportPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79E6DA02BC03C0E00056382 /* ReportPopupView.swift */; };
 		A7DFDDFC2BA15DB00077A1C4 /* CircularProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */; };
 		A7DFDDFF2BA15DD30077A1C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */; };
 		A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */; };
@@ -195,6 +205,16 @@
 		A79E6D842BBE7E5500056382 /* Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamp.swift; sourceTree = "<group>"; };
 		A79E6D862BBE875F00056382 /* PostDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewModel.swift; sourceTree = "<group>"; };
 		A79E6D882BBE8A9D00056382 /* PostReplyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReplyCell.swift; sourceTree = "<group>"; };
+		A79E6D8A2BBFFBCA00056382 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		A79E6D8C2BBFFE9B00056382 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		A79E6D8F2BBFFF1300056382 /* AuthenticationFormProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFormProtocol.swift; sourceTree = "<group>"; };
+		A79E6D912BBFFF4F00056382 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		A79E6D942BC01EF700056382 /* SettingsOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptions.swift; sourceTree = "<group>"; };
+		A79E6D962BC01F2800056382 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		A79E6D982BC0207200056382 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		A79E6D9A2BC021AC00056382 /* ReauthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReauthenticationView.swift; sourceTree = "<group>"; };
+		A79E6D9C2BC0240900056382 /* AccountDeletionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDeletionViewModel.swift; sourceTree = "<group>"; };
+		A79E6DA02BC03C0E00056382 /* ReportPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPopupView.swift; sourceTree = "<group>"; };
 		A7DFDDFB2BA15DB00077A1C4 /* CircularProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfileImageView.swift; sourceTree = "<group>"; };
 		A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -529,6 +549,27 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		A79E6D8E2BBFFEF200056382 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A79E6D8F2BBFFF1300056382 /* AuthenticationFormProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A79E6D932BC01EE300056382 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A79E6D942BC01EF700056382 /* SettingsOptions.swift */,
+				A79E6D962BC01F2800056382 /* PrivacyView.swift */,
+				A79E6D982BC0207200056382 /* AboutView.swift */,
+				A79E6D9A2BC021AC00056382 /* ReauthenticationView.swift */,
+				A79E6D9C2BC0240900056382 /* AccountDeletionViewModel.swift */,
+				A79E6DA02BC03C0E00056382 /* ReportPopupView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		A7DFDDED2BA157A60077A1C4 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +632,7 @@
 		A7DFDDF42BA159440077A1C4 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				A79E6D8E2BBFFEF200056382 /* Protocols */,
 				A71F18F82BB6C28D00AE2EEC /* RegistrationEnums */,
 				A7DFDDFD2BA15DC20077A1C4 /* Views */,
 				A7DFDE302BAA96B90077A1C4 /* ViewModel */,
@@ -658,6 +700,7 @@
 			children = (
 				A7DFDDFE2BA15DD30077A1C4 /* LoginView.swift */,
 				A7DFDE002BA15DE10077A1C4 /* RegistrationView.swift */,
+				A79E6D912BBFFF4F00056382 /* ForgotPasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -717,6 +760,7 @@
 		A7DFDE122BA160D30077A1C4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A79E6D932BC01EE300056382 /* Settings */,
 				A7DFDE172BA1612E0077A1C4 /* ProfileView.swift */,
 				A7DFDE192BA1613B0077A1C4 /* ProfileHeaderView.swift */,
 				A7DFDE1B2BA161510077A1C4 /* CurrentUserProfileView.swift */,
@@ -748,6 +792,8 @@
 			children = (
 				A7DFDE312BAA96E80077A1C4 /* RegistrationViewModel.swift */,
 				A7DFDE352BABBFDD0077A1C4 /* LoginViewModel.swift */,
+				A79E6D8A2BBFFBCA00056382 /* ForgotPasswordViewModel.swift */,
+				A79E6D8C2BBFFE9B00056382 /* AuthError.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -936,6 +982,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A79E6D992BC0207200056382 /* AboutView.swift in Sources */,
 				A7DFDE342BAAA3240077A1C4 /* SettingsView.swift in Sources */,
 				A71F18FA2BB6C2A500AE2EEC /* RegistrationEnumFields.swift in Sources */,
 				A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */,
@@ -944,16 +991,19 @@
 				A79E6D7A2BBC198B00056382 /* PostReplyService.swift in Sources */,
 				A79E6D872BBE875F00056382 /* PostDetailsViewModel.swift in Sources */,
 				A7DFDE142BA160FD0077A1C4 /* EditProfileView.swift in Sources */,
+				A79E6D9D2BC0240900056382 /* AccountDeletionViewModel.swift in Sources */,
 				A7DFDE4B2BB2666B0077A1C4 /* ForumCellViewModel.swift in Sources */,
 				854D941B2BBCDF5300117E09 /* attempt2onAPIdatatoshow.swift in Sources */,
 				A7DFDE3A2BABE51D0077A1C4 /* SearchViewModel.swift in Sources */,
 				8508C7FE2B9B7CBF00B2D0FD /* LocationsDataService.swift in Sources */,
+				A79E6D902BBFFF1300056382 /* AuthenticationFormProtocol.swift in Sources */,
 				A7DFDE0E2BA160720077A1C4 /* PostCategory.swift in Sources */,
 				854D943E2BBE1F7C00117E09 /* SanitationCombined.swift in Sources */,
 				8570716D2BA8F57E0098ABD4 /* AppDelegate.swift in Sources */,
 				85984C832BA5C5D10033CF9E /* LocationMapAnnotionView.swift in Sources */,
 				A79E6D7C2BBC1D8000056382 /* PostReply.swift in Sources */,
 				A7DFDE362BABBFDD0077A1C4 /* LoginViewModel.swift in Sources */,
+				A79E6DA12BC03C0E00056382 /* ReportPopupView.swift in Sources */,
 				A7DFDDFC2BA15DB00077A1C4 /* CircularProfileImageView.swift in Sources */,
 				8508C8042B9B880400B2D0FD /* LocationsListView.swift in Sources */,
 				A7DFDE102BA160BB0077A1C4 /* UploadPostView.swift in Sources */,
@@ -966,6 +1016,7 @@
 				854D94192BBCDD0B00117E09 /* updatedDatafromApi.swift in Sources */,
 				854D943C2BBE1BBB00117E09 /* SanitationIncomplete.swift in Sources */,
 				A7DFDE242BA162210077A1C4 /* Post.swift in Sources */,
+				A79E6D8D2BBFFE9B00056382 /* AuthError.swift in Sources */,
 				854D941D2BBCDFE300117E09 /* DataPullJson.swift in Sources */,
 				8508C8062B9BEED600B2D0FD /* LocationPreviewView.swift in Sources */,
 				8508C8022B9B81B600B2D0FD /* LocationsViewModel.swift in Sources */,
@@ -984,11 +1035,16 @@
 				A71F19402BB812B800AE2EEC /* ViewController.swift in Sources */,
 				A79E6D7E2BBC1DF100056382 /* PostReplyViewModel.swift in Sources */,
 				A7DFDE492BB104FA0077A1C4 /* ProfileViewModel.swift in Sources */,
+				A79E6D952BC01EF700056382 /* SettingsOptions.swift in Sources */,
 				A79E6D852BBE7E5500056382 /* Timestamp.swift in Sources */,
+				A79E6D9B2BC021AC00056382 /* ReauthenticationView.swift in Sources */,
 				A7DFDE3C2BAD4AD30077A1C4 /* EditProfileViewModel.swift in Sources */,
+				A79E6D922BBFFF4F00056382 /* ForgotPasswordView.swift in Sources */,
 				A7DFDDFF2BA15DD30077A1C4 /* LoginView.swift in Sources */,
 				A79E6D702BBB945000056382 /* CommentReplyView.swift in Sources */,
 				85984C812BA39B440033CF9E /* LocationDetailView.swift in Sources */,
+				A79E6D8B2BBFFBCA00056382 /* ForgotPasswordViewModel.swift in Sources */,
+				A79E6D972BC01F2800056382 /* PrivacyView.swift in Sources */,
 				857071712BA8FC7F0098ABD4 /* FBTemplate.swift in Sources */,
 				A71F19422BB812ED00AE2EEC /* WebViewWrapper.swift in Sources */,
 				854D94382BBE0FD700117E09 /* sanitationCompleted.swift in Sources */,
