@@ -10,13 +10,33 @@ import SwiftUI
 struct PostReplyCell: View {
     let reply: PostReply
     
+    @State var postReplyHeight: CGFloat = 24
+    
     private var user: User? {
         return reply.replyUser
     }
     
+    func setCommentViewHeight() {
+        let imageDimension: CGFloat = ProfileImageSize.small.dimension
+        let padding: CGFloat = 16
+        let width = UIScreen.main.bounds.width - imageDimension - padding
+        let font = UIFont.systemFont(ofSize: 12)
+        let replyText = reply.replyText.heightWithConstrainedWidth(width, font: font)
+        
+        print("debug: caption size is \(replyText)")
+        
+        postReplyHeight = replyText + imageDimension - 16
+        
+        
+    }
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
+            HStack(alignment: .center) {
+                
+                Rectangle()
+                    .frame(width: 2, height: postReplyHeight)
+                    .foregroundColor(Color(.systemGray4))
+            
                 if let user = user {
                     CircularProfileImageView(user: user, size: .xSmall)
                     Text(user.username)
@@ -36,9 +56,11 @@ struct PostReplyCell: View {
                     })
                 }
             }
+            .onAppear { setCommentViewHeight() }
+            
             .padding(.horizontal)
             
-            Divider()
+//            Divider()
             
             VStack(alignment: .leading) {
                 Text(reply.replyText)

@@ -11,6 +11,7 @@ struct ForumView: View {
     @StateObject var viewModel = ForumViewModel()
     @State private var isProfileViewActive = false
     @State private var selectedCategory: PostCategory = .miscellaneous // Updated to use PostCategory enum
+    @State private var showingTrendingPosts = false
 
     var body: some View {
         NavigationStack {
@@ -36,11 +37,15 @@ struct ForumView: View {
             .navigationTitle("Forum")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        // Logic to show trending or filtered posts
-                        print("Trending posts selected")
+                        showingTrendingPosts.toggle()
+                        if showingTrendingPosts {
+                            viewModel.showTrendingPosts()
+                        } else {
+                            // Reapply the currently selected category filter when toggling off trending
+                            viewModel.setCategory(selectedCategory)
+                        }
                     }) {
                         Image(systemName: "flame")
                     }
@@ -59,18 +64,22 @@ struct ForumView: View {
                     }
                 }
             }
+
             .foregroundColor(.black)
         }
-        .onChange(of: selectedCategory) { newValue in
-            viewModel.setCategory(newValue)
-        }
+            .onChange(of: selectedCategory) { newValue in
+                if showingTrendingPosts {
+                    showingTrendingPosts = false // Turn off trending when a category is selected
+                }
+                viewModel.setCategory(newValue)
+            }
         .refreshable {
             Task { try await viewModel.fetchPosts() }
                             }
                             .overlay {
                                 if viewModel.isLoading { ProgressView() }
                             }
-        
+                            .navigationBarBackButtonHidden(true)
     }
     
     

@@ -13,49 +13,59 @@ struct UserContentListView: View {
     
     @StateObject var viewModel: ProfileViewModel
     
+    @State private var selectedPost: Post?
+    
     init(user: User) {
         self._viewModel = StateObject(wrappedValue: ProfileViewModel(user: user))
     }
     
     var body: some View {
-        VStack {
-            // Filter bar
-            HStack {
-                ForEach(ProfilePostFilter.allCases, id: \.self) { filter in
-                    VStack {
-                        Text(filter.title)
-                            .font(.subheadline)
-                            .fontWeight(selectedFilter == filter ? .semibold : .regular)
-                            .onTapGesture {
-                                withAnimation(.spring()) {
-                                    selectedFilter = filter
-                                    fetchData(for: filter)
+        NavigationStack {
+            VStack {
+                // Filter bar
+                HStack {
+                    ForEach(ProfilePostFilter.allCases, id: \.self) { filter in
+                        VStack {
+                            Text(filter.title)
+                                .font(.subheadline)
+                                .fontWeight(selectedFilter == filter ? .semibold : .regular)
+                                .onTapGesture {
+                                    withAnimation(.spring()) {
+                                        selectedFilter = filter
+                                        fetchData(for: filter)
+                                    }
                                 }
+                            
+                            if selectedFilter == filter {
+                                Rectangle()
+                                    .foregroundColor(.black)
+                                    .frame(height: 2)
+                                    .matchedGeometryEffect(id: "filterIndicator", in: animation)
                             }
-                        
-                        if selectedFilter == filter {
-                            Rectangle()
-                                .foregroundColor(.black)
-                                .frame(height: 2)
-                                .matchedGeometryEffect(id: "filterIndicator", in: animation)
+                        }
+                        .frame(maxWidth: .infinity)
+                    }
+                }
+                .padding(.horizontal)
+                
+                // Display posts based on the selected filter
+                ScrollView {
+                    LazyVStack {
+                        ForEach(currentPosts, id: \.id) { post in
+                            NavigationLink(destination: PostDetailsView(post: post), tag: post, selection: $selectedPost) {
+                                ForumCell(post: post)
+                                    .onTapGesture {
+                                        selectedPost = post
+                                    }
+                            }
+                            .buttonStyle(PlainButtonStyle()) // Optional, to maintain your cell's original style
                         }
                     }
-                    .frame(maxWidth: .infinity)
                 }
             }
-            .padding(.horizontal)
-            
-            // Display posts based on the selected filter
-            ScrollView {
-                LazyVStack {
-                    ForEach(currentPosts, id: \.id) { post in
-                        ForumCell(post: post)
-                    }
-                }
+            .onAppear {
+                fetchData(for: selectedFilter)
             }
-        }
-        .onAppear {
-            fetchData(for: selectedFilter)
         }
     }
     
@@ -67,7 +77,6 @@ struct UserContentListView: View {
         case .upvoted_posts:
             return viewModel.likedPosts
         case .bookmarks:
-            print("Switched to bookmarks filter")
             return viewModel.bookmarkedPosts
         }
     }
@@ -84,7 +93,8 @@ struct UserContentListView: View {
     }
 }
 
-
-#Preview {
-    UserContentListView(user: User.MOCK_USERS[0])
+struct UserContentListView_Previews: PreviewProvider {
+    static var previews: some View {
+        UserContentListView(user: User.MOCK_USERS[0])
+    }
 }

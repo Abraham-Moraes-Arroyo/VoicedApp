@@ -57,6 +57,10 @@ class ForumViewModel: ObservableObject {
             print("Current category: \(category), Filtered posts count: \(filteredPosts.count)")
 
         }
+    
+    func showTrendingPosts() {
+            filteredPosts = posts.filter { $0.likes > 3 }.sorted { $0.likes > $1.likes }
+        }
         
         // Filter posts by the selected category
         private func applyCategoryFilter(category: PostCategory) {
