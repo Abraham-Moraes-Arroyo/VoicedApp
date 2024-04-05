@@ -34,7 +34,8 @@ struct ForumCell: View {
         self.viewModel = ForumCellViewModel(post: post)
     }
     private let imageDimension: CGFloat = (UIScreen.main.bounds.width / 3) - 1
-//    @State private var showingActionSheet = false
+
+        @State private var showReplySheet = false
     var body: some View {
         VStack {
             HStack {
@@ -51,6 +52,17 @@ struct ForumCell: View {
                         .background(post.category.color)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding()
+                    
+                    Text(post.timestamp.timestampString())
+                        .font(.caption)
+                        .foregroundColor(Color(.systemGray3))
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName:  "ellipsis")
+                            .foregroundStyle(Color(.darkGray))
+                    })
+                    
                 }
                 Spacer()
                 // Post verification status
@@ -81,7 +93,7 @@ struct ForumCell: View {
                             .multilineTextAlignment(.center)
                         // Check if the caption is a valid URL
                         if let url = URL(string: post.caption ?? ""), UIApplication.shared.canOpenURL(url) {
-                            Link(post.caption ?? "", destination: url)
+                            Link("Read more", destination: url)
                                 .foregroundColor(.blue)
                                                                           } else {
                                                     Text(post.caption ?? "")
@@ -122,10 +134,12 @@ struct ForumCell: View {
                 }
             }
             
-            Button(action: { print("Comment Post") }) {
+            Button(action: { showReplySheet.toggle() }) {
                 HStack {
                     Image(systemName: "bubble.right")
-                    Text("\(post.comments)")
+                    if post.comments > 0 {
+                        Text("\(post.comments)")
+                    }
                 }
             }
             
@@ -147,6 +161,9 @@ struct ForumCell: View {
             }
             
             Spacer()
+        }
+        .sheet(isPresented: $showReplySheet) {
+            CommentReplyView(post: post)
         }
         .padding(.top, 4)
         .foregroundColor(.black)

@@ -40,7 +40,7 @@ struct CircularProfileImageView: View {
                 .frame(width: size.dimension, height: size.dimension)
                 .clipShape(Circle())
         } else {
-            Image(systemName: "person.circle.fill")
+            Image("pfp1")
                 .resizable()
                 .frame(width: size.dimension, height: size.dimension)
                 .clipShape(Circle())
