@@ -12,6 +12,11 @@ import FirebaseAuth
 import FirebaseFirestoreSwift
 import Firebase
 
+enum AuthServiceError: Error {
+    case userNotLoggedIn
+    case reauthenticationFailed
+}
+
 class AuthService {
     
     // user session routes the user based on if they are logged in / signed out
@@ -60,12 +65,47 @@ class AuthService {
         // here the user object is being decoded
     }
     
+    @MainActor
+        func deleteUser() async throws {
+            guard let currentUser = Auth.auth().currentUser else { return }
+
+            do {
+                // Refresh the user's token asynchronously
+                try await currentUser.getIDTokenResult(forcingRefresh: true)
+                
+                // Perform actions before deletion (if needed)
+                
+                // Delete user data from Firestore
+                try await
+                Firestore.firestore().collection("users").document(currentUser.uid).delete()
+                
+                // Delete the user from Firebase Authentication
+                try await currentUser.delete()
+                
+                // Set userSession to nil after deletion
+                self.userSession = nil
+            } catch {
+                print("DEBUG: Failed to delete user with error \(error.localizedDescription)")
+                throw error
+            }
+        }
+    
     func signOut() {
         try? Auth.auth().signOut()
         self.userSession = nil
         self.currentUser = nil
         
     }
+    
+    func sendPasswordResetEmail(toEmail email: String) async throws {
+            do {
+                try await Auth.auth().sendPasswordReset(withEmail: email)
+            } catch {
+                print("DEBUG: Failed to send email with error \(error.localizedDescription)")
+                throw error
+            }
+        }
+        
     
     private func uploadUserData(uid: String, username: String, email: String, additionalData: [String: Any]) async {
             var userDict: [String: Any] = [
@@ -80,4 +120,23 @@ class AuthService {
     
             try? await Firestore.firestore().collection("users").document(uid).setData(userDict)
         }
+    
+
+
+
+
+    func reauthenticate(password: String) async throws {
+        guard let currentUser = Auth.auth().currentUser,
+              let email = currentUser.email else {
+            throw AuthServiceError.userNotLoggedIn
+        }
+
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        do {
+            try await currentUser.reauthenticate(with: credential)
+        } catch {
+            throw AuthServiceError.reauthenticationFailed
+        }
     }
+    
+}

@@ -37,7 +37,7 @@ struct LoginView: View {
                 }
                 
                 NavigationLink {
-                    Text("Forgot password")
+                    ForgotPasswordView()
                 } label: {
                     Text("Forgot Password?")
                         .fontWeight(.semibold)
@@ -59,6 +59,8 @@ struct LoginView: View {
                         .background(Color(red: 0.725, green: 0.878, blue: 0.792)) // #b9e0ca
                         .cornerRadius(8)
                 }
+                .disabled(!formIsValid)
+                .opacity(formIsValid ? 1 : 0.7)
                 
                 Spacer()
                 
@@ -79,15 +81,29 @@ struct LoginView: View {
                 }
                 .padding(.vertical, 16)
                 
-                
-                
-                
             }
+            .alert(isPresented: $viewModel.showAlert) {
+                            Alert(title: Text("Error"),
+                                  message: Text(viewModel.authError?.description ?? ""))
         }
     }
+        
+    }
 }
+// MARK: - Form Validation
+
+extension LoginView: AuthenticationFormProtocol {
+                var formIsValid: Bool {
+                    return !viewModel.email.isEmpty
+                    && viewModel.email.contains("@")
+                    && !viewModel.password.isEmpty
+                }
+            }
 
 
-#Preview {
-    LoginView()
-}
+
+
+
+//#Preview {
+//    LoginView()
+//}

@@ -125,6 +125,8 @@ struct RegistrationView: View {
                         .background(Color.blue)
                         .cornerRadius(10)
                 }
+                .disabled(!formIsValid)
+                .opacity(formIsValid ? 1 : 0.7)
                 
                 
                 NavigationLink {
@@ -144,6 +146,11 @@ struct RegistrationView: View {
                 }
                 .padding(.vertical, 16)
                 
+                .alert(isPresented: $viewModel.showAlert) {
+                            Alert(title: Text("Error"),
+                                  message: Text(viewModel.authError?.description ?? ""))
+                        }
+                
                 
             }
             .padding()
@@ -151,8 +158,15 @@ struct RegistrationView: View {
         .foregroundColor(.black)
         .navigationBarTitle("Sign Up", displayMode: .inline)
     }
-}
 
-#Preview {
-    RegistrationView()
+
+var formIsValid: Bool {
+       return !viewModel.email.isEmpty
+           && viewModel.email.contains("@")
+           && !viewModel.password.isEmpty
+           && viewModel.password.count > 5
+   }
 }
+//#Preview {
+//    RegistrationView()
+//}

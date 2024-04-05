@@ -13,6 +13,10 @@ import UIKit
 
 struct ForumCell: View {
     @ObservedObject var viewModel: ForumCellViewModel
+    @State private var showReportReason = false
+    @State private var showReportSheet = false
+    @State private var reportReason = "" // To store user input
+       @State private var showingReportSheet = false
     
     private var post: Post {
         return viewModel.post
@@ -42,11 +46,12 @@ struct ForumCell: View {
                 if let user = post.user {
                     CircularProfileImageView(user: user, size: .xSmall)
                     Text(user.username)
+                        .font(.footnote)
                         .fontWeight(.semibold)
                     
                     Text(post.category.displayName)
                         .font(.footnote)
-                        .frame(width: 160, height: 5)
+                        .frame(width: 150, height: 5)
                         .padding()
                         .foregroundColor(.white)
                         .background(post.category.color)
@@ -68,7 +73,6 @@ struct ForumCell: View {
                 // Post verification status
                 if !post.isUserGenerated {
                     Label("Verified", systemImage: "checkmark.seal.fill")
-//                        .labelStyle(.iconOnly)
                         .padding(5)
                         .background(Color.green.opacity(0.1)) // Semi-transparent background
                         .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -80,16 +84,11 @@ struct ForumCell: View {
             Divider()
             VStack {
                 HStack(spacing: 26){
-                    KFImage(URL(string: post.imageUrl ?? "default-post-image"))
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 80, height: 80)
-                        .clipShape(Rectangle())
                     
                     VStack(spacing: 8) {
                         Text(post.title)
                             .fontWeight(.semibold)
-                            .font(.title2)
+                            .font(.title3)
                             .multilineTextAlignment(.center)
                         // Check if the caption is a valid URL
                         if let url = URL(string: post.caption ?? ""), UIApplication.shared.canOpenURL(url) {
@@ -101,8 +100,19 @@ struct ForumCell: View {
                                                 }
                         
                     }
+                    
+                    // Check if the image URL string is not nil and not empty
+                            if let imageUrlString = post.imageUrl, !imageUrlString.isEmpty, let imageUrl = URL(string: imageUrlString) {
+                                KFImage(imageUrl)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 80, height: 80)
+                                    .clipShape(Rectangle())
+                            }
+                    
                 }
                 .padding(.leading)
+                .padding(.bottom, 4)
                 actionButtons
             }
             .padding(.bottom, 8)
@@ -153,12 +163,34 @@ struct ForumCell: View {
                 }
             }
             
-            Button(action: { print("Report Post") }) {
-                HStack {
-                    Image(systemName: "flag")
-                    
-                }
-            }
+//            TextField("Reason for reporting", text: $reportReason)
+//                       .textFieldStyle(RoundedBorderTextFieldStyle())
+            
+                   
+                   Button(action: {  showingReportSheet = true }) {
+                       HStack {
+                           Image(systemName: "flag")
+                           
+                       }
+                      
+                   }
+                   .actionSheet(isPresented: $showingReportSheet) {
+                       ActionSheet(title: Text("Confirm Report"), message: Text("Submit your report?"), buttons: [
+                        .destructive(Text("Report"), action: {
+                            Task {
+                                do {
+                                    try await viewModel.reportPost(reason: reportReason)
+                                    // Reset reason after reporting
+                                    reportReason = ""
+                                } catch {
+                                    // Handle error
+                                }
+                            }
+                        }),
+                        .cancel()
+                       ])
+                   }
+                       
             
             Spacer()
         }

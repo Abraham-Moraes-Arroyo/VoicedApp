@@ -6,11 +6,17 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseAuth
 
 class RegistrationViewModel: ObservableObject {
     @Published var username = ""
     @Published var email = ""
     @Published var password = ""
+    
+    @Published var isAuthenticating = false
+    @Published var showAlert = false
+    @Published var authError: AuthError?
     
     @Published var zipCode: String? // optional
     @Published var selectedAge: AgeCategory?
@@ -56,44 +62,55 @@ class RegistrationViewModel: ObservableObject {
         }
     
 
-        
+    @MainActor
     func createUser() async throws {
-        var additionalData: [String: Any] = [:]
-                
-        // Add optional fields to additionalData if they are not nil
-        if let zipCode = zipCode {
-            additionalData["zipCode"] = zipCode
+        isAuthenticating = true
+        do {
+            var additionalData: [String: Any] = [:]
+                    
+            // Add optional fields to additionalData if they are not nil
+            if let zipCode = zipCode {
+                additionalData["zipCode"] = zipCode
+            }
+            if let selectedAge = selectedAge?.rawValue {
+                additionalData["selectedAge"] = selectedAge
+            }
+            if let reasonForUsing = reasonForUsing {
+                additionalData["reasonForUsing"] = reasonForUsing
+            }
+            additionalData["selectedCommunityIssues"] = selectedCommunityIssues.map { $0.rawValue }
+            if let communityIssueOther = communityIssueOther {
+                        additionalData["communityIssueOther"] = communityIssueOther
+            }
+            additionalData["selectedDiscoveryMethod"] = selectedDiscoveryMethod.map { $0.rawValue }
+            if let discoveryMethodOther = discoveryMethodOther {
+                        additionalData["discoveryMethodOther"] = discoveryMethodOther
+            }
+                    
+            // Now pass the additionalData dictionary to the createUser method
+            try await AuthService.shared.createUser(email: email, password: password, username: username, additionalData: additionalData)
+                    
+            username = ""
+            email = ""
+            password = ""
+            // resets values when creating another user
+            // Reset optional fields as well
+                    zipCode = nil
+                    selectedAge = nil
+                    reasonForUsing = nil
+                    selectedCommunityIssues = []
+                    communityIssueOther = nil
+                    selectedDiscoveryMethod = []
+                    discoveryMethodOther = nil
+            
+            isAuthenticating = false
+        } catch {
+            let authError = AuthErrorCode.Code(rawValue: (error as NSError).code)
+            self.showAlert = true
+            isAuthenticating = false
+            self.authError = AuthError(authErrorCode: authError ?? .userNotFound)
         }
-        if let selectedAge = selectedAge?.rawValue {
-            additionalData["selectedAge"] = selectedAge
-        }
-        if let reasonForUsing = reasonForUsing {
-            additionalData["reasonForUsing"] = reasonForUsing
-        }
-        additionalData["selectedCommunityIssues"] = selectedCommunityIssues.map { $0.rawValue }
-        if let communityIssueOther = communityIssueOther {
-                    additionalData["communityIssueOther"] = communityIssueOther
-        }
-        additionalData["selectedDiscoveryMethod"] = selectedDiscoveryMethod.map { $0.rawValue }
-        if let discoveryMethodOther = discoveryMethodOther {
-                    additionalData["discoveryMethodOther"] = discoveryMethodOther
-        }
-                
-        // Now pass the additionalData dictionary to the createUser method
-        try await AuthService.shared.createUser(email: email, password: password, username: username, additionalData: additionalData)
-                
-        username = ""
-        email = ""
-        password = ""
-        // resets values when creating another user
-        // Reset optional fields as well
-                zipCode = nil
-                selectedAge = nil
-                reasonForUsing = nil
-                selectedCommunityIssues = []
-                communityIssueOther = nil
-                selectedDiscoveryMethod = []
-                discoveryMethodOther = nil
+        
     }
     
     func selectAge(_ age: AgeCategory) {

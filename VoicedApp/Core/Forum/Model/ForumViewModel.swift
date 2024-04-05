@@ -59,7 +59,7 @@ class ForumViewModel: ObservableObject {
         }
     
     func showTrendingPosts() {
-            filteredPosts = posts.filter { $0.likes > 3 }.sorted { $0.likes > $1.likes }
+            filteredPosts = posts.filter { $0.likes > 15 }.sorted { $0.likes > $1.likes }
         }
         
         // Filter posts by the selected category

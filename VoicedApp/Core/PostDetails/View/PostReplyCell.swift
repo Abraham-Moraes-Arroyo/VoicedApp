@@ -60,16 +60,14 @@ struct PostReplyCell: View {
             
             .padding(.horizontal)
             
-//            Divider()
-            
             VStack(alignment: .leading) {
                 Text(reply.replyText)
                     .font(.caption)
                     .multilineTextAlignment(.leading)
                     .padding(.leading)
             }
-            .padding(.top, 1)
-            .padding(.bottom, 1)
+//            .padding(.top, 1)
+//            .padding(.bottom, 1)
             
 
             
