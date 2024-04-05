@@ -21,6 +21,25 @@
 		8508C8042B9B880400B2D0FD /* LocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508C8032B9B880400B2D0FD /* LocationsListView.swift */; };
 		8508C8062B9BEED600B2D0FD /* LocationPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8508C8052B9BEED600B2D0FD /* LocationPreviewView.swift */; };
 		854D94122BBB88EF00117E09 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 854D94112BBB88EF00117E09 /* .gitignore */; };
+		854D94152BBCD17400117E09 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D94142BBCD17400117E09 /* File.swift */; };
+		854D94172BBCD58100117E09 /* datafromapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D94162BBCD58100117E09 /* datafromapi.swift */; };
+		854D94192BBCDD0B00117E09 /* updatedDatafromApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D94182BBCDD0B00117E09 /* updatedDatafromApi.swift */; };
+		854D941B2BBCDF5300117E09 /* attempt2onAPIdatatoshow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D941A2BBCDF5300117E09 /* attempt2onAPIdatatoshow.swift */; };
+		854D941D2BBCDFE300117E09 /* DataPullJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D941C2BBCDFE300117E09 /* DataPullJson.swift */; };
+		854D941F2BBDA43400117E09 /* APIstreet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D941E2BBDA43400117E09 /* APIstreet.swift */; };
+		854D94222BBDA7EF00117E09 /* SanitationCodeViolationopenandincommunityarea61.json in Resources */ = {isa = PBXBuildFile; fileRef = 854D94212BBDA7EF00117E09 /* SanitationCodeViolationopenandincommunityarea61.json */; };
+		854D94242BBDAAFA00117E09 /* SanitationCodeViolationcompletedandincommunityarea61.json in Resources */ = {isa = PBXBuildFile; fileRef = 854D94232BBDAAFA00117E09 /* SanitationCodeViolationcompletedandincommunityarea61.json */; };
+		854D94262BBDABD400117E09 /* ThisistogetthestreetLightComplaintinCommunityarea61thatstatusisClosed.json in Resources */ = {isa = PBXBuildFile; fileRef = 854D94252BBDABD400117E09 /* ThisistogetthestreetLightComplaintinCommunityarea61thatstatusisClosed.json */; };
+		854D94282BBDAC1E00117E09 /* ThisistogettheStreetLightComplaintincommunityarea61thatstatusisUncompleted.json in Resources */ = {isa = PBXBuildFile; fileRef = 854D94272BBDAC1E00117E09 /* ThisistogettheStreetLightComplaintincommunityarea61thatstatusisUncompleted.json */; };
+		854D942A2BBDAC5900117E09 /* ThisisthelinktogetthePotholeinstreetcomplaintincommunityarea61andUncompleted.json in Resources */ = {isa = PBXBuildFile; fileRef = 854D94292BBDAC5900117E09 /* ThisisthelinktogetthePotholeinstreetcomplaintincommunityarea61andUncompleted.json */; };
+		854D942C2BBDAC9300117E09 /* ThisisthelinktogetPotholeinstreetcomplaintincommunityarea61andcompleted.json in Resources */ = {isa = PBXBuildFile; fileRef = 854D942B2BBDAC9200117E09 /* ThisisthelinktogetPotholeinstreetcomplaintincommunityarea61andcompleted.json */; };
+		854D942E2BBDEC2F00117E09 /* DataPullBill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D942D2BBDEC2F00117E09 /* DataPullBill.swift */; };
+		854D94322BBDFA0300117E09 /* PotholeCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D94312BBDFA0300117E09 /* PotholeCompleted.swift */; };
+		854D94342BBDFB6600117E09 /* PotholeIncomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D94332BBDFB6600117E09 /* PotholeIncomplete.swift */; };
+		854D94382BBE0FD700117E09 /* sanitationCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D94372BBE0FD700117E09 /* sanitationCompleted.swift */; };
+		854D943C2BBE1BBB00117E09 /* SanitationIncomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D943B2BBE1BBB00117E09 /* SanitationIncomplete.swift */; };
+		854D943E2BBE1F7C00117E09 /* SanitationCombined.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D943D2BBE1F7C00117E09 /* SanitationCombined.swift */; };
+		854D94402BBF604E00117E09 /* Alltogether.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D943F2BBF604E00117E09 /* Alltogether.swift */; };
 		8550A6F42BACEA5F00B2272D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8550A6F32BACEA5F00B2272D /* FirebaseAnalytics */; };
 		8550A6F62BACEA5F00B2272D /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 8550A6F52BACEA5F00B2272D /* FirebaseAnalyticsOnDeviceConversion */; };
 		8550A6F82BACEA5F00B2272D /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8550A6F72BACEA5F00B2272D /* FirebaseAnalyticsSwift */; };
@@ -148,6 +167,25 @@
 		8508C8032B9B880400B2D0FD /* LocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListView.swift; sourceTree = "<group>"; };
 		8508C8052B9BEED600B2D0FD /* LocationPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPreviewView.swift; sourceTree = "<group>"; };
 		854D94112BBB88EF00117E09 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		854D94142BBCD17400117E09 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		854D94162BBCD58100117E09 /* datafromapi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = datafromapi.swift; sourceTree = "<group>"; };
+		854D94182BBCDD0B00117E09 /* updatedDatafromApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updatedDatafromApi.swift; sourceTree = "<group>"; };
+		854D941A2BBCDF5300117E09 /* attempt2onAPIdatatoshow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = attempt2onAPIdatatoshow.swift; sourceTree = "<group>"; };
+		854D941C2BBCDFE300117E09 /* DataPullJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPullJson.swift; sourceTree = "<group>"; };
+		854D941E2BBDA43400117E09 /* APIstreet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIstreet.swift; sourceTree = "<group>"; };
+		854D94212BBDA7EF00117E09 /* SanitationCodeViolationopenandincommunityarea61.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SanitationCodeViolationopenandincommunityarea61.json; sourceTree = "<group>"; };
+		854D94232BBDAAFA00117E09 /* SanitationCodeViolationcompletedandincommunityarea61.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SanitationCodeViolationcompletedandincommunityarea61.json; sourceTree = "<group>"; };
+		854D94252BBDABD400117E09 /* ThisistogetthestreetLightComplaintinCommunityarea61thatstatusisClosed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ThisistogetthestreetLightComplaintinCommunityarea61thatstatusisClosed.json; sourceTree = "<group>"; };
+		854D94272BBDAC1E00117E09 /* ThisistogettheStreetLightComplaintincommunityarea61thatstatusisUncompleted.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ThisistogettheStreetLightComplaintincommunityarea61thatstatusisUncompleted.json; sourceTree = "<group>"; };
+		854D94292BBDAC5900117E09 /* ThisisthelinktogetthePotholeinstreetcomplaintincommunityarea61andUncompleted.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ThisisthelinktogetthePotholeinstreetcomplaintincommunityarea61andUncompleted.json; sourceTree = "<group>"; };
+		854D942B2BBDAC9200117E09 /* ThisisthelinktogetPotholeinstreetcomplaintincommunityarea61andcompleted.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ThisisthelinktogetPotholeinstreetcomplaintincommunityarea61andcompleted.json; sourceTree = "<group>"; };
+		854D942D2BBDEC2F00117E09 /* DataPullBill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPullBill.swift; sourceTree = "<group>"; };
+		854D94312BBDFA0300117E09 /* PotholeCompleted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotholeCompleted.swift; sourceTree = "<group>"; };
+		854D94332BBDFB6600117E09 /* PotholeIncomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotholeIncomplete.swift; sourceTree = "<group>"; };
+		854D94372BBE0FD700117E09 /* sanitationCompleted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sanitationCompleted.swift; sourceTree = "<group>"; };
+		854D943B2BBE1BBB00117E09 /* SanitationIncomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanitationIncomplete.swift; sourceTree = "<group>"; };
+		854D943D2BBE1F7C00117E09 /* SanitationCombined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SanitationCombined.swift; sourceTree = "<group>"; };
+		854D943F2BBF604E00117E09 /* Alltogether.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alltogether.swift; sourceTree = "<group>"; };
 		8550A6F12BACE9A400B2272D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		857071322BA8F4250098ABD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8570716C2BA8F57E0098ABD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -299,8 +337,11 @@
 				8508C7FC2B9B7C9000B2D0FD /* DataServices */,
 				8508C7F72B9B79AA00B2D0FD /* Models */,
 				A7DFDDF02BA158360077A1C4 /* Services */,
+				854D94202BBDA7D000117E09 /* JsonFiles */,
 				A7DFDDF12BA158410077A1C4 /* Utils */,
 				8508C7F82B9B79BE00B2D0FD /* Views */,
+				854D94302BBDF9E600117E09 /* API Pull Screens */,
+				854D94132BBCD16200117E09 /* API Work */,
 				8508C7F92B9B79C800B2D0FD /* ViewModels */,
 				8508C7F52B9B786C00B2D0FD /* Assets.xcassets */,
 				8508C7CF2B9B72F000B2D0FD /* Preview Content */,
@@ -371,6 +412,46 @@
 				8508C7FD2B9B7CBF00B2D0FD /* LocationsDataService.swift */,
 			);
 			path = DataServices;
+			sourceTree = "<group>";
+		};
+		854D94132BBCD16200117E09 /* API Work */ = {
+			isa = PBXGroup;
+			children = (
+				854D942D2BBDEC2F00117E09 /* DataPullBill.swift */,
+				854D94142BBCD17400117E09 /* File.swift */,
+				854D94162BBCD58100117E09 /* datafromapi.swift */,
+				854D94182BBCDD0B00117E09 /* updatedDatafromApi.swift */,
+				854D941A2BBCDF5300117E09 /* attempt2onAPIdatatoshow.swift */,
+				854D941C2BBCDFE300117E09 /* DataPullJson.swift */,
+				854D941E2BBDA43400117E09 /* APIstreet.swift */,
+			);
+			path = "API Work";
+			sourceTree = "<group>";
+		};
+		854D94202BBDA7D000117E09 /* JsonFiles */ = {
+			isa = PBXGroup;
+			children = (
+				854D942B2BBDAC9200117E09 /* ThisisthelinktogetPotholeinstreetcomplaintincommunityarea61andcompleted.json */,
+				854D94292BBDAC5900117E09 /* ThisisthelinktogetthePotholeinstreetcomplaintincommunityarea61andUncompleted.json */,
+				854D94272BBDAC1E00117E09 /* ThisistogettheStreetLightComplaintincommunityarea61thatstatusisUncompleted.json */,
+				854D94252BBDABD400117E09 /* ThisistogetthestreetLightComplaintinCommunityarea61thatstatusisClosed.json */,
+				854D94232BBDAAFA00117E09 /* SanitationCodeViolationcompletedandincommunityarea61.json */,
+				854D94212BBDA7EF00117E09 /* SanitationCodeViolationopenandincommunityarea61.json */,
+			);
+			path = JsonFiles;
+			sourceTree = "<group>";
+		};
+		854D94302BBDF9E600117E09 /* API Pull Screens */ = {
+			isa = PBXGroup;
+			children = (
+				854D94312BBDFA0300117E09 /* PotholeCompleted.swift */,
+				854D94332BBDFB6600117E09 /* PotholeIncomplete.swift */,
+				854D943B2BBE1BBB00117E09 /* SanitationIncomplete.swift */,
+				854D94372BBE0FD700117E09 /* sanitationCompleted.swift */,
+				854D943D2BBE1F7C00117E09 /* SanitationCombined.swift */,
+				854D943F2BBF604E00117E09 /* Alltogether.swift */,
+			);
+			path = "API Pull Screens";
 			sourceTree = "<group>";
 		};
 		857071352BA8F5410098ABD4 /* Frameworks */ = {
@@ -867,9 +948,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				854D942C2BBDAC9300117E09 /* ThisisthelinktogetPotholeinstreetcomplaintincommunityarea61andcompleted.json in Resources */,
 				854D94122BBB88EF00117E09 /* .gitignore in Resources */,
+				854D94222BBDA7EF00117E09 /* SanitationCodeViolationopenandincommunityarea61.json in Resources */,
+				854D94282BBDAC1E00117E09 /* ThisistogettheStreetLightComplaintincommunityarea61thatstatusisUncompleted.json in Resources */,
 				8508C7F62B9B786C00B2D0FD /* Assets.xcassets in Resources */,
+				854D94242BBDAAFA00117E09 /* SanitationCodeViolationcompletedandincommunityarea61.json in Resources */,
+				854D94262BBDABD400117E09 /* ThisistogetthestreetLightComplaintinCommunityarea61thatstatusisClosed.json in Resources */,
 				8508C7D12B9B72F000B2D0FD /* Preview Assets.xcassets in Resources */,
+				854D942A2BBDAC5900117E09 /* ThisisthelinktogetthePotholeinstreetcomplaintincommunityarea61andUncompleted.json in Resources */,
 				857071332BA8F4250098ABD4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -899,16 +986,19 @@
 				A7DFDE342BAAA3240077A1C4 /* SettingsView.swift in Sources */,
 				A71F18FA2BB6C2A500AE2EEC /* RegistrationEnumFields.swift in Sources */,
 				A7DFDE012BA15DE10077A1C4 /* RegistrationView.swift in Sources */,
+				854D94402BBF604E00117E09 /* Alltogether.swift in Sources */,
 				A7DFDE322BAA96E80077A1C4 /* RegistrationViewModel.swift in Sources */,
 				A79E6D7A2BBC198B00056382 /* PostReplyService.swift in Sources */,
 				A79E6D872BBE875F00056382 /* PostDetailsViewModel.swift in Sources */,
 				A7DFDE142BA160FD0077A1C4 /* EditProfileView.swift in Sources */,
 				A79E6D9D2BC0240900056382 /* AccountDeletionViewModel.swift in Sources */,
 				A7DFDE4B2BB2666B0077A1C4 /* ForumCellViewModel.swift in Sources */,
+				854D941B2BBCDF5300117E09 /* attempt2onAPIdatatoshow.swift in Sources */,
 				A7DFDE3A2BABE51D0077A1C4 /* SearchViewModel.swift in Sources */,
 				8508C7FE2B9B7CBF00B2D0FD /* LocationsDataService.swift in Sources */,
 				A79E6D902BBFFF1300056382 /* AuthenticationFormProtocol.swift in Sources */,
 				A7DFDE0E2BA160720077A1C4 /* PostCategory.swift in Sources */,
+				854D943E2BBE1F7C00117E09 /* SanitationCombined.swift in Sources */,
 				8570716D2BA8F57E0098ABD4 /* AppDelegate.swift in Sources */,
 				85984C832BA5C5D10033CF9E /* LocationMapAnnotionView.swift in Sources */,
 				A79E6D7C2BBC1D8000056382 /* PostReply.swift in Sources */,
@@ -917,12 +1007,17 @@
 				A7DFDDFC2BA15DB00077A1C4 /* CircularProfileImageView.swift in Sources */,
 				8508C8042B9B880400B2D0FD /* LocationsListView.swift in Sources */,
 				A7DFDE102BA160BB0077A1C4 /* UploadPostView.swift in Sources */,
+				854D94342BBDFB6600117E09 /* PotholeIncomplete.swift in Sources */,
 				A7DFDE202BA1619D0077A1C4 /* VoicedTabView.swift in Sources */,
+				854D941F2BBDA43400117E09 /* APIstreet.swift in Sources */,
 				A7DFDE262BA162670077A1C4 /* VoicedTextFieldModifier.swift in Sources */,
 				A7DFDE382BABE4080077A1C4 /* UserService.swift in Sources */,
 				A7DFDE1A2BA1613B0077A1C4 /* ProfileHeaderView.swift in Sources */,
+				854D94192BBCDD0B00117E09 /* updatedDatafromApi.swift in Sources */,
+				854D943C2BBE1BBB00117E09 /* SanitationIncomplete.swift in Sources */,
 				A7DFDE242BA162210077A1C4 /* Post.swift in Sources */,
 				A79E6D8D2BBFFE9B00056382 /* AuthError.swift in Sources */,
+				854D941D2BBCDFE300117E09 /* DataPullJson.swift in Sources */,
 				8508C8062B9BEED600B2D0FD /* LocationPreviewView.swift in Sources */,
 				8508C8022B9B81B600B2D0FD /* LocationsViewModel.swift in Sources */,
 				A7DFDE2B2BAA8FF30077A1C4 /* AuthService.swift in Sources */,
@@ -930,7 +1025,10 @@
 				8508C8002B9B7E9200B2D0FD /* LocationsView.swift in Sources */,
 				A79E6D832BBE7CA900056382 /* PostDetailsView.swift in Sources */,
 				A7DFDE442BB0F6460077A1C4 /* ForumViewModel.swift in Sources */,
+				854D94172BBCD58100117E09 /* datafromapi.swift in Sources */,
 				8508C7FB2B9B7A6D00B2D0FD /* Location.swift in Sources */,
+				854D942E2BBDEC2F00117E09 /* DataPullBill.swift in Sources */,
+				854D94322BBDFA0300117E09 /* PotholeCompleted.swift in Sources */,
 				A7DFDE092BA15F3E0077A1C4 /* HighlightsView.swift in Sources */,
 				A7DFDE162BA161180077A1C4 /* ProfilePostFilter.swift in Sources */,
 				A7DFDE1E2BA161660077A1C4 /* UserContentListView.swift in Sources */,
@@ -949,6 +1047,8 @@
 				A79E6D972BC01F2800056382 /* PrivacyView.swift in Sources */,
 				857071712BA8FC7F0098ABD4 /* FBTemplate.swift in Sources */,
 				A71F19422BB812ED00AE2EEC /* WebViewWrapper.swift in Sources */,
+				854D94382BBE0FD700117E09 /* sanitationCompleted.swift in Sources */,
+				854D94152BBCD17400117E09 /* File.swift in Sources */,
 				A7DFDE042BA15E040077A1C4 /* ForumView.swift in Sources */,
 				A7DFDE1C2BA161510077A1C4 /* CurrentUserProfileView.swift in Sources */,
 				A7DFDE222BA162140077A1C4 /* User.swift in Sources */,
